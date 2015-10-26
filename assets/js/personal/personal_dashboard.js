@@ -48,16 +48,34 @@ DummyControl.prototype.getSpeed = function(){
     return this.speed;
 };
 
-/** ダミーログを生成、取得を行う */
-DummyControl.prototype.asyncMakeDummyLog = function (){
+/** ダミーログを生成、取得を行う
+    false : 通常
+    true : 緊急                */
+DummyControl.prototype.asyncMakeDummyLog = function (flg){
     var altThis = this;
     var result = null;
+    var strUrl = "/livice/Logger/make_dummy_log";
+    if(flg){
+        strUrl = "/livice/Logger/make_dummy_log?"
+                + "bias_heartbeat_min=30&"
+                + "bias_heartbeat_max=30&"
+                + "bias_calories_min=30&"
+                + "bias_calories_max=30&"
+                + "bias_elevation_min=30&"
+                + "bias_elevation_max=30&"
+                + "bias_blood_min=30&"
+                + "bias_blood_max=30&"
+                + "bias_speed_min=30&"
+                + "bias_speed_max=30"
+    }
+
+
     $.ajax({
         scriptCharset: 'utf-8',
-        url: "/livice/Logger/make_dummy_log",
+        url: strUrl,
         dataType: 'html',
     }).done(function(data){
-        console.debug('success!!!' + data);
+        //console.debug('success!!!' + data);
         var jsonObj = $.parseJSON(data);
         //console.debug(jsonObj);
         //console.log(jsonObj.heartbeat);
@@ -69,7 +87,7 @@ DummyControl.prototype.asyncMakeDummyLog = function (){
     }).fail(function(data){
         console.log('error!!!' + data);
     });
-    console.log(altThis.getHeartbeat());
+    //console.log(altThis.getHeartbeat());
     // console.log(altThis.getCalories());
     // console.log(altThis.getElevation());
     // console.log(altThis.getBlood());
@@ -78,14 +96,29 @@ DummyControl.prototype.asyncMakeDummyLog = function (){
 
 /** 閾値を超えた際の処理 */
 DummyControl.prototype.emergencyAlert = function (num){
-    var alt_this = this;
-    var thresholds = 80; //閾値
+    var altThis = this;
+    var thresholds = 90; //閾値
     if(thresholds < num){
       $('#emergency').show();
       $('#emergency').fadeOut(500,function(){$(this).fadeIn(500)});
     } else {
       $('#emergency').hide();
     }
+};
+
+/** 緊急ボタンが押下された際の処理 */
+DummyControl.prototype.emergencyButtonClick = function (){
+    var altThis = this;
+    $("#emergency_button").click(function () {
+      $(this).removeClass('btn-default');
+      $(this).toggleClass("btn-danger");
+    });
+};
+
+/** 初期化処理 */
+DummyControl.prototype.initialization = function (){
+    var altThis = this;
+    $('#emergency').hide();
 };
 
 $(function () {
@@ -97,6 +130,9 @@ $(function () {
               useUTC: false
           }
       });
+
+      // 緊急割り込み
+      dc.emergencyButtonClick();
 
       $('#container').highcharts({
           chart: {
@@ -112,11 +148,21 @@ $(function () {
                           var x = (new Date()).getTime(), // current time
                           y = Math.random();
 
-                          // Ajaxでのデータを取得
-                          var json = dc.asyncMakeDummyLog();
-                          y = dc.getHeartbeat();
+                          // 初期化
+                          dc.initialization();
+                          // 割り込み判定
+                          if($("#emergency_button").hasClass("btn-danger")){
+                              // Ajaxでのデータを取得
+                              var json = dc.asyncMakeDummyLog(true);
+                              // 心拍取得
+                              y = dc.getHeartbeat();
+                              // 点滅処理
+                              dc.emergencyAlert(y);
+                          } else {
+                            var json = dc.asyncMakeDummyLog(false);
+                            y = dc.getHeartbeat();
+                          }
 
-                          dc.emergencyAlert(y);
                           series.addPoint([x, y], true, true);
                       }, 1000);
                   }

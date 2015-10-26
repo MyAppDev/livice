@@ -30,14 +30,29 @@ class Logger extends CI_Controller {
 	}
 
 	/** ダミーログをDBへ保存しJSONで出力 */
-	public function make_dummy_log(){
+	public function make_dummy_log($param = array()){
+		// http://localhost/livice/Logger/make_dummy_log?bias_heartbeat_min=30&bias_heartbeat_max=30
+		// バイアスの初期値は0
+		$bias = array(
+				'heartbeat_min' => $this->input->get('bias_heartbeat_min', TRUE) ?: 0,
+				'heartbeat_max' => $this->input->get('bias_heartbeat_max', TRUE) ?: 0,
+				'calories_min' => $this->input->get('bias_calories_min', TRUE) ?: 0,
+				'calories_max' => $this->input->get('bias_calories_max', TRUE) ?: 0,
+				'elevation_min' => $this->input->get('bias_elevation_min', TRUE) ?: 0,
+				'elevation_max' => $this->input->get('bias_elevation_max', TRUE) ?: 0,
+				'blood_min' => $this->input->get('bias_blood_min', TRUE) ?: 0,
+				'blood_max' => $this->input->get('bias_blood_max', TRUE) ?: 0,
+				'speed_min' => $this->input->get('bias_speed_min', TRUE) ?: 0,
+				'speed_max' => $this->input->get('bias_speed_max', TRUE) ?: 0,
+		);
+		// var_dump($bias);
 		$dummy = new Dummy();
 		$dummy_logs = array(
-			'heartbeat' => $dummy->heartbeat(),	// 心拍
-			'calories' => $dummy->calories(),		// カロリー
-			'elevation' => $dummy->elevation(),	// 高度
-			'blood' => $dummy->blood(),					// 血中濃度
-			'speed' => $dummy->speed(),					// 速度
+			'heartbeat' => $dummy->heartbeat($bias['heartbeat_min'], $bias['heartbeat_max']),	// 心拍
+			'calories' => $dummy->calories($bias['calories_min'], $bias['calories_max']),		// カロリー
+			'elevation' => $dummy->elevation($bias['elevation_min'], $bias['elevation_max']),	// 高度
+			'blood' => $dummy->blood($bias['blood_min'], $bias['blood_max']),					// 血中濃度
+			'speed' => $dummy->speed($bias['speed_min'], $bias['speed_max']),					// 速度
 		);
 		//var_dump($dummy_logs);
 		$this->load->model('dummy_log_model', 'DummyLog', TRUE);
@@ -66,7 +81,56 @@ class Logger extends CI_Controller {
 			echo json_encode($result);
 	}
 
+	/** 1年分のデータを生成する
+	 		2016 1/10 までの　1年分
+			2015-01-01　
+			http://localhost/livice/Logger/dummy_log_generator/2015-02-09/2021-12-04 */
+	public function dummy_log_generator($pram_start, $pram_end){
+				$start = explode("-", $pram_start);
+				$end = explode("-", $pram_end);
+				var_dump($start);
+				var_dump($end);
+				$start_year = $start[0];
+				$start_month = $start[1];
+				$start_day = $start[2];
+				$end_year = $end[0];
+				$end_month = $end[1];
+				$end_day = $end[2];
 
+				for($cnt_y=$start_year; $cnt_y<=$end_year; $cnt_y++){
+					switch ($cnt_y) {
+						case $start_year:// 開始年
+							for($cnt_m=$start_month; $cnt_m<=12; $cnt_m++){
+									echo	date('Y-m-d', mktime(0, 0, 0, $cnt_m+1, 0, $cnt_y));
+									echo br(1);
+							}
+							break;
+						case $end_year:// 終了年
+							for($cnt_m=1; $cnt_m<=$end_month; $cnt_m++){
+									echo	date('Y-m-d', mktime(0, 0, 0, $cnt_m+1, 0, $cnt_y));
+									echo br(1);
+							}
+							break;
+						default:// 間の年
+							for($cnt_m=1; $cnt_m<=12; $cnt_m++){
+									$tmp_date = date('Y-m-d', mktime(0, 0, 0, $cnt_m+1, 0, $cnt_y));
+									echo	$tmp_date;
+									echo br(1);
+									$tmp_end = explode("-", $tmp_date);
+									echo $tmp_end[2];
+									echo br(1);
+									// Todo・・・・・・
+							}
+							break;
+					}
+					echo br(1);
+
+				}
+
+
+
+
+	}
 
 	/** 動作テスト */
 	public function test(){

@@ -10,6 +10,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!--script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script-->
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/jquery-1.11.3.min.js"></script>
 
+		<!-- bootstrap -->
+		<link href="<?= base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
+		<script src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
+
 		<style type="text/css">
 			#emergency{
 				width: 100%;
@@ -36,5 +40,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div id="emergency"></div>
 		<!-- チャート描画エリア -->
 		<div id="container" class="emergency" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+		<?= br(3) ?>
+		<button id="emergency_button" type="button" class="btn btn-default">緊急</button>
 	</body>
 </html>

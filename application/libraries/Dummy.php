@@ -29,28 +29,28 @@ class Dummy {
     /** 心拍数(bpm)
       * 1分間の拍動の数
       *  https://ja.wikipedia.org/wiki/%E5%BF%83%E6%8B%8D%E6%95%B0　*/
-  	public function heartbeat(){
-      return $this->random_float(60, 90);
+  	public function heartbeat($min_bias = 0, $max_bias = 0){
+      return $this->random_float((60 + $min_bias), (90 + $max_bias));
   	}
 
     /** 消費カロリー(kcal)
       * カロリー消費量（kcal）＝1.05×体重（kg）×METS係数×運動時間（h） */
-    public function calories(){
-      return $this->random_float(200, 3000);
+    public function calories($min_bias = 0, $max_bias = 0){
+      return $this->random_float((200 + $min_bias), (3000+ $max_bias));
     }
 
     /** 高度(m) */
-    public function elevation(){
-      return $this->random_float(0, 40);
+    public function elevation($min_bias = 0, $max_bias = 0){
+      return $this->random_float((0 + $min_bias), (40 + $max_bias));
     }
 
     /** 血中濃度(μg/mL) */
-    public function blood(){
-      return $this->random_float(1, 20);
+    public function blood($min_bias = 0, $max_bias = 0){
+      return $this->random_float((1 + $min_bias), (20 + $max_bias));
     }
 
     /** スピード(km/h) */
-    public function speed(){
-      return $this->random_float(2, 10);
+    public function speed($min_bias = 0, $max_bias = 0){
+      return $this->random_float((2 + $min_bias), (10 + $max_bias));
     }
 }
