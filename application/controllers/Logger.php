@@ -86,54 +86,60 @@ class Logger extends CI_Controller {
 			2015-01-01　
 			http://localhost/livice/Logger/dummy_log_generator/2015-02-09/2021-12-04 */
 	public function dummy_log_generator($pram_start, $pram_end){
-				$start = explode("-", $pram_start);
-				$end = explode("-", $pram_end);
-				var_dump($start);
-				var_dump($end);
-				$start_year = $start[0];
-				$start_month = $start[1];
-				$start_day = $start[2];
-				$end_year = $end[0];
-				$end_month = $end[1];
-				$end_day = $end[2];
+				$this->benchmark->mark('start');
+				$this->load->model('dummy_log_model', 'DummyLog', TRUE);
+				$this->load->model('daily_dummy_log_model', 'DailyDummyLog', TRUE);
+				$dummy = new Dummy();
 
-				for($cnt_y=$start_year; $cnt_y<=$end_year; $cnt_y++){
-					switch ($cnt_y) {
-						case $start_year:// 開始年
-							for($cnt_m=$start_month; $cnt_m<=12; $cnt_m++){
-									echo	date('Y-m-d', mktime(0, 0, 0, $cnt_m+1, 0, $cnt_y));
-									echo br(1);
+				// log_generatorから吐き出される配列は以下の構造
+				// array
+				//   2015 =>
+				//     array
+				//       '02' =>
+				//         array
+				//           0 => int 9
+				//           1 => int 10
+				//           2 => int 11
+				//           3 => int 12
+				//           4 => int 13
+				//               ：
+				// 							 ：
+				// 							 ：
+				$structure = $dummy->log_generator($pram_start, $pram_end);
+
+				$counter = 1;
+				foreach ($structure as $year => $month) {// 年ループ
+					foreach ($month as $days_key => $days_value) {// 月ループ
+						foreach ($days_value as $day) {// 日ループ
+							for($cnt=1; $cnt<=4; $cnt++){// ユーザー分のループ
+								$daily_dummy_logs = array(
+									'user' => $cnt,
+									'heartbeat' => $dummy->heartbeat(),	// 心拍
+									'calories' => $dummy->calories(),		// カロリー
+									'elevation' => $dummy->elevation(),	// 高度
+									'blood' => $dummy->blood(),					// 血中濃度
+									'speed' => $dummy->speed(),					// 速度
+									'created' => date("Y:m:d", mktime(0, 0, 0, $days_key, $day, $year)),
+								);
+								// DBへ書き込み
+								$this->DailyDummyLog->insert_daily_dummy_data($daily_dummy_logs);
+								$counter++;
 							}
-							break;
-						case $end_year:// 終了年
-							for($cnt_m=1; $cnt_m<=$end_month; $cnt_m++){
-									echo	date('Y-m-d', mktime(0, 0, 0, $cnt_m+1, 0, $cnt_y));
-									echo br(1);
-							}
-							break;
-						default:// 間の年
-							for($cnt_m=1; $cnt_m<=12; $cnt_m++){
-									$tmp_date = date('Y-m-d', mktime(0, 0, 0, $cnt_m+1, 0, $cnt_y));
-									echo	$tmp_date;
-									echo br(1);
-									$tmp_end = explode("-", $tmp_date);
-									echo $tmp_end[2];
-									echo br(1);
-									// Todo・・・・・・
-							}
-							break;
+						}
 					}
-					echo br(1);
-
 				}
-
-
-
-
+				//var_dump($structure);
+				echo $counter.'件のデータ登録に成功しました';
+				echo br(1);
+				$this->benchmark->mark('end');
+				echo $this->benchmark->elapsed_time('start', 'end').'秒で処理が完了しました';
 	}
 
 	/** 動作テスト */
 	public function test(){
+		$this->benchmark->mark('dog');
+
+
 		$dummy = new Dummy();
 		echo $dummy->heartbeat();
 		echo '<br>';
@@ -148,6 +154,11 @@ class Logger extends CI_Controller {
 		echo '<br>';
 		//echo link_tag('css/bootstrap.css');
 		echo '<link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />';
+		echo br(1);
+
+		$this->benchmark->mark('cat');
+
+		echo $this->benchmark->elapsed_time('dog', 'cat');
 	}
 
 	/** bootstrap 動作テスト */

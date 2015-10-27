@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/** マイグレーション用コントローラ
+    SQLiteの初期化を実施　*/
 class Migrate extends CI_Controller
 {
     public function index()
