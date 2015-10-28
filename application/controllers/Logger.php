@@ -29,6 +29,16 @@ class Logger extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
+	/** 個人用ダッシュボード */
+	public function personal_dashboard(){
+		$this->load->view('personal/personal_dashboard');
+	}
+
+	/** 個人用ダッシュボード */
+	public function hospital_dashboard(){
+		$this->load->view('hospital/hospital_dashboard');
+	}
+
 	/** ダミーログをDBへ保存しJSONで出力 */
 	public function make_dummy_log($param = array()){
 		// http://localhost/livice/Logger/make_dummy_log?bias_heartbeat_min=30&bias_heartbeat_max=30
@@ -84,18 +94,19 @@ class Logger extends CI_Controller {
 	/** 1年分のデータを生成する
 	 		2016 1/10 までの　1年分
 			2015-01-01　
-			http://localhost/livice/Logger/dummy_log_generator/2015-02-09/2021-12-04 */
+			http://localhost/livice/Logger/dummy_log_generator/2015-01-10/2016-01-10
+			1465件/25.0960秒 				*/
 	public function dummy_log_generator($pram_start, $pram_end){
 				$this->benchmark->mark('start');
 				$this->load->model('dummy_log_model', 'DummyLog', TRUE);
 				$this->load->model('daily_dummy_log_model', 'DailyDummyLog', TRUE);
 				$dummy = new Dummy();
 
-				// log_generatorから吐き出される配列は以下の構造
+				// log_generator()から吐き出される配列は以下の構造
 				// array
 				//   2015 =>
 				//     array
-				//       '02' =>
+				//       2 =>
 				//         array
 				//           0 => int 9
 				//           1 => int 10
@@ -135,11 +146,31 @@ class Logger extends CI_Controller {
 				echo $this->benchmark->elapsed_time('start', 'end').'秒で処理が完了しました';
 	}
 
-	/** 動作テスト */
+	/** 年間データを取得しJSONで返す
+	 		期間を指定する */
+	public function yearly_transition($prm_start='', $prm_end=''){
+		$this->load->model('dummy_log_model', 'DummyLog', TRUE);
+		$this->load->model('daily_dummy_log_model', 'DailyDummyLog', TRUE);
+
+		$result = $this->DailyDummyLog->get_yearly_transition(1, '2015:01:10', '2016:01:10');
+		//var_dump($result);
+		echo json_encode($result);
+	}
+
+	/** ーーーーーーーーー以下、動作テストーーーーーーーー */
+	/** Highcharts-4.1.8/examples/dynamic-update 動作テスト */
+	public function hc_dynamic_update(){
+		$this->load->view('dynamic-update');
+	}
+
+	/** Highcharts-4.1.8/examples/combo 動作テスト */
+	public function hc_combo(){
+		$this->load->view('combo');
+	}
+
+	/** 動作テスト用メソッド */
 	public function test(){
 		$this->benchmark->mark('dog');
-
-
 		$dummy = new Dummy();
 		echo $dummy->heartbeat();
 		echo '<br>';
@@ -155,6 +186,11 @@ class Logger extends CI_Controller {
 		//echo link_tag('css/bootstrap.css');
 		echo '<link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />';
 		echo br(1);
+		echo APPPATH;
+		echo '<br>';
+		echo BASEPATH;
+		echo '<br>';
+		echo VIEWPATH;
 
 		$this->benchmark->mark('cat');
 
@@ -163,15 +199,10 @@ class Logger extends CI_Controller {
 
 	/** bootstrap 動作テスト */
 	public function bootstrap_twitter(){
-			echo APPPATH;
-			echo '<br>';
-			echo BASEPATH;
-			echo '<br>';
-			echo VIEWPATH;
 			$this->load->view('bootstrap_twitter');
 	}
 
-	/** データベース　動作テストs */
+	/** データベース　動作テスト */
 	public function sqlites_test(){
 			echo 'DBtest';
 
@@ -195,12 +226,6 @@ class Logger extends CI_Controller {
 			var_dump($data);
 	}
 
-
-	/** Highcharts-4.1.8/examples/dynamic-update 動作テスト */
-	public function hc_dynamic_update(){
-		$this->load->view('dynamic-update');
-	}
-
 	/** 時刻テスト */
 	public function time_test(){
 		date_default_timezone_set('Asia/Tokyo');
@@ -212,15 +237,7 @@ class Logger extends CI_Controller {
 		echo mdate($datestring, $time);
 	}
 
-	/** 個人用ダッシュボード */
-	public function personal_dashboard(){
-		$this->load->view('personal/personal_dashboard');
-	}
 
-	/** 個人用ダッシュボード */
-	public function hospital_dashboard(){
-		$this->load->view('hospital/hospital_dashboard');
-	}
 
 
 

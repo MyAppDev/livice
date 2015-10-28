@@ -2,3 +2,9 @@
 	RewriteCond $1 !^index\.php
 	RewriteCond $1 !^(index\.php|images|.+\.css$|.+\.js$|.+\.png$|.+\.jpg$|robots\.txt)
 	RewriteRule ^(.*)$ index.php/$1 [L]
+	<FilesMatch \.js$>
+	  SetHandler application/x-httpd-php
+	</FilesMatch>
+	<FilesMatch \.css$>
+	  SetHandler application/x-httpd-php
+	</FilesMatch>

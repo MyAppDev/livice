@@ -29,17 +29,19 @@ class Daily_dummy_log_model extends CI_Model {
       $this->db->insert('daily_dummy_log', $this);
     }
 
-    /** 最新のデータを取得する */
-    function get_latest_data(){
-        //$this->db->select_max('id');
+    /** 指定した日数分のデータを取得する
+        // SELECT * FROM `daily_dummy_log` WHERE 1
+        // AND user=1
+        // AND created BETWEEN '2015:01:10' AND '2015:04:22';    */
+    function get_yearly_transition($user, $start, $end){
+      $sql = "SELECT * "
+           . "FROM daily_dummy_log "
+           . "WHERE 1 "
+           . "AND user=? "
+           . "AND created BETWEEN ? AND ? ;";
+      $query = $this->db->query($sql, array($user, $start, $end));
 
-        // SELECT * FROM 'dummy_log' where id = (select MAX(id) from 'dummy_log');
-        $query = $this->db->query("SELECT * FROM 'dummy_log' where id = (SELECT MAX(id) FROM 'dummy_log')");
-        //$this->db->select()->from('dummy_log')->where('id', 'select MAX(id) from dummy_log');
-        //$query = $this->db->query('SELECT * FROM dummy_log;');
-        //$query = $this->db->get();
-        //echo $this->db->last_query();
-        return $query->result();
+      return $query->result();
     }
 
     /** 全件のデータを取得する */
