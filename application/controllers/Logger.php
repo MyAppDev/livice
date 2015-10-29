@@ -147,13 +147,15 @@ class Logger extends CI_Controller {
 	}
 
 	/** 年間データを取得しJSONで返す
-	 		期間を指定する */
+	 		期間を指定する
+			http://localhost/livice/Logger/yearly_transition/2015:01:10/2016:01:10　　　　　*/
 	public function yearly_transition($prm_start='', $prm_end=''){
 		$this->load->model('dummy_log_model', 'DummyLog', TRUE);
 		$this->load->model('daily_dummy_log_model', 'DailyDummyLog', TRUE);
 
-		$result = $this->DailyDummyLog->get_yearly_transition(1, '2015:01:10', '2016:01:10');
+		$result = $this->DailyDummyLog->get_yearly_transition(1, $prm_start, $prm_end);
 		//var_dump($result);
+		//$this->load->view('personal/personal_dashboard_yearly_transition.js', $result);
 		echo json_encode($result);
 	}
 
