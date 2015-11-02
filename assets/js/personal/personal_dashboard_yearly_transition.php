@@ -107,69 +107,8 @@ YearTransitionControl.prototype.rebuildDummyLog = function(){
         var jsonObj = $.parseJSON(data);
         // console.debug(jsonObj);
         // console.debug(jsonObj[0]);
-
-        var arySumCounter = [];
-        var arySumHeartbeat = [];
         // コールバック(無名関数)
         var callback = function (element, index, array) {
-            // ここで対象箇所へHTMLとして書き出し
-            // ここでダウンサンプリングしてメンバ変数へ格納してみる
-            createdSplit = element.created.split(':');
-            // console.log(createdSplit);
-            // 月毎に集計
-            switch (createdSplit[1]) {
-              case '01':
-                // var arySumCounter[0] = $(arySumCounter)
-                // var tmp = [].concat(arySumCounter);
-                // // tmp = $.extend(true, [], arySumCounter);
-                // cnt = parseInt(tmp.splice(0), 10);
-                // arySumCounter[0] = tmp + 1;
-                // // var cnt = arySumCounter.splice(0);
-                // // console.log(toString.call(cnt));
-                // // cnt = parseInt(arySumCounter[0], 10);
-                // console.log(arySumCounter[0]);
-                //cnt = parseInt(cnt);
-                // console.log(element.heartbeat);
-                // arySumCounter.push(arySumCounter.pop() + 1);
-                // arySumCounter.splice( 0 , 0 , (cnt + 1)) ;
-                //arySumHeartbeat[0] += element.heartbeat;
-                // console.dir(arySumHeartbeat);
-                break;
-              case '02':
-
-                break;
-              case '03':
-
-                break;
-              case '04':
-
-                break;
-              case '05':
-
-                break;
-              case '06':
-
-                break;
-              case '07':
-
-                break;
-              case '08':
-
-                break;
-              case '09':
-
-                break;
-              case '10':
-
-                break;
-              case '11':
-
-                break;
-              case '12':
-
-                break;
-            }
-
             //console.log("a[" + index + "] = " + element.blood);
             // altThis.setAryHearbeat(element.heartbeat);
             //tmp.push(element.heartbeat);
@@ -184,14 +123,11 @@ YearTransitionControl.prototype.rebuildDummyLog = function(){
         // console.dir(jsonObj);
         altThis.objClone = $.extend(true, {}, jsonObj);
 
-          // console.log(arySumCounter[0]);
-          // console.dir(arySumHeartbeat[0]/arySumCounter[0]);
+        //console.dir(tmp);
     }).fail(function(data){
         console.log('error!!!' + data);
     });
 };
-
-
 
 $(function () {
     var altThis = this;
@@ -202,7 +138,7 @@ $(function () {
     // result = $.extend(true, [], ytc.getAryHeartbeat());
     // var object2 = $.extend(true, {}, object1);
     result = ytc.getAryHeartbeat();
-    // console.dir(ytc.objClone);
+    console.dir(altThis.objClone);
     // result.length = 366;
     // console.dir(altThis.aryHeartbeat);
     // console.log(result);
@@ -224,13 +160,6 @@ $(function () {
     // console.log(result.length);
     // console.log(toString.call(result));
 
-    /** 心拍用データ */
-    var data_heartbeat = [3, 2, 1, 3, 4, 3, 7, 1, 3, 4, 10, 11];
-    /** 血圧用データ */
-    var data_blood = [2, 3, 5, 7, 6, 3, 2, 1, 5, 4, 2, 10];
-    /** 体温用データ */
-    var data_body_temperature = [4, 3, 3, 9, 12, 3, 2, 1, 3, 4, 77, 2];
-
     $('#container_year').highcharts({
         title: {
             text: <?= "'年間推移'"; ?>
@@ -251,15 +180,15 @@ $(function () {
         series: [{
             type: 'column',
             name: '心拍',
-            data: data_heartbeat
+            data: [3, 2, 1, 3, 4, 3, 7, 1, 3, 4, 10, 11]
         }, {
             type: 'column',
             name: '血圧',
-            data: data_blood
+            data: [2, 3, 5, 7, 6, 3, 2, 1, 5, 4, 2, 10]
         }, {
             type: 'column',
             name: '体温',
-            data: data_body_temperature
+            data: [4, 3, 3, 9, 12, 3, 2, 1, 3, 4, 77, 2]
         }, ]
     });
 });

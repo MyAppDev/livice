@@ -155,7 +155,7 @@ class Logger extends CI_Controller {
 
 		$result = $this->DailyDummyLog->get_yearly_transition(1, $prm_start, $prm_end);
 		//var_dump($result);
-		//$this->load->view('personal/personal_dashboard_yearly_transition.js', $result);
+		// $this->load->view('assets/js/personal/personal_dashboard_yearly_transition', $result);
 		echo json_encode($result);
 	}
 

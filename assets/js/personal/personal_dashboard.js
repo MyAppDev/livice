@@ -125,6 +125,7 @@ $(function () {
   var dc = new DummyControl();
 
   $(document).ready(function () {
+
       Highcharts.setOptions({
           global: {
               useUTC: false
@@ -146,7 +147,7 @@ $(function () {
                       var series = this.series[0];
                       setInterval(function () {
                           var x = (new Date()).getTime(), // current time
-                          y = Math.random();
+                          y = ( Math.random() * ( ( 80 + 1 ) - 50 ) ) + 50;
 
                           // 初期化
                           dc.initialization();
@@ -180,10 +181,16 @@ $(function () {
                   text: '心拍数'
               },
               plotLines: [{
-                  value: 0,
-                  width: 1,
-                  color: '#808080'
-              }]
+                  value: 95,// 警告ライン
+                  width: 2,
+                  color: '#F44336',
+                  dashStyle: 'shortdash',
+                  label: {
+                        text: '警告値'
+                  }
+              }],
+              min: 50,// 最小値
+              max: 120,//最大値
           },
           tooltip: {
               formatter: function () {

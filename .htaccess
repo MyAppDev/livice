@@ -5,6 +5,3 @@
 	<FilesMatch \.js$>
 	  SetHandler application/x-httpd-php
 	</FilesMatch>
-	<FilesMatch \.css$>
-	  SetHandler application/x-httpd-php
-	</FilesMatch>
