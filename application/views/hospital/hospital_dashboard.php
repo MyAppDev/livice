@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/hospital/hospital_dashboard.js"></script>
 
 		<!--hospital_dashboard_dummy_user -->
-		<script type="text/javascript" src="<?= base_url(); ?>assets/js/hospital/hospital_dashboard_dummy_user.js"></script>
+		<script type="text/javascript" src="<?= base_url(); ?>assets/js/hospital/hospital_dashboard_dummy_user_1.js"></script>
 
 	</head>
 	<body>
@@ -41,17 +41,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				 </div>
 			   <div class="span6">
 					<!-- チャート描画エリア -->
- 			 		<div class="container_dummy" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+ 			 		<div id="container_dummy_1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 				 </div>
 			</div><!-- top_area E -->
 			<div id="buttom_area" class="row-fluid"><!-- buttom_area S -->
 			   <div class="span6">
 					<!-- チャート描画エリア -->
- 			 		<!--div class="container_dummy" style="min-width: 310px; height: 400px; margin: 0 auto"></div-->
+ 			 		<!--div id="container_dummy_2" style="min-width: 310px; height: 400px; margin: 0 auto"></div-->
 				 </div>
 			   <div class="span6">
 					<!-- チャート描画エリア -->
- 			 		<!--div class="container_dummy" style="min-width: 310px; height: 400px; margin: 0 auto"></div-->
+ 			 		<!--div id="container_dummy_3" style="min-width: 310px; height: 400px; margin: 0 auto"></div-->
 				 </div>
 			</div><!-- buttom_area E -->
 

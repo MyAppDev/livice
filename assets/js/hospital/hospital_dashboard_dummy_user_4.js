@@ -114,7 +114,7 @@ $(function () {
           }
       });
 
-      $('#container').highcharts({
+      $('.container_dummy').highcharts({
           chart: {
               type: 'spline',
               animation: Highcharts.svg, // don't animate in old IE
@@ -128,8 +128,8 @@ $(function () {
                           var x = (new Date()).getTime(), // current time
                           y = Math.random();
                           // Ajaxでのデータを取得
-                          var json = dc.asyncCurrDummyLog();
-                          y = dc.getHeartbeat();
+                          // var json = dc.asyncCurrDummyLog();
+                          // y = dc.getHeartbeat();
                           series.addPoint([x, y], true, true);
                       }, 1000);
                   }
@@ -176,7 +176,7 @@ $(function () {
                   for (i = -19; i <= 0; i += 1) {
                       data.push({
                           x: time + i * 1000,
-                          y: ~~(Math.random()*(80-60)+60)
+                          y: Math.random()
                       });
                   }
                   return data;

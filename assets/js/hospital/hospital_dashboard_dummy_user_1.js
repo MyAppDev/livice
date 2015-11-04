@@ -114,7 +114,7 @@ $(function () {
           }
       });
 
-      $('#container').highcharts({
+      $('#container_dummy_1').highcharts({
           chart: {
               type: 'spline',
               animation: Highcharts.svg, // don't animate in old IE
@@ -127,9 +127,10 @@ $(function () {
                       setInterval(function () {
                           var x = (new Date()).getTime(), // current time
                           y = Math.random();
+                          y = ~~(Math.random()*(80-60)+60);
                           // Ajaxでのデータを取得
-                          var json = dc.asyncCurrDummyLog();
-                          y = dc.getHeartbeat();
+                          // var json = dc.asyncCurrDummyLog();
+                          // y = dc.getHeartbeat();
                           series.addPoint([x, y], true, true);
                       }, 1000);
                   }
