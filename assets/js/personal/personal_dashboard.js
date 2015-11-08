@@ -181,7 +181,7 @@ $(function () {
                   text: '心拍数'
               },
               plotLines: [{
-                  value: 95,// 警告ライン
+                  value: 91,// 警告ライン
                   width: 2,
                   color: '#F44336',
                   dashStyle: 'shortdash',
