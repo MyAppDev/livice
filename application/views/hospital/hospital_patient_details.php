@@ -30,31 +30,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	</head>
 	<body>
-		<h1 class="h1 text-info	">病院側</h1>
-
-
+		<h1 class="h1 text-info	">患者詳細</h1>
 		<div id="wrapper"><!-- wrapper S -->
-			<div id="top_area" class="row-fluid"><!-- top_area S -->
-			   <div class="span6">
-					<!-- チャート描画エリア -->
-			 		<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-				 </div>
-			   <div class="span6">
-					<!-- チャート描画エリア -->
- 			 		<div id="container_dummy_1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-				 </div>
-			</div><!-- top_area E -->
-			<div id="buttom_area" class="row-fluid"><!-- buttom_area S -->
-			   <div class="span6">
-					<!-- チャート描画エリア -->
- 			 		<!--div id="container_dummy_2" style="min-width: 310px; height: 400px; margin: 0 auto"></div-->
-				 </div>
-			   <div class="span6">
-					<!-- チャート描画エリア -->
- 			 		<!--div id="container_dummy_3" style="min-width: 310px; height: 400px; margin: 0 auto"></div-->
-				 </div>
-			</div><!-- buttom_area E -->
-
+			<table class="table">
+			<?php	foreach ($patient_info as $patient) {	?>
+				<tr>
+					<th>患者画像</th>
+					<td><img width="50px" src="<?= base_url(); ?>assets/img/<?= $patient->image; ?>"></td>
+				</tr>
+				<tr>
+					<th>患者名</th>
+					<td><?= $patient->name ?></td>
+				</tr>
+				<tr>
+					<th>患者名カナ</th>
+					<td><?= $patient->name_kana ?></td>
+				</tr>
+				<tr>
+					<th>生年月日</th>
+					<td><?= $patient->age ?></td>
+				</tr>
+				<tr>
+					<th>地域</th>
+					<td><?= $patient->area ?></td>
+				</tr>
+				<tr>
+					<th>病名</th>
+					<td><?= $patient->disease ?></td>
+				</tr>
+				<tr>
+					<th>処方薬</th>
+					<td><?= $patient->medicine ?></td>
+				</tr>
+				<tr>
+					<th>注意事項</th>
+					<td><?= $patient->caution ?></td>
+				</tr>
+			<?php	}	?>
+			</table>
 		</div><!-- wrapper E -->
 
 	</body>

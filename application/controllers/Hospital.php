@@ -76,6 +76,9 @@ class Hospital extends CI_Controller {
 	 *
 	 */
 	public function patient_details($id){
-		$this->load->view('hospital/hospital_patient_details');
+		$this->load->model('Patient_model', 'Patient');
+		$data['patient_info'] = $this->Patient->get_target_data($id);
+		// var_dump($data);
+		$this->load->view('hospital/hospital_patient_details', $data);
 	}
 }
