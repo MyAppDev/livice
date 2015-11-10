@@ -58,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					?>
 					<?= form_open('hospital/patient_details/'.$patient->id); ?>
 					<tr>
-						<td><?= $patient->image; ?></td>
+						<td><img width="50px" src="<?= base_url(); ?>assets/img/<?= $patient->image; ?>"></td>
 						<td><?= $patient->name; ?></td>
 						<td><?= $patient->name_kana; ?></td>
 						<td><?= $patient->age; ?></td>
