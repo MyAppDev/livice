@@ -30,12 +30,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	</head>
 	<body>
-		<h1 class="h1 text-info	">病院側</h1>
+		<h1 class="h1 text-info	">患者リスト</h1>
 
 
 		<div id="wrapper"><!-- wrapper S -->
-			
-
+			<table class="table">
+				<thead>
+					<th>患者画像</th>
+					<th>患者名</th>
+					<th>患者名カナ</th>
+					<th>生年月日</th>
+					<th>地域</th>
+					<th>病名</th>
+					<th>処方薬</th>
+					<th>注意事項</th>
+					<th>詳細</th>
+				</thead>
+				<tbody>
+				<?php foreach ($patient_list as $patient) { ?>
+					<?php
+						$param_submit = array(
+							'id' => 'sub_'.$patient->id,
+							'class' => 'btn btn-info',
+							'name'  => 'sub',
+			        'value' => '詳細',
+						);
+					?>
+					<?= form_open('hospital/patient_details/'.$patient->id); ?>
+					<tr>
+						<td><?= $patient->image; ?></td>
+						<td><?= $patient->name; ?></td>
+						<td><?= $patient->name_kana; ?></td>
+						<td><?= $patient->age; ?></td>
+						<td><?= $patient->area; ?></td>
+						<td><?= $patient->disease; ?></td>
+						<td><?= $patient->medicine; ?></td>
+						<td><?= $patient->caution; ?></td>
+						<td><?= form_submit($param_submit); ?></td>
+					</tr>
+					<?= form_close(); ?>
+				<?php } ?>
+				</tbody>
+			</table>
 		</div><!-- wrapper E -->
 
 	</body>

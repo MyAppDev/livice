@@ -105,6 +105,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td><?= form_input($param_patient_number); ?></td>
 					</tr>
 					<tr>
+						<th>患者画像</th>
+						<td><?= form_input($param_image); ?></td>
+					</tr>
+					<tr>
 						<th>患者名(姓, 名)</th>
 						<td><?= form_input($param_name); ?></td>
 					</tr>

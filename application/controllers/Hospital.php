@@ -37,12 +37,36 @@ class Hospital extends CI_Controller {
 	 *
 	 */
 	public function patient_list(){
-		
-
-
-
-		$this->load->view('hospital/hospital_patient_list');
+		$this->load->model('Patient_model', 'Patient');
+		$data['patient_list'] = $this->Patient->get_all_data();
+		//var_dump($patient_data);
+		$this->load->view('hospital/hospital_patient_list', $data);
 	}
+
+	/**
+	 * 患者登録
+	 * 登録後は患者リストへ遷移
+	 */
+	 public function patient_insert(){
+			if ( ! isset($_POST['sub'])){// 入力フォーム表示
+					$this->load->view('hospital/hospital_patient_insert');
+			} else {// 登録処理
+					$data = array(
+						'patient_number' => $this->input->post('patient_number'),
+						'image' => $this->input->post('image'),
+						'age' => $this->input->post('age'),
+						'name' => $this->input->post('name'),
+						'name_kana' => $this->input->post('name_kana'),
+						'area' => $this->input->post('area'),
+						'disease' => $this->input->post('disease'),
+						'medicine' => $this->input->post('medicine'),
+						'caution' => $this->input->post('caution'),
+					);
+					$this->load->model('Patient_model', 'Patient');
+					$this->Patient->insert_data($data);
+					redirect( 'hospital/patient_list' );
+			}
+	 }
 
 	/**
 	 *	患者詳細
@@ -51,7 +75,7 @@ class Hospital extends CI_Controller {
 	 *		複数データはカンマ区切りで保存
 	 *
 	 */
-	public function patient_details(){
+	public function patient_details($id){
 		$this->load->view('hospital/hospital_patient_details');
 	}
 }
