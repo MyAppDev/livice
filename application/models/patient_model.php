@@ -24,6 +24,34 @@ class Patient_model extends CI_Model {
         return $query->result();
     }
 
+    /** 指定した条件で検索 */
+    function get_conditions_data($conditions){
+      $sql = "SELECT * FROM patient WHERE 1 ";
+      if(isset($conditions['search_patient'])){// 患者名
+        $sql .= "AND name LIKE ? OR name_kana LIKE ? ";
+        $bind_var[] = "";
+        $bind_var[] = "";
+      }
+      if(isset($conditions['search_disease'])){// 病名
+        $sql .= "AND disease LIKE ? ";
+        $bind_var[] = "%{$conditions['search_disease']}%";
+      }
+      if(isset($conditions['search_medicine'])){// 薬剤名
+        $sql .= "AND medicine LIKE ? ";
+        $bind_var[] = "";
+      }
+      if(isset($conditions['search_area'])){// 地域
+        $sql .= "AND area LIKE ? "
+        $bind_var[] = "";
+      }
+      if(isset($conditions['search_age'])){// 年齢
+        $sql .= "AND age LIKE ? ";
+        $bind_var[] = "";
+      }
+      $query=$this->db->query($sql, $bind_var));
+      return $query->result_array();
+    }
+
     /** 生成したデータを書き込む */
     function insert_data($data){
 
@@ -40,7 +68,7 @@ class Patient_model extends CI_Model {
       $this->db->insert('patient', $this);
     }
 
-    /** 指定したデータを取得 */
+    /** 指定したidでデータを取得 */
     function get_target_data($id){
         $limit = 1;
         $offset = 0;
