@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>hospital_dashboard</title>
+		<title>hospital_patient_list</title>
 
 		<!-- jQuery -->
 		<!--script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script-->
@@ -34,26 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 		<div id="wrapper"><!-- wrapper S -->
-			<div id="top_area" class="row-fluid"><!-- top_area S -->
-			   <div class="span6">
-					<!-- チャート描画エリア -->
-			 		<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-				 </div>
-			   <div class="span6">
-					<!-- チャート描画エリア -->
- 			 		<div id="container_dummy_1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-				 </div>
-			</div><!-- top_area E -->
-			<div id="buttom_area" class="row-fluid"><!-- buttom_area S -->
-			   <div class="span6">
-					<!-- チャート描画エリア -->
- 			 		<!--div id="container_dummy_2" style="min-width: 310px; height: 400px; margin: 0 auto"></div-->
-				 </div>
-			   <div class="span6">
-					<!-- チャート描画エリア -->
- 			 		<!--div id="container_dummy_3" style="min-width: 310px; height: 400px; margin: 0 auto"></div-->
-				 </div>
-			</div><!-- buttom_area E -->
+			
 
 		</div><!-- wrapper E -->
 
