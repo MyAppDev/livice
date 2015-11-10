@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	</head>
 	<body>
-		<h1 class="h1 text-info	">病院側</h1>
+		<h1 class="h1 text-info	">患者登録</h1>
 		<?php
 			$param_form = array(
 				'id' => '',
