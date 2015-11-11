@@ -105,7 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<th>患者画像</th>
 						<th>患者名</th>
 						<th>患者名カナ</th>
-						<th>生年月日</th>
+						<th>年齢</th>
 						<th>地域</th>
 						<th>病名</th>
 						<th>処方薬</th>
@@ -127,7 +127,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<td><img width="50px" src="<?= base_url(); ?>assets/img/<?= $patient->image; ?>"></td>
 							<td><?= $patient->name; ?></td>
 							<td><?= $patient->name_kana; ?></td>
-							<td><?= $patient->age; ?></td>
+							<td><?= $year = (int) ((date('Ymd')-$patient->age)/10000); ?>歳</td>
 							<td><?= $patient->area; ?></td>
 							<td><?= $patient->disease; ?></td>
 							<td><?= $patient->medicine; ?></td>
