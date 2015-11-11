@@ -38,17 +38,17 @@ class Patient_model extends CI_Model {
       }
       if(isset($conditions['search_medicine'])){// 薬剤名
         $sql .= "AND medicine LIKE ? ";
-        $bind_var[] = "";
+        $bind_var[] = "%{$conditions['search_medicine']}%";
       }
       if(isset($conditions['search_area'])){// 地域
-        $sql .= "AND area LIKE ? "
-        $bind_var[] = "";
+        $sql .= "AND area LIKE ? ";
+        $bind_var[] = "%{$conditions['search_area']}%";
       }
       if(isset($conditions['search_age'])){// 年齢
         $sql .= "AND age LIKE ? ";
-        $bind_var[] = "";
+        $bind_var[] = "%{$conditions['search_age']}%";
       }
-      $query=$this->db->query($sql, $bind_var));
+      $query = $this->db->query($sql, $bind_var);
       return $query->result_array();
     }
 
