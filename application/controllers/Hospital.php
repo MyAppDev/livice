@@ -38,8 +38,19 @@ class Hospital extends CI_Controller {
 	 */
 	public function patient_list(){
 		$this->load->model('Patient_model', 'Patient');
-		$data['patient_list'] = $this->Patient->get_all_data();
-		//var_dump($patient_data);
+		if(!isset($_POST['search_submit'])){// 全件
+			$data['patient_list'] = $this->Patient->get_all_data();
+		} else {// 条件検索
+			$conditions = array(
+				'search_patient' => $this->input->post('search_patient'),
+				'search_disease' => $this->input->post('search_disease'),
+				'search_medicine' => $this->input->post('search_medicine'),
+				'search_area' => $this->input->post('search_area'),
+				'search_age' => $this->input->post('search_age'),
+			);
+			$data['patient_list'] = $this->Patient->get_conditions_data($conditions);
+			$data['search_key'] = $conditions;
+		}
 		$this->load->view('hospital/hospital_patient_list', $data);
 	}
 

@@ -26,30 +26,33 @@ class Patient_model extends CI_Model {
 
     /** 指定した条件で検索 */
     function get_conditions_data($conditions){
-      $sql = "SELECT * FROM patient WHERE 1 ";
-      if(isset($conditions['search_patient'])){// 患者名
+      $sql = "SELECT * FROM patient WHERE ? ";
+      $bind_var[] = "1";
+      if(isset($conditions['search_patient']) && !empty($conditions['search_patient'])){// 患者名
         $sql .= "AND name LIKE ? OR name_kana LIKE ? ";
-        $bind_var[] = "";
-        $bind_var[] = "";
+        $bind_var[] = "%{$conditions['search_patient']}%";
+        $bind_var[] = "%{$conditions['search_patient']}%";
       }
-      if(isset($conditions['search_disease'])){// 病名
+      if(isset($conditions['search_disease']) && !empty($conditions['search_disease'])){// 病名
         $sql .= "AND disease LIKE ? ";
         $bind_var[] = "%{$conditions['search_disease']}%";
       }
-      if(isset($conditions['search_medicine'])){// 薬剤名
+      if(isset($conditions['search_medicine']) && !empty($conditions['search_medicine'])){// 薬剤名
         $sql .= "AND medicine LIKE ? ";
         $bind_var[] = "%{$conditions['search_medicine']}%";
       }
-      if(isset($conditions['search_area'])){// 地域
+      if(isset($conditions['search_area']) && !empty($conditions['search_area'])){// 地域
         $sql .= "AND area LIKE ? ";
         $bind_var[] = "%{$conditions['search_area']}%";
       }
-      if(isset($conditions['search_age'])){// 年齢
+      if(isset($conditions['search_age']) && !empty($conditions['search_age'])){// 年齢
         $sql .= "AND age LIKE ? ";
         $bind_var[] = "%{$conditions['search_age']}%";
       }
       $query = $this->db->query($sql, $bind_var);
-      return $query->result_array();
+      // echo $this->db->last_query();
+      // var_dump($query->result());
+      return $query->result();
     }
 
     /** 生成したデータを書き込む */

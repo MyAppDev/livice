@@ -39,31 +39,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						'id' => 'search_patient',
 						'class' => '',
 						'name'  => 'search_patient',
-						'value' => '',
+						'value' => $search_key['search_patient'] ?: '',
 					);
 					$param_search_disease = array(
 						'id' => 'search_disease',
 						'class' => '',
 						'name'  => 'search_disease',
-						'value' => '',
+						'value' => $search_key['search_disease'] ?: '',
 					);
 					$param_search_medicine = array(
 						'id' => 'search_medicine',
 						'class' => '',
 						'name'  => 'search_medicine',
-						'value' => '',
+						'value' => $search_key['search_medicine'] ?: '',
 					);
 					$param_search_area = array(
 						'id' => 'search_area',
 						'class' => '',
 						'name'  => 'search_area',
-						'value' => '',
+						'value' => $search_key['search_area'] ?: '',
 					);
 					$param_search_age = array(
 						'id' => 'search_age',
 						'class' => '',
 						'name'  => 'search_age',
-						'value' => '',
+						'value' => $search_key['search_age'] ?: '',
 					);
 					$param_search_submit = array(
 						'id' => 'search_submit',
