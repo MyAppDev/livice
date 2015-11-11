@@ -40,6 +40,14 @@ class Hospital extends CI_Controller {
 		$this->load->model('Patient_model', 'Patient');
 		if(!isset($_POST['search_submit'])){// 全件
 			$data['patient_list'] = $this->Patient->get_all_data();
+			$conditions = array(
+				'search_patient' => '',
+				'search_disease' => '',
+				'search_medicine' => '',
+				'search_area' => '',
+				'search_age' => '',
+			);
+			$data['search_key'] = $conditions;
 		} else {// 条件検索
 			$conditions = array(
 				'search_patient' => $this->input->post('search_patient'),
