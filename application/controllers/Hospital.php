@@ -100,4 +100,12 @@ class Hospital extends CI_Controller {
 		// var_dump($data);
 		$this->load->view('hospital/hospital_patient_details', $data);
 	}
+
+	/**
+	 *  病院用ダッシュボードのレイアウトテスト
+	 *
+	 */
+	 public function hospital_layout_test(){
+		 $this->load->view('hospital/hospital_dashboard_layout_test');
+	 }
 }
