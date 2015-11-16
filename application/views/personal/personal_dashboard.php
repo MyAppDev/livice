@@ -41,12 +41,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			    border-spacing: 0px 15px;
 			    font-size: 12px;
 			}
-			 
+
 			table.company th,
 			table.company td {
 			    padding: 10px;
 			}
-			 
+
 			table.company th {
 			    background: #295890;
 			    vertical-align: middle;
@@ -58,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			    font-weight: normal;
 			    font-size: 15px;
 			}
-			 
+
 			table.company th:after {
 			    left: 100%;
 			    top: 50%;
@@ -90,7 +90,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			        margin-top: -10px;
 			    }
 			}
-			 
+
 			table.company td {
 			    background: #E6E6E6;
 			    width: 560px;
@@ -151,11 +151,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<!-- 緊急時点滅エリア -->
 					<div id="emergency"></div>
 					<!-- チャート描画エリア -->
-					<div id="container" class="emergency" style="min-width: 310px; height: 400px; margin: 0 auto"></div> 
+					<div id="container" class="emergency" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 					<?= br(1) ?>
 					<button id="emergency_button" type="button" class="btn btn-default">緊急</button>
 					<?= br(1); ?>
-					<div id="container_year" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+					<!-- <div id="container_year" style="min-width: 310px; height: 400px; margin: 0 auto"></div> -->
 				</div><!-- content_1 E -->
 				<div><!-- content_2 S -->
 					<p class="text-info">ここにコンテンツ</p>
