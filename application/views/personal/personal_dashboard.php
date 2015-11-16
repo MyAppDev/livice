@@ -155,7 +155,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?= br(1) ?>
 					<button id="emergency_button" type="button" class="btn btn-default">緊急</button>
 					<?= br(1); ?>
-					<div id="container_year" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+					<div id="container_year" style="margin: 0 auto"></div>
 				</div><!-- content_1 E -->
 				<div><!-- content_2 S -->
 					<p class="text-info">ここにコンテンツ</p>
