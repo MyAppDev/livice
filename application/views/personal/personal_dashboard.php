@@ -36,10 +36,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			/* 病気表　*/
 			table.company {
 			    width: 620px;
-			    margin: 20px 0 0 20px;
+			    margin: 10px 0 0 20px;
 			    border-collapse: separate;
-			    border-spacing: 0px 15px;
-			    font-size: 12px;
+			    border-spacing: 0px 2px;
 			}
 
 			table.company th,
@@ -152,10 +151,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div id="emergency"></div>
 					<!-- チャート描画エリア -->
 					<div id="container" class="emergency" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-					<?= br(1) ?>
+
 					<button id="emergency_button" type="button" class="btn btn-default">緊急</button>
 					<?= br(1); ?>
-					<!-- <div id="container_year" style="min-width: 310px; height: 400px; margin: 0 auto"></div> -->
+					<!--<div id="container_year" style="min-width: 310px; height: 400px; margin: 0 auto"></div>-->
+					<table class="company">
+					    <tbody>
+					        <tr>
+					            <th class="arrow_box">今までどのような病気になったか</div></th>
+					            <td>糖尿病・骨粗しょう症</td>
+					        </tr>
+					        		        <tr>
+					        <th class="arrow_box">服用中の薬</th>
+					            <td>活性型ビタミンD3製剤　※骨粗しょう症用</td>
+					        </tr>
+					        <tr>
+					            <th class="arrow_box">服用したことがある薬</th>
+					            <td>経口血糖降下薬　※糖尿病</td>
+					        </tr>
+					        <tr>
+					            <th>どのような治療を受けたか</th>
+					            <td>薬の服用</td>
+					        </tr>
+
+					    </tbody>
+					</table>
+
 				</div><!-- content_1 E -->
 				<div><!-- content_2 S -->
 					<p class="text-info">ここにコンテンツ</p>
@@ -164,28 +185,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<p class="text-info">ここにコンテンツ</p>
 				</div><!-- content_3 E -->
 			</div><!-- slider E -->
+
+
 		</div><!-- wrapper E -->
 
-		<table class="company">
-		    <tbody>
-		        <tr>
-		            <th class="arrow_box">今までどのような病気になったか</div></th>
-		            <td>糖尿病・骨粗しょう症</td>
-		        </tr>
-		        		        <tr>
-		        <th class="arrow_box">服用中の薬</th>
-		            <td>活性型ビタミンD3製剤　※骨粗しょう症用</td>
-		        </tr>
-		        <tr>
-		            <th class="arrow_box">服用したことがある薬</th>
-		            <td>経口血糖降下薬　※糖尿病</td>
-		        </tr>
-		        <tr>
-		            <th>どのような治療を受けたか</th>
-		            <td>薬の服用</td>
-		        </tr>
 
-		    </tbody>
-		</table>
 	</body>
 </html>
