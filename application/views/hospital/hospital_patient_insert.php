@@ -28,6 +28,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!--hospital_dashboard_dummy_user -->
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/hospital/hospital_dashboard_dummy_user_1.js"></script>
 
+
+		<style type="text/css">
+		    table {
+		    	margin-left:5px;
+		    }
+
+			th {
+				font-size: 18px;
+				text-align: left;
+			}
+
+			td {
+				padding-top:10px;
+				padding-left:30px;
+			}
+			
+			.btn1 {
+				margin-top:10px;
+				margin-left:455px;
+			}
+
+		</style>
 	</head>
 	<body>
 		<h1 class="h1 text-info	">患者登録</h1>
@@ -137,7 +159,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td><?= form_input($param_caution); ?></td>
 					</tr>
 				</table>
-				<?= form_submit($param_submit); ?>
+				<div class="btn1"><?= form_submit($param_submit); ?></div>
 			<?= form_close(); ?>
 		</div><!-- wrapper E -->
 

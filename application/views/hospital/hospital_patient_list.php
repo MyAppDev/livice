@@ -28,6 +28,63 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!--hospital_dashboard_dummy_user -->
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/hospital/hospital_dashboard_dummy_user_1.js"></script>
 
+
+		<style type="text/css">
+		.table1 {
+			width:1180px;
+			margin:auto 10px;
+		}
+
+		.table1 th{
+			font-size: 24px;
+			padding-bottom:5px;
+			text-align: left;
+		}
+
+		.table1 td{
+			font-size: 18px;
+		}
+
+		.table1 td{
+			padding-top:3px;
+			padding-bottom:3px;
+			border-top:2px solid #6E6E6E;
+		}
+
+		.serch{
+			margin-left: 210px;
+		}
+
+		.btn1{
+			margin: -11px 0 0 5px;
+			display: inline-block;
+		    padding: 4px 12px;
+		    margin-bottom: 0;
+		    font-size: 14px;
+		    line-height: 20px;
+		    color: #333;
+		    text-align: center;
+		    text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+		    vertical-align: middle;
+		    cursor: pointer;
+		    background-color: #f5f5f5;
+		    background-image: -moz-linear-gradient(top,#fff,#e6e6e6);
+		    background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e6e6e6));
+		    background-image: -webkit-linear-gradient(top,#fff,#e6e6e6);
+		    background-image: -o-linear-gradient(top,#fff,#e6e6e6);
+		    background-image: linear-gradient(to bottom,#fff,#e6e6e6);
+		    background-repeat: repeat-x;
+		    border: 1px solid #ccc;
+		    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+		    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+		    border-bottom-color: #b3b3b3;
+		    -webkit-border-radius: 4px;
+		    -moz-border-radius: 4px;
+		    border-radius: 4px;
+
+		}
+
+		</style>
 	</head>
 	<body>
 		<h1 class="h1 text-info	">患者リスト</h1>
@@ -74,7 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				?>
 				<?= form_open('hospital/patient_list/'); ?>
 				<h3 class="h3 text-success">検索キー</h3>
-				<table class="table">
+				<table class="table2">
 					<tr>
 						<th>患者名</th>
 						<td><?= form_input($param_search_patient); ?></td>
@@ -96,16 +153,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td><?= form_input($param_search_age); ?></td>
 					</tr>
 				</table>
-				<?= form_submit($param_search_submit); ?>
+				<div class="serch"><?= form_submit($param_search_submit); ?></div>
 				<?= form_close(); ?>
 			</div><!-- search_area E -->
 			<div id="list_area"><!-- list_area S -->
-				<table class="table">
+				<table class="table1">
 					<thead>
-						<th>患者画像</th>
-						<th>患者名</th>
-						<th>患者名カナ</th>
-						<th>年齢</th>
+						<th style="width:120px;">患者画像</th>
+						<th style="width:90px;">患者名</th>
+						<th style="width:90px;">患者名カナ</th>
+						<th style="width:60px;">年齢</th>
 						<th>地域</th>
 						<th>病名</th>
 						<th>処方薬</th>
@@ -124,7 +181,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						?>
 						<?= form_open('hospital/patient_details/'.$patient->id); ?>
 						<tr>
-							<td><img width="50px" src="<?= base_url(); ?>assets/img/<?= $patient->image; ?>"></td>
+							<td><img style="margin-left:25px;" width="50px" src="<?= base_url(); ?>assets/img/<?= $patient->image; ?>"></td>
 							<td><?= $patient->name; ?></td>
 							<td><?= $patient->name_kana; ?></td>
 							<td><?= $year = (int) ((date('Ymd')-$patient->age)/10000); ?>歳</td>

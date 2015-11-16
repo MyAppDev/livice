@@ -32,6 +32,72 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/personal_dashboard_yearly_transition.js"></script>
 
 		<style type="text/css">
+
+			/* 病気表　*/
+			table.company {
+			    width: 620px;
+			    margin: 20px 0 0 20px;
+			    border-collapse: separate;
+			    border-spacing: 0px 15px;
+			    font-size: 12px;
+			}
+			 
+			table.company th,
+			table.company td {
+			    padding: 10px;
+			}
+			 
+			table.company th {
+			    background: #295890;
+			    vertical-align: middle;
+			    text-align: left;
+			    width: 330px;
+			    overflow: visible;
+			    position: relative;
+			    color: #fff;
+			    font-weight: normal;
+			    font-size: 15px;
+			}
+			 
+			table.company th:after {
+			    left: 100%;
+			    top: 50%;
+			    border: solid transparent;
+			    content: " ";
+			    height: 0;
+			    width: 0;
+			    position: absolute;
+			    pointer-events: none;
+			    border-color: rgba(136, 183, 213, 0);
+			    border-left-color: #295890;
+			    border-width: 10px;
+			    margin-top: -10px;
+			}
+			/* firefox用 */
+			@-moz-document url-prefix() {
+			    table.company th::after {
+			        float: right;
+			        padding: 0;
+			        left: 30px;
+			        top: 10px;
+			        content: " ";
+			        height: 0;
+			        width: 0;
+			        position: relative;
+			        pointer-events: none;
+			        border: 10px solid transparent;
+			        border-left: #295890 10px solid;
+			        margin-top: -10px;
+			    }
+			}
+			 
+			table.company td {
+			    background: #E6E6E6;
+			    width: 560px;
+			    padding-left: 20px;
+			}
+
+
 			/* 緊急点滅 */
 			#emergency{
 				width: 100%;
@@ -85,8 +151,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<!-- 緊急時点滅エリア -->
 					<div id="emergency"></div>
 					<!-- チャート描画エリア -->
-					<div id="container" class="emergency" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
+					<div id="container" class="emergency" style="min-width: 310px; height: 400px; margin: 0 auto"></div> 
 					<?= br(1) ?>
 					<button id="emergency_button" type="button" class="btn btn-default">緊急</button>
 					<?= br(1); ?>
@@ -100,5 +165,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div><!-- content_3 E -->
 			</div><!-- slider E -->
 		</div><!-- wrapper E -->
+
+		<table class="company">
+		    <tbody>
+		        <tr>
+		            <th class="arrow_box">今までどのような病気になったか</div></th>
+		            <td>糖尿病・骨粗しょう症</td>
+		        </tr>
+		        		        <tr>
+		        <th class="arrow_box">服用中の薬</th>
+		            <td>活性型ビタミンD3製剤　※骨粗しょう症用</td>
+		        </tr>
+		        <tr>
+		            <th class="arrow_box">服用したことがある薬</th>
+		            <td>経口血糖降下薬　※糖尿病</td>
+		        </tr>
+		        <tr>
+		            <th>どのような治療を受けたか</th>
+		            <td>薬の服用</td>
+		        </tr>
+
+		    </tbody>
+		</table>
 	</body>
 </html>
