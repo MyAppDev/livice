@@ -1,7 +1,4 @@
-<?php
- header("Content-Type: text/javascript");
-?>
-/**  */
+/** 使用しないので意図的にエラーとする */
 var YearTransitionControl = function(){
     /** id */
     this.id;
@@ -233,7 +230,7 @@ $(function () {
 
     $('#container_year').highcharts({
         title: {
-            text: <?= "'年間推移'"; ?>
+            text: '年間推移'
         },
         xAxis: {
             categories: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']

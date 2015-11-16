@@ -108,4 +108,20 @@ class Hospital extends CI_Controller {
 	 public function hospital_layout_test(){
 		 $this->load->view('hospital/hospital_dashboard_layout_test');
 	 }
+
+	 /**
+	  *  レイアウトヘルパーテスト
+		*/
+		public function layout_helper_test(){
+				// 共通レイアウトロード
+				$this->load->helper(array('common_layout_helper'));
+
+				// 画面表示
+				$data['items'] = array(
+					'root' => 'ROOT',
+					'hoge' => 'HOGE'
+				);
+				hospital_common_view('hospital/hospital_index', $data);
+		}
+
 }
