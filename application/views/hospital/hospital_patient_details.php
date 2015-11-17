@@ -20,8 +20,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<!-- bootstrap -->
 		<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/bootstrap.min.css" >
-		<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/bootstrap-glyphicons.css" >
+		<!-- <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/bootstrap-glyphicons.css" > -->
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
+
+		<link href="<?= base_url(); ?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<!-- font-awesome
+	 				オフラインでのアイコン表示-->
+		<!-- <link href="<?= base_url(); ?>assets/bower_components/font-awesome/css/font-awesome.css" rel="stylesheet"> -->
+		<!-- Custom Fonts -->
+    <link href="<?= base_url(); ?>assets/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
 		<!--link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"-->
 
 		<!--hospital_dashboard -->
@@ -36,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<div id="wrapper"><!-- wrapper S -->
 			<a href="<?= base_url(); ?>Hospital/patient_list">
-				<button type="button" class="btn btn-info btn-lg">
+				<button type="button" class="btn btn-info">
 				  <span class="glyphicon glyphicon-chevron-left"></span>
 					患者リストへ
 				</button>
