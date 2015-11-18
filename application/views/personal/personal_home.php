@@ -31,16 +31,165 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- 年間推移グラフ -->
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/personal_dashboard_yearly_transition.js"></script>
 
+		<!-- pagepiling core -->
+		<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/bower_components/pagePiling.js/jquery.pagepiling.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/bower_components/pagePiling.js/examples/examples.css" /> -->
+		<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/personal/app_home.css" />
+		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+		<script type="text/javascript" src="<?= base_url(); ?>assets/bower_components/pagePiling.js/jquery.pagepiling.min.js"></script>
+		<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/home_control.js"></script>
+
+		<style>
+    /* Section 1
+		 * --------------------------------------- */
+		#section1 h1{
+			color: #444;
+		}
+		#section1 p{
+			color: #333;
+			color: rgba(0,0,0,0.3);
+		}
+		#section1 img{
+			margin: 20px 0;
+			opacity: 0.7;
+		}
+
+		/* Section 2
+		 * --------------------------------------- */
+		#section2 h1,
+		#section2 p{
+			z-index: 3;
+		}
+		#section2 p{
+			opacity: 0.8;
+		}
+
+		#section2 #colors{
+			right: 60px;
+			bottom: 0;
+			position: absolute;
+			height: 413px;
+			width: 258px;
+			background-image: url(<?= base_url(); ?>assets/bower_components/pagePiling.js/examples/imgs/colors.gif);
+			background-repeat: no-repeat;
+		}
+
+		/* Section 3
+		 * --------------------------------------- */
+		#section3 #colors{
+			left: 60px;
+			bottom: 0;
+		}
+		#section3 p{
+			color: #757575;
+		}
+
+		#colors2,
+		#colors3{
+			position: absolute;
+			height: 163px;
+			width: 362px;
+			z-index: 1;
+			background-repeat: no-repeat;
+			left: 0;
+			margin: 0 auto;
+			right: 0;
+		}
+		#colors2{
+			background-image: url(<?= base_url(); ?>assets/bower_components/pagePiling.js/examples/imgs/colors2.gif);
+			top:0;
+		}
+		#colors3{
+			background-image: url(<?= base_url(); ?>assets/bower_components/pagePiling.js/examples/imgs/colors3.gif);
+			bottom:0;
+		}
+
+		/* Section 4
+		 * --------------------------------------- */
+		#section4 p{
+			opacity: 0.6;
+		}
+
+		/* Section 5
+		 * --------------------------------------- */
+		#section5 p{
+			opacity: 0.6;
+			/*background-color: red;*/
+		}
+
+		/* Overwriting fullPage.js tooltip color
+		* --------------------------------------- */
+		#pp-nav.custom .pp-tooltip{
+			color: #AAA;
+		}
+		#markup{
+			display: block;
+			width: 450px;
+			margin: 20px auto;
+			text-align: left;
+		}
+
+	</style>
 	</head>
 	<body>
-		<div id="wrapper"><!-- wrapper S -->
-			<ul>
-				<li><a href="#">ヘルス</a></li>
-				<li><a href="#">アドバイス</a></li>
-				<li><a href="<?= base_url(); ?>Personal/app_time">時計</a></li>
-				<li><a href="#">お薬手帳</a></li>
-			</ul>
+		<ul id="menu">
+			<li data-menuanchor="page1" class="active"><a href="#page1">Page 1</a></li>
+			<li data-menuanchor="page2"><a href="#page2">Page 2</a></li>
+			<li data-menuanchor="page3"><a href="#page3">Page 3</a></li>
+			<li data-menuanchor="page4"><a href="#page4">Page 4</a></li>
+			<li data-menuanchor="page5"><a href="#page5">Page 5</a></li>
+		</ul>
 
-		</div><!-- wrapper E -->
+		<div id="pagepiling">
+		    <div class="section" id="section1">
+
+		    	<!-- <h1>pagePiling.js</h1>
+					<p>Create an original scrolling site</p> -->
+					<ul>
+						<li><a href="#page2"><img width="100px" src="<?= base_url(); ?>assets/img/ic_github.png">ヘルス</a></li>
+						<li><a href="#page3"><img width="100px" src="<?= base_url(); ?>assets/img/ic_evernote.png">アドバイス</a></li>
+						<li><a href="#page5"><img width="100px" src="<?= base_url(); ?>assets/img/ic_human.png">時計</a></li>
+						<li><a href="#page4"><img width="100px" src="<?= base_url(); ?>assets/img/ic_github.png">お薬手帳</a></li>
+					</ul>
+					<!-- <img src="<?= base_url(); ?>assets/bower_components/pagePiling.js/examples/imgs/pagePiling-plugin.gif" alt="pagePiling" />
+					<br /> -->
+		    </div>
+		    <div class="section" id="section2">
+		    	<div class="intro">
+		    		<div id="colors"></div>
+		    		<h1>ヘルス</h1>
+		    		<!-- <p>Pile your sections one over another and access them scrolling or by URL!</p>
+		    		<div id="markup">
+		    			<script src="https://gist.github.com/alvarotrigo/4a87a4b8757d87df8a72.js"></script>
+		    		</div> -->
+		    	</div>
+		    </div>
+		    <div class="section" id="section3">
+		    	<div class="intro">
+		    		<h1>アドバイス</h1>
+		    		<!-- <p>Plenty of options, methods and callbacks to use.</p>
+		    		<div id="colors2"></div>
+		    		<div id="colors3"></div> -->
+		    	</div>
+		    </div>
+		    <div class="section" id="section4">
+		    	<div class="intro">
+		    		<h1>お薬手帳</h1>
+		    		<!-- <p>Designed to work on tablet and mobile devices.</p>
+		    		<p>Oh! And its compatible with old browsers such as IE 8 or Opera 12!</p> -->
+		    	</div>
+		    </div>
+				<div class="section" id="section5">
+					<div id="clock">
+				    <p class="circle"></p>
+				    <p class="second"><b></b></p>
+				    <p class="minute"><b></b></p>
+				    <p class="hour"><b></b></p>
+					</div>
+					<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/app_time.js"></script>
+					<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/personal/app_time.css" >
+
+		    </div>
+		</div>
 	</body>
 </html>
