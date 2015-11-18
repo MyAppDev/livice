@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<style type="text/css">
 		.table1 {
-			width:1180px;
+			width:1420px;
 			margin:auto 10px;
 		}
 
@@ -42,17 +42,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		.table1 td{
+			padding-top:3px;
+			padding-bottom:3px;
+			padding-left: 5px;
+			border-top:1px dotted #6E6E6E;
 			font-size: 18px;
 		}
 
-		.table1 td{
-			padding-top:3px;
-			padding-bottom:3px;
-			border-top:2px solid #6E6E6E;
-		}
-
 		.serch{
-			margin-left: 210px;
+			margin-left: 0px;
 		}
 
 		.btn1{
@@ -84,13 +82,61 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		}
 
+		.table2 tr{
+			float:left;
+			padding-left: 10px;
+			font-size: 18px;
+
+
+		}
+
+
+		#search {
+			margin-left:10px;
+		}
+
+		#search_patient {
+			width:120px;
+			height:17px;
+			margin-top:10px;
+		}
+
+		#search_disease {
+			width:120px;
+			height:17px;
+			margin-top:10px;
+		}
+
+		#search_area {
+			width:120px;
+			height:17px;
+			margin-top:10px;
+		}
+
+		#search_medicine {
+			width:120px;
+			height:17px;
+			margin-top:10px;
+		}
+
+		#search_age {
+			width:30px;
+			height:17px;
+			margin-top:10px;
+		}
+
+		#search_submit {
+			margin-top:8px;
+			width:80px;
+		}
+
 		</style>
 	</head>
 	<body>
 		<h1 class="h1 text-info	">患者リスト</h1>
 
 		<div id="wrapper"><!-- wrapper S -->
-			<div id="search_area"><!-- search_area S -->
+			<div id="search"><!-- search_area S -->
 				<?php
 					$param_search_patient = array(
 						'id' => 'search_patient',
@@ -152,21 +198,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<th>年齢</th>
 						<td><?= form_input($param_search_age); ?></td>
 					</tr>
+					<tr>
+						<td><div class="serch"><?= form_submit($param_search_submit); ?></div>
+							<?= form_close(); ?>
+						</td>
+					</tr>
 				</table>
-				<div class="serch"><?= form_submit($param_search_submit); ?></div>
-				<?= form_close(); ?>
+				
 			</div><!-- search_area E -->
 			<div id="list_area"><!-- list_area S -->
 				<table class="table1">
 					<thead>
 						<th style="width:120px;">患者画像</th>
 						<th style="width:90px;">患者名</th>
-						<th style="width:90px;">患者名カナ</th>
+						<th style="width:140px;">患者名(カナ)</th>
 						<th style="width:60px;">年齢</th>
-						<th>地域</th>
-						<th>病名</th>
-						<th>処方薬</th>
-						<th>注意事項</th>
+						<th style="width:120px;">地域</th>
+						<th style="width:200px;">病名</th>
+						<th style="width:200px;">処方薬</th>
+						<th style="width:400px;">注意事項</th>
 						<th>詳細</th>
 					</thead>
 					<tbody>
