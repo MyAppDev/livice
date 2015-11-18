@@ -33,7 +33,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<!-- pagepiling core -->
 		<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/bower_components/pagePiling.js/jquery.pagepiling.css" />
-		<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/bower_components/pagePiling.js/examples/examples.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/bower_components/pagePiling.js/examples/examples.css" /> -->
+		<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/personal/app_home.css" />
 		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
 		<script type="text/javascript" src="<?= base_url(); ?>assets/bower_components/pagePiling.js/jquery.pagepiling.min.js"></script>
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/home_control.js"></script>
