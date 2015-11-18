@@ -142,14 +142,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<div id="pagepiling">
 		    <div class="section" id="section1">
-
 		    	<!-- <h1>pagePiling.js</h1>
 					<p>Create an original scrolling site</p> -->
 					<ul>
-						<li><a href="#page2"><img width="100px" src="<?= base_url(); ?>assets/img/ic_github.png">ヘルス</a></li>
-						<li><a href="#page3"><img width="100px" src="<?= base_url(); ?>assets/img/ic_evernote.png">アドバイス</a></li>
-						<li><a href="#page5"><img width="100px" src="<?= base_url(); ?>assets/img/ic_human.png">時計</a></li>
-						<li><a href="#page4"><img width="100px" src="<?= base_url(); ?>assets/img/ic_github.png">お薬手帳</a></li>
+						<li><a href="#page2"><img width="100px" src="<?= base_url(); ?>assets/img/ic_health.png">ヘルス</a></li>
+						<li><a href="#page3"><img width="100px" src="<?= base_url(); ?>assets/img/ic_tips.png">アドバイス</a></li>
+						<li><a href="#page5"><img width="100px" src="<?= base_url(); ?>assets/img/ic_safari.png">時計</a></li>
+						<li><a href="#page4"><img width="100px" src="<?= base_url(); ?>assets/img/ic_find_friends.png">お薬手帳</a></li>
 					</ul>
 					<!-- <img src="<?= base_url(); ?>assets/bower_components/pagePiling.js/examples/imgs/pagePiling-plugin.gif" alt="pagePiling" />
 					<br /> -->
