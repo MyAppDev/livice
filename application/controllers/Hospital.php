@@ -67,8 +67,18 @@ class Hospital extends CI_Controller {
 	 * 登録後は患者リストへ遷移
 	 */
 	 public function patient_insert(){
+		 // 共通レイアウトロード
+		 $this->load->helper(array('common_layout_helper'));
+
+		 // 共通レイアウトへ設定する値
+		 $data = array(
+			 'page_title' => '患者登録',
+			 'meta_title'=> 'patient_insert',
+		 );
+
 			if ( ! isset($_POST['sub'])){// 入力フォーム表示
-					$this->load->view('hospital/hospital_patient_insert');
+					// $this->load->view('hospital/hospital_patient_insert');
+					hospital_common_view('hospital/hospital_patient_insert_clone', $data);
 			} else {// 登録処理
 					$data = array(
 						'patient_number' => $this->input->post('patient_number'),
@@ -121,6 +131,7 @@ class Hospital extends CI_Controller {
 					'root' => 'ROOT',
 					'hoge' => 'HOGE'
 				);
+				$data['page_title'] = "ページタイトル";
 				hospital_common_view('hospital/hospital_index', $data);
 		}
 
