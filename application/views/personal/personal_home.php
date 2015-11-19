@@ -22,9 +22,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/bootstrap.min.css" >
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
 
-		<!-- personal_dashboard -->
-		<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/personal_dashboard.js"></script>
-
 		<!-- personal_dashboard bxSlider -->
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/personal_dashboard_bxslider.js"></script>
 
@@ -38,6 +35,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
 		<script type="text/javascript" src="<?= base_url(); ?>assets/bower_components/pagePiling.js/jquery.pagepiling.min.js"></script>
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/home_control.js"></script>
+
+		<!-- グラフ描画 病院用を流用 -->
+		<script type="text/javascript" src="<?= base_url(); ?>assets/js/hospital/hospital_dashboard.js"></script>
+
 
 		<style>
     /* Section 1
@@ -161,14 +162,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</ul> -->
 		    </div>
 		    <div class="section" id="section2">
-		    	<div class="intro">
-		    		<div id="colors"></div>
-		    		<h1>ヘルス</h1>
-		    		<!-- <p>Pile your sections one over another and access them scrolling or by URL!</p>
-		    		<div id="markup">
-		    			<script src="https://gist.github.com/alvarotrigo/4a87a4b8757d87df8a72.js"></script>
-		    		</div> -->
-		    	</div>
+					<!-- チャート描画エリア -->
+					<div id="container" style="min-width: 100%; height: 100%; margin: 0 auto"></div>
 		    </div>
 		    <div class="section" id="section3">
 		    	<!-- <div class="intro">

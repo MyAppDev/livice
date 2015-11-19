@@ -104,6 +104,24 @@ DummyControl.prototype.asyncInitDummyLog = function (num){
   // console.log(altThis.getSpeed());
 };
 
+/** 閾値を超えた際の処理 */
+DummyControl.prototype.emergencyAlert = function (num){
+    var altThis = this;
+    var thresholds = 90; //閾値
+    if(thresholds < num){
+      $('#emergency').show();
+      $('#emergency').fadeOut(500,function(){$(this).fadeIn(500)});
+    } else {
+      $('#emergency').hide();
+    }
+};
+
+/** 初期化処理 */
+DummyControl.prototype.initialization = function (){
+    var altThis = this;
+    $('#emergency').hide();
+};
+
 $(function () {
   var dc = new DummyControl();
 
@@ -130,6 +148,11 @@ $(function () {
                           // Ajaxでのデータを取得
                           var json = dc.asyncCurrDummyLog();
                           y = dc.getHeartbeat();
+
+                          // 点滅処理を追加すること
+
+
+
                           series.addPoint([x, y], true, true);
                       }, 1000);
                   }
@@ -147,10 +170,16 @@ $(function () {
                   text: '心拍数'
               },
               plotLines: [{
-                  value: 0,
-                  width: 1,
-                  color: '#808080'
-              }]
+                  value: 91, //警告ライン
+                  width: 2,
+                  color: '#F44336',
+                  dashStyle: 'shortdash',
+                  label: {
+                        text: '警告値'
+                  }
+              }],
+              min: 50,// 最小値
+              max: 120,//最大値
           },
           tooltip: {
               formatter: function () {
