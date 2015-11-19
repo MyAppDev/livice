@@ -30,9 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<!-- pagepiling core -->
 		<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/bower_components/pagePiling.js/jquery.pagepiling.css" />
-		<!-- <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/bower_components/pagePiling.js/examples/examples.css" /> -->
 		<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/personal/app_home.css" />
-		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
 		<script type="text/javascript" src="<?= base_url(); ?>assets/bower_components/pagePiling.js/jquery.pagepiling.min.js"></script>
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/home_control.js"></script>
 
@@ -97,11 +95,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			right: 0;
 		}
 		#colors2{
-			background-image: url(<?= base_url(); ?>assets/bower_components/pagePiling.js/examples/imgs/colors2.gif);
+			/*background-image: url(<?= base_url(); ?>assets/bower_components/pagePiling.js/examples/imgs/colors2.gif);*/
 			top:0;
 		}
 		#colors3{
-			background-image: url(<?= base_url(); ?>assets/bower_components/pagePiling.js/examples/imgs/colors3.gif);
+			/*background-image: url(<?= base_url(); ?>assets/bower_components/pagePiling.js/examples/imgs/colors3.gif);*/
 			bottom:0;
 		}
 
@@ -128,6 +126,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			width: 450px;
 			margin: 20px auto;
 			text-align: left;
+		}
+
+		/* 緊急点滅
+		* ----------------------------------------- */
+		#emergency{
+			width: 100%;
+			height: 100%;
+			background-color: red;
+			opacity: 0.3;
+			position: absolute;
+			z-index: 1000;
 		}
 
 	</style>
@@ -162,6 +171,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</ul> -->
 		    </div>
 		    <div class="section" id="section2">
+					<!-- 緊急時点滅エリア -->
+					<div id="emergency"></div>
 					<!-- チャート描画エリア -->
 					<div id="container" style="min-width: 100%; height: 100%; margin: 0 auto"></div>
 		    </div>

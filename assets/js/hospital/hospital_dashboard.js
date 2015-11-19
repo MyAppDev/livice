@@ -1,3 +1,7 @@
+/**
+ * 病院側・ウェアラブル画面に利用する為のスクリプト
+ * SQLiteからの読み込み処理実施
+ */
 /** ダミーデータクラス */
 var DummyControl = function(){
 
@@ -137,6 +141,7 @@ $(function () {
               type: 'spline',
               animation: Highcharts.svg, // don't animate in old IE
               marginRight: 10,
+              backgroundColor: '#000', //　チャート全体の背景色
               events: {
                   load: function () {
 
@@ -148,10 +153,8 @@ $(function () {
                           // Ajaxでのデータを取得
                           var json = dc.asyncCurrDummyLog();
                           y = dc.getHeartbeat();
-
-                          // 点滅処理を追加すること
-
-
+                          // 点滅処理
+                          dc.emergencyAlert(y);
 
                           series.addPoint([x, y], true, true);
                       }, 1000);
@@ -159,23 +162,47 @@ $(function () {
               }
           },
           title: {
-              text: 'リアルタイム心拍数'
+              text: 'リアルタイム心拍数',
+              style: {
+								  fontSize: '24px', // タイトルの文字サイズ
+                  color: '#fff',
+							}
           },
           xAxis: {
               type: 'datetime',
-              tickPixelInterval: 150
+              tickPixelInterval: 150,
+              labels: {
+								  style: {
+								      fontSize: '20px', // y軸目盛の文字サイズ
+                      color: '#fff',
+                  }
+							},
           },
           yAxis: {
               title: {
-                  text: '心拍数'
+                  text: '心拍数',
+                  style: {
+                      fontSize: '24px',
+                      color: '#fff',
+    							}
               },
+              labels: {
+								  style: {
+								      fontSize: '20px', // y軸目盛の文字サイズ
+                      color: '#fff',
+								  }
+							},
               plotLines: [{
                   value: 91, //警告ライン
                   width: 2,
                   color: '#F44336',
                   dashStyle: 'shortdash',
                   label: {
-                        text: '警告値'
+                        text: '警告値',
+                        style: {
+                          fontSize: '20px', // y軸目盛の文字サイズ
+                          color: 'red',
+                        },
                   }
               }],
               min: 50,// 最小値
