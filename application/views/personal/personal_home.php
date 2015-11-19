@@ -142,16 +142,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<div id="pagepiling">
 		    <div class="section" id="section1">
-		    	<!-- <h1>pagePiling.js</h1>
-					<p>Create an original scrolling site</p> -->
-					<ul>
+					<!-- とりあえずテーブルにしています。レイアウト・アイコンは適宜変更して下さい -->
+		    	<table>
+						<tr>
+							<td><a href="#page2"><img width="200px" src="<?= base_url(); ?>assets/img/ic_health.png">ヘルス</a></td>
+							<td><a href="#page3"><img width="200px" src="<?= base_url(); ?>assets/img/ic_tips.png">アドバイス</a></td>
+						</tr>
+						<tr>
+							<td><a href="#page5"><img width="200px" src="<?= base_url(); ?>assets/img/ic_safari.png">時計</a></td>
+							<td><a href="#page4"><img width="200px" src="<?= base_url(); ?>assets/img/ic_find_friends.png">お薬手帳</a></td>
+						</tr>
+					</table>
+					<!-- <ul>
 						<li><a href="#page2"><img width="100px" src="<?= base_url(); ?>assets/img/ic_health.png">ヘルス</a></li>
 						<li><a href="#page3"><img width="100px" src="<?= base_url(); ?>assets/img/ic_tips.png">アドバイス</a></li>
 						<li><a href="#page5"><img width="100px" src="<?= base_url(); ?>assets/img/ic_safari.png">時計</a></li>
 						<li><a href="#page4"><img width="100px" src="<?= base_url(); ?>assets/img/ic_find_friends.png">お薬手帳</a></li>
-					</ul>
-					<!-- <img src="<?= base_url(); ?>assets/bower_components/pagePiling.js/examples/imgs/pagePiling-plugin.gif" alt="pagePiling" />
-					<br /> -->
+					</ul> -->
 		    </div>
 		    <div class="section" id="section2">
 		    	<div class="intro">
@@ -164,21 +171,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    	</div>
 		    </div>
 		    <div class="section" id="section3">
-		    	<div class="intro">
+		    	<!-- <div class="intro">
 		    		<h1>アドバイス</h1>
-		    		<!-- <p>Plenty of options, methods and callbacks to use.</p>
-		    		<div id="colors2"></div>
-		    		<div id="colors3"></div> -->
-		    	</div>
+		    	</div> -->
+					<!-- iframeにアドバイスページを挿入予定 -->
+					<iframe src="<?= base_url() ?>Personal/stub_iframe_test"
+									frameborder="0"　scrolling="no"
+									seamless="seamless"　
+									width="100%" height="99%" >ここにアドバイスページを挿入</iframe>
 		    </div>
 		    <div class="section" id="section4">
-		    	<div class="intro">
+					<!-- お薬手帳ページを挿入予定 -->
+					<div class="intro">
 		    		<h1>お薬手帳</h1>
-		    		<!-- <p>Designed to work on tablet and mobile devices.</p>
-		    		<p>Oh! And its compatible with old browsers such as IE 8 or Opera 12!</p> -->
+
 		    	</div>
 		    </div>
 				<div class="section" id="section5">
+					<!-- 時計アプリ　背景色は要変更 -->
 					<div id="clock">
 				    <p class="circle"></p>
 				    <p class="second"><b></b></p>
@@ -187,7 +197,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 					<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/app_time.js"></script>
 					<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/personal/app_time.css" >
-
 		    </div>
 		</div>
 	</body>

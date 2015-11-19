@@ -63,4 +63,13 @@ class Personal extends CI_Controller {
 	public function app_medicine_notebook(){
 
 	}
+
+	/**
+	 * iframe テスト　スタブ
+	 */
+	public function stub_iframe_test(){
+		echo "iframe テスト用スタブ";
+		echo br(3);
+		echo '<a href="'.base_url().'Hospital/hospital_layout_test"> 病院ページへ </a>';
+	}
 }
