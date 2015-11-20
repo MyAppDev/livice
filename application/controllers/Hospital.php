@@ -43,7 +43,7 @@ class Hospital extends CI_Controller {
 		// 共通レイアウトへ設定する値
 		$data = array(
 			'page_title' => '患者リスト',
-			'meta_title'=> 'patient_insert',
+			'meta_title'=> 'patient_list',
 		);
 
 		if(!isset($_POST['search_submit'])){// 全件
@@ -67,7 +67,7 @@ class Hospital extends CI_Controller {
 			$data['patient_list'] = $this->Patient->get_conditions_data($conditions);
 			$data['search_key'] = $conditions;
 		}
-		
+
 		hospital_common_view('hospital/hospital_patient_list_clone', $data);
 	}
 
@@ -115,9 +115,18 @@ class Hospital extends CI_Controller {
 	 */
 	public function patient_details($id){
 		$this->load->model('Patient_model', 'Patient');
+		// 共通レイアウトロード
+		$this->load->helper(array('common_layout_helper'));
+		// 共通レイアウトへ設定する値
+		$data = array(
+			'page_title' => '患者詳細',
+			'meta_title'=> 'patient_details',
+		);
+
 		$data['patient_info'] = $this->Patient->get_target_data($id);
 		// var_dump($data);
-		$this->load->view('hospital/hospital_patient_details', $data);
+		// $this->load->view('hospital/hospital_patient_details', $data);
+		hospital_common_view('hospital/hospital_patient_details_clone', $data);
 	}
 
 	/**
