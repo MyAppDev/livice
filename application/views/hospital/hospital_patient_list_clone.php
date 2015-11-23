@@ -1,14 +1,15 @@
 <!-- jQuery -->
 <!--script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script-->
 <script type="text/javascript" src="<?= base_url(); ?>assets/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="<?= base_url(); ?>assets/bower_components/jquery-color-2.1.1/jquery.color.js"></script>
 
 <!-- bxSlider -->
 <link type="text/css"  href="<?= base_url(); ?>assets/css/jquery.bxslider.css" rel="stylesheet">
 <script type="text/javascript" src="<?= base_url(); ?>assets/js/jquery.bxslider.js"></script>
 
 <!-- highcharts -->
-<script type="text/javascript" src="<?= base_url(); ?>assets/js/highcharts.js"></script>
-<script type="text/javascript" src="<?= base_url(); ?>assets/js/modules/exporting.js"></script>
+<!-- <script type="text/javascript" src="<?= base_url(); ?>assets/js/highcharts.js"></script> -->
+<!-- <script type="text/javascript" src="<?= base_url(); ?>assets/js/modules/exporting.js"></script> -->
 
 <!-- bootstrap -->
 <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/bootstrap.min.css" >
@@ -20,6 +21,8 @@
 <!--hospital_dashboard_dummy_user -->
 <script type="text/javascript" src="<?= base_url(); ?>assets/js/hospital/hospital_dashboard_dummy_user_1.js"></script>
 
+<!--hospital_patient_list -->
+<script type="text/javascript" src="<?= base_url(); ?>assets/js/hospital/hospital_patient_list.js"></script>
 
 <style type="text/css">
 .table1 {
@@ -122,6 +125,18 @@
 	width:80px;
 }
 
+/*緊急用点滅*/
+.emergency{
+	/*background-color: red;	*/
+	/*width: 100%;*/
+	/*height: 400px;*/
+	/*background-color: red;*/
+	/*opacity: 0.3;*/
+	/*position: absolute;*/
+	/*z-index: 1000;*/
+}
+
+
 </style>
 
 <div id="wrapper"><!-- wrapper S -->
@@ -196,7 +211,7 @@
 
 	</div><!-- search_area E -->
 	<div id="list_area"><!-- list_area S -->
-		<table class="table1">
+		<table id="patient_list" class="table1">
 			<thead>
 				<th style="width:120px;">患者画像</th>
 				<th style="width:90px;">患者名</th>
@@ -221,7 +236,7 @@
 				<?= form_open('hospital/patient_details/'.$patient->id); ?>
 				<tr>
 					<td><img style="margin-left:25px;" width="50px" src="<?= base_url(); ?>assets/img/<?= $patient->image; ?>"></td>
-					<td><?= str_replace(',', ' ', $patient->name); ?></td>
+					<td><var class="notflash"><?= str_replace(',', ' ', $patient->name); ?></var></td>
 					<td><?= str_replace(',', ' ', $patient->name_kana); ?></td>
 					<td><?= $year = (int) ((date('Ymd')-$patient->age)/10000); ?>歳</td>
 					<td><?= str_replace(',', '', $patient->area); ?></td>

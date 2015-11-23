@@ -132,6 +132,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		    <!-- jQuery -->
 		    <script src="<?= base_url(); ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
+				<script type="text/javascript" src="<?= base_url(); ?>assets/bower_components/jquery-color-2.1.1/jquery.color.js"></script>
 
 		    <!-- Bootstrap Core JavaScript -->
 		    <script src="<?= base_url(); ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
