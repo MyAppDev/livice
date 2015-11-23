@@ -139,11 +139,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    <!-- Metis Menu Plugin JavaScript -->
 		    <script src="<?= base_url(); ?>assets/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
-		    <!-- Morris Charts JavaScript -->
-		    <script src="<?= base_url(); ?>assets/bower_components/raphael/raphael-min.js"></script>
-		    <script src="<?= base_url(); ?>assets/bower_components/morrisjs/morris.min.js"></script>
-		    <script src="<?= base_url(); ?>assets/js/morris-data.js"></script>
-
 		    <!-- Custom Theme JavaScript -->
 		    <script src="<?= base_url(); ?>assets/dist/js/sb-admin-2.js"></script>
 
@@ -154,6 +149,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<!-- highcharts -->
 				<script type="text/javascript" src="<?= base_url(); ?>assets/js/highcharts.js"></script>
 				<script type="text/javascript" src="<?= base_url(); ?>assets/js/modules/exporting.js"></script>
+
+				<!-- Morris Charts JavaScript -->
+		    <!-- <script src="<?= base_url(); ?>assets/bower_components/raphael/raphael-min.js"></script>
+		    <script src="<?= base_url(); ?>assets/bower_components/morrisjs/morris.min.js"></script>
+		    <script src="<?= base_url(); ?>assets/js/morris-data.js"></script> -->
 
 	</body>
 </html>

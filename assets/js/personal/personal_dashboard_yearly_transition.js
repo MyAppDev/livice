@@ -1,4 +1,4 @@
-/** 使用しないので意図的にエラーとする */
+/** 病院側患者詳細で利用する */
 var YearTransitionControl = function(){
     /** id */
     this.id;
@@ -177,9 +177,9 @@ YearTransitionControl.prototype.rebuildDummyLog = function(){
             //altThis.setAryHearbeat(altThis.objClone.heartbeat);
             //altThis.aryHeartbeat = tmp.concat();
         }
-        jsonObj.forEach(callback);
+        // jsonObj.forEach(callback);
         // console.dir(jsonObj);
-        altThis.objClone = $.extend(true, {}, jsonObj);
+        // altThis.objClone = $.extend(true, {}, jsonObj);
 
           // console.log(arySumCounter[0]);
           // console.dir(arySumHeartbeat[0]/arySumCounter[0]);
@@ -188,17 +188,15 @@ YearTransitionControl.prototype.rebuildDummyLog = function(){
     });
 };
 
-
-
 $(function () {
     var altThis = this;
     //var array = [2,5,6,7,90.1];
-    var ytc = new YearTransitionControl();
-    ytc.rebuildDummyLog();
+    // var ytc = new YearTransitionControl();
+    // ytc.rebuildDummyLog();
     // console.dir(ytc.getAryHeartbeat());
     // result = $.extend(true, [], ytc.getAryHeartbeat());
     // var object2 = $.extend(true, {}, object1);
-    result = ytc.getAryHeartbeat();
+    // result = ytc.getAryHeartbeat();
     // console.dir(ytc.objClone);
     // result.length = 366;
     // console.dir(altThis.aryHeartbeat);
@@ -226,7 +224,9 @@ $(function () {
     /** 血圧用データ */
     var data_blood = [2, 3, 5, 7, 6, 3, 2, 1, 5, 4, 2, 10];
     /** 体温用データ */
-    var data_body_temperature = [4, 3, 3, 9, 12, 3, 2, 1, 3, 4, 77, 2];
+    var data_body_temperature = [4, 3, 3, 9, 12, 3, 2, 1, 3, 4, 77.3, 2.11];
+
+    console.log('personal_dashboard_yearly_transition');
 
     $('#container_year').highcharts({
         title: {

@@ -1,16 +1,22 @@
 <?php
 class Patient_model extends CI_Model {
 
-    var $id   = null;         // AI用設定
-    var $patient_number = ''; // 患者番号
-    var $image    = '';       // 患者画像　url
-    var $age = '';            // 生年月日　: yyyyMMdd 0パディング
-    var $name = '';           // 患者名  :　姓,名
-    var $name_kana = '';      // 患者名カナ　:　セイ,メイ
-    var $area = '';           // 地域　:　大阪府,大阪市
-    var $disease = '';        // 病名　: 病名1,病名2,病名3・・・・
-    var $medicine = '';       // 処方薬　: 薬名1,薬名2,薬名3・・・・
-    var $caution = '';        // 注意事項　: 事項1,事項2,事項3・・・・
+    var $id   = null;               // AI用設定
+    var $patient_number = '';       // 患者番号
+    var $image    = '';             // 患者画像　url
+    var $age = '';                  // 生年月日　: yyyyMMdd 0パディング
+    var $name = '';                 // 患者名  :　姓,名
+    var $name_kana = '';            // 患者名カナ　:　セイ,メイ
+    var $area = '';                 // 地域　:　大阪府,大阪市
+    var $disease = '';              // 病名　: 病名1,病名2,病名3・・・・
+    var $medicine = '';             // 処方薬　: 薬名1,薬名2,薬名3・・・・
+    var $caution = '';              // 注意事項　: 事項1,事項2,事項3・・・・
+    var $advice = '';               // アドバイス　: アドバイス
+    var $generic_drug = '';         // ジェネリック医薬品　: 薬名1,薬名2,薬名3・・・・
+    var $health_food = '';          // 健康食品　:　食品1,食品2,食品3・・・・
+    var $data_heartbeat = '';       // 1年間の心拍データ　:　値1,値2,値3・・・・,値12
+    var $data_blood = '';           // 1年間の血圧データ　:　値1,値2,値3・・・・,値12
+    var $data_body_temperature = '';// 1年間の体温データ　:　値1,値2,値3・・・・,値12
 
     function __construct()
     {

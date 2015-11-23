@@ -7,8 +7,8 @@
 <script type="text/javascript" src="<?= base_url(); ?>assets/js/jquery.bxslider.js"></script>
 
 <!-- highcharts -->
-<script type="text/javascript" src="<?= base_url(); ?>assets/js/highcharts.js"></script>
-<script type="text/javascript" src="<?= base_url(); ?>assets/js/modules/exporting.js"></script>
+<!-- <script type="text/javascript" src="<?= base_url(); ?>assets/js/highcharts.js"></script> -->
+<!-- <script type="text/javascript" src="<?= base_url(); ?>assets/js/modules/exporting.js"></script> -->
 
 <!-- bootstrap -->
 <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/bootstrap.min.css" >
@@ -33,7 +33,6 @@
 
 <!--hospital_patient_details.js タブコントロールなど -->
 <script type="text/javascript" src="<?= base_url(); ?>assets/js/hospital/hospital_patient_details.js"></script>
-
 
 <style type="text/css">
 
@@ -67,11 +66,16 @@ td {
 }
 
 /* タブ用 デザインはおまかせします */
-#tab_area ul { padding: 8px; }
-#tab_area li { display: inline-block; }
-#tab_area div.cont { border : 1px solid #888888;}
-#tab_area ul { margin-bottom: -9px;}
-#tab_area ul li {
+#tab_area > ul {
+	padding: 8px;
+	margin-bottom: -9px;
+}
+#tab_area li.tab_head { display: inline-block; }
+#tab_area div.cont {
+	border : 1px solid #888888;
+	padding: 5px;
+}
+#tab_area > ul > li.tab_head {
 		width: 100px;
 		height: 40px;
 		border-style: solid;
@@ -82,19 +86,19 @@ td {
 </style>
 
 <div id="wrapper"><!-- wrapper S -->
-	<a href="<?= base_url(); ?>Hospital/patient_list">
+	<!-- <a href="<?= base_url(); ?>Hospital/patient_list">
 		<button type="button" class="btn btn-info" style="margin-left:10px;">
 		  <span class="glyphicon glyphicon-chevron-left"></span>
 			患者リストへ
 		</button>
-	</a>
+	</a> -->
 
 	<!-- ここにタブを構築 -->
 	<div id="tab_area"><!-- tab_area S -->
 		<ul>
-		  <li id="tab1"><a href="#cont1">プロフィール</a></li>
-		  <li id="tab2"><a href="#cont2">年間グラフ</a></li>
-		  <li id="tab3"><a href="#cont3">おすすめ</a></li>
+		  <li id="tab1" class="tab_head"><a href="#cont1">プロフィール</a></li>
+		  <li id="tab2" class="tab_head"><a href="#cont2">年間グラフ</a></li>
+		  <li id="tab3" class="tab_head"><a href="#cont3">おすすめ</a></li>
 		</ul>
 		<div id="cont1" class="cont"><!-- cont1 S  -->
 			<table class="table1">
@@ -105,19 +109,25 @@ td {
 				</tr>
 				<tr>
 					<th style="font-weight:bold;">患者名</th>
-					<td><?= $patient->name ?></td>
+					<td><?= str_replace(',', ' ', $patient->name); ?></td>
 				</tr>
 				<tr>
 					<th style="font-weight:bold;">患者名カナ</th>
-					<td><?= $patient->name_kana ?></td>
+					<td><?= str_replace(',', ' ', $patient->name_kana); ?></td>
 				</tr>
 				<tr>
 					<th style="font-weight:bold;">生年月日</th>
-					<td><?= $patient->age ?></td>
+					<td>
+						<?php
+						 	$year = mb_substr($patient->age, 0, 4);
+							$month = mb_substr($patient->age, 4, 2);
+							$day = mb_substr($patient->age, 6, 2);
+							echo $year.'年'.$month.'月'.$day.'日';
+					 	?></td>
 				</tr>
 				<tr>
 					<th style="font-weight:bold;">地域</th>
-					<td><?= $patient->area ?></td>
+					<td><?= str_replace(',', '', $patient->area); ?></td>
 				</tr>
 				<tr>
 					<th style="font-weight:bold;">病名</th>
@@ -135,10 +145,182 @@ td {
 			</table>
 		</div><!-- cont1 E  -->
 		<div id="cont2" class="cont"><!-- cont2 S  -->
-			<p>年間ぐらふ</p>
+			<!-- 年間推移グラフ -->
+			<!-- <div id="container_year" style="min-width: 70%; height: 70%; margin: 0 auto"></div> -->
+			<!-- <script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/personal_dashboard_yearly_transition.js"></script> -->
+
+			<!-- 心拍年間グラフ -->
+			<div id="container_heartbeat_year" style="min-width: 70%; height: 50%; margin: 0 auto"></div>
+			<!-- 血圧年間グラフ -->
+			<div id="container_blood_year" style="min-width: 70%; height: 50%; margin: 0 auto"></div>
+			<!-- 体温年間グラフ -->
+			<div id="container_body_temperature_year" style="min-width: 70%; height: 50%; margin: 0 auto"></div>
+
+			<script type="text/javascript">
+			$(function () {
+			    var altThis = this;
+			    /** 心拍用データ */
+			    // var data_heartbeat = [3, 2, 1, 3, 4, 3, 7, 1, 3, 4, 10, 11];
+					var data_heartbeat = [<?= $patient->data_heartbeat ?>];
+			    /** 血圧用データ */
+			    var data_blood = [<?= $patient->data_blood ?>];
+			    /** 体温用データ */
+			    var data_body_temperature = [<?= $patient->data_body_temperature ?>];
+
+			    console.log('patient_details_yearly_transition');
+					// 心拍年間グラフ
+			    $('#container_heartbeat_year').highcharts({
+			        title: {
+			            text: '心拍年間推移'
+			        },
+			        xAxis: {
+			            categories: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+			        },
+							yAxis: {
+		              title: {
+		                  text: '心拍数'
+		              },
+		              plotLines: [{
+		                  value: 91,// 警告ライン
+		                  width: 2,
+		                  color: '#F44336',
+		                  dashStyle: 'shortdash',
+		                  label: {
+		                        text: '警告値',
+														style: {
+		                          //fontSize: '20px', // y軸目盛の文字サイズ
+		                          color: 'red',
+		                        },
+		                  }
+		              }],
+		              min: 50,// 最小値
+		              max: 120,//最大値
+		          },
+			        labels: {
+			            items: [{
+			                html: '',
+			                style: {
+			                    left: '50px',
+			                    top: '18px',
+			                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+			                }
+			            }]
+			        },
+			        series: [{
+			            type: 'column',
+			            name: '心拍',
+			            data: data_heartbeat
+			        },]
+			    });
+
+					// 血圧年間グラフ
+			    $('#container_blood_year').highcharts({
+			        title: {
+			            text: '血圧年間推移'
+			        },
+			        xAxis: {
+			            categories: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+			        },
+							yAxis: {
+		              title: {
+		                  text: '血圧'
+		              },
+		              plotLines: [{
+		                  value: 140,// 警告ライン
+		                  width: 2,
+		                  color: '#F44336',
+		                  dashStyle: 'shortdash',
+		                  label: {
+		                        text: '警告値',
+														style: {
+		                          //fontSize: '20px', // y軸目盛の文字サイズ
+		                          color: 'red',
+		                        },
+		                  }
+		              }],
+		              min: 90,// 最小値
+		              max: 160,//最大値
+		          },
+			        labels: {
+			            items: [{
+			                html: '',
+			                style: {
+			                    left: '50px',
+			                    top: '18px',
+			                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+			                }
+			            }]
+			        },
+			        series: [{
+			            type: 'column',
+			            name: '血圧',
+			            data: data_blood
+			        },]
+			    });
+
+					// 体温年間グラフ
+			    $('#container_body_temperature_year').highcharts({
+			        title: {
+			            text: '体温年間推移'
+			        },
+			        xAxis: {
+			            categories: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+			        },
+							yAxis: {
+		              title: {
+		                  text: '体温'
+		              },
+		              plotLines: [{
+		                  value: 38,// 警告ライン
+		                  width: 2,
+		                  color: '#F44336',
+		                  dashStyle: 'shortdash',
+		                  label: {
+		                        text: '警告値',
+														style: {
+		                          //fontSize: '20px', // y軸目盛の文字サイズ
+		                          color: 'red',
+		                        },
+		                  }
+		              }],
+		              min: 20,// 最小値
+		              max: 50,//最大値
+		          },
+			        labels: {
+			            items: [{
+			                html: '',
+			                style: {
+			                    left: '50px',
+			                    top: '18px',
+			                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+			                }
+			            }]
+			        },
+			        series: [{
+			            type: 'column',
+			            name: '体温',
+			            data: data_body_temperature
+			        },]
+			    });
+			});
+			</script>
 		</div><!-- cont2 E  -->
 		<div id="cont3" class="cont"><!-- cont3 S  -->
-			<p>おすすめコンテンツ</p>
+			<!-- <h3 class="h3 text-success">おすすめコンテンツ</h3> -->
+			<table class="table1">
+				<tr>
+					<th>生活改善のアドバイス</th>
+					<td><?= $patient->advice ?></td>
+				<tr>
+				<tr>
+					<th>ジュネリック医薬品</th>
+					<td><?= $patient->generic_drug ?></td>
+				<tr>
+				<tr>
+					<th>健康食品</th>
+					<td><?= $patient->health_food ?></td>
+				<tr>
+			</table>
 		</div><!-- cont3 E  -->
 	</div><!-- tab_area E -->
 </div><!-- wrapper E -->

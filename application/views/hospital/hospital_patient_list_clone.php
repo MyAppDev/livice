@@ -221,10 +221,10 @@
 				<?= form_open('hospital/patient_details/'.$patient->id); ?>
 				<tr>
 					<td><img style="margin-left:25px;" width="50px" src="<?= base_url(); ?>assets/img/<?= $patient->image; ?>"></td>
-					<td><?= $patient->name; ?></td>
-					<td><?= $patient->name_kana; ?></td>
+					<td><?= str_replace(',', ' ', $patient->name); ?></td>
+					<td><?= str_replace(',', ' ', $patient->name_kana); ?></td>
 					<td><?= $year = (int) ((date('Ymd')-$patient->age)/10000); ?>歳</td>
-					<td><?= $patient->area; ?></td>
+					<td><?= str_replace(',', '', $patient->area); ?></td>
 					<td><?= $patient->disease; ?></td>
 					<td><?= $patient->medicine; ?></td>
 					<td><?= $patient->caution; ?></td>
