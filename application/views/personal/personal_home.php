@@ -159,7 +159,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<td><a href="#page3"><img width="200px" src="<?= base_url(); ?>assets/img/ic_tips.png">アドバイス</a></td>
 						</tr>
 						<tr>
-							<td><a href="#page5"><img width="200px" src="<?= base_url(); ?>assets/img/ic_safari.png">時計</a></td>
+							<td><a href="#page5"><img width="200px" src="<?= base_url(); ?>assets/img/ic_clock_fix.png">時計</a></td>
 							<td><a href="#page4"><img width="200px" src="<?= base_url(); ?>assets/img/ic_find_friends.png">お薬手帳</a></td>
 						</tr>
 					</table>
