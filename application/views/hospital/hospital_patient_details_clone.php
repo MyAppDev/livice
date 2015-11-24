@@ -11,7 +11,7 @@
 <!-- <script type="text/javascript" src="<?= base_url(); ?>assets/js/modules/exporting.js"></script> -->
 
 <!-- bootstrap -->
-<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/bootstrap.min.css" >
+<!-- <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/bootstrap.min.css" > -->
 <!-- <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/bootstrap-glyphicons.css" > -->
 <script type="text/javascript" src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
 
@@ -38,8 +38,7 @@
 
 .table1 {
 	border-collapse: collapse;
-	width:800px;
-	margin: 10px 0 0 10px;
+	width:100%;
 }
 th.t_top {
     border-top: #be1309 4px solid;
@@ -48,7 +47,7 @@ th {
 	border-bottom: #e3e3e3 1px dotted;
 	text-align: left;
 	font-size:20px;
-	font-weight:900;
+	font-weight:bold;
 	padding: 10px;
 	font-weight: normal;
 	background: skyblue;
@@ -82,6 +81,41 @@ td {
 		border-width: 1px 1px 0px 1px;
 	 	border-color: #888888;
 }
+
+#tab_area th {
+	width:230px;
+}
+
+#tab_area th.t_top {
+    border-top: #be1309 4px solid;
+}
+
+#tab_area td.t_top {
+	border-top: #b3b3b3 4px solid;
+}
+
+#tab_area li {
+	color:#000;
+	padding:10px 0 0 10px;
+	font-weight: bold;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.4), inset 0 1px 0 #FFF;
+}
+
+#tab_area {
+	color:#000;
+	
+}
+
+#tab_area a:hover{
+	text-decoration: none;
+
+}
+
+#cont1 {
+	box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+}
+
 
 </style>
 
@@ -394,8 +428,8 @@ td {
 			<!-- <h3 class="h3 text-success">おすすめコンテンツ</h3> -->
 			<table class="table1">
 				<tr>
-					<th>生活改善のアドバイス</th>
-					<td><?= $patient->advice ?></td>
+					<th class="t_top">生活改善のアドバイス</th>
+					<td class="t_top"><?= $patient->advice ?></td>
 				<tr>
 				<tr>
 					<th>ジュネリック医薬品</th>
