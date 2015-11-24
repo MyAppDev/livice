@@ -145,9 +145,10 @@ td {
 			</table>
 		</div><!-- cont1 E  -->
 		<div id="cont2" class="cont"><!-- cont2 S  -->
-			<!-- 年間推移グラフ -->
-			<!-- <div id="container_year" style="min-width: 70%; height: 70%; margin: 0 auto"></div> -->
-			<!-- <script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/personal_dashboard_yearly_transition.js"></script> -->
+			<!-- メッセージ表示コンテナ -->
+			<div id="container_message" style="min-width: 70%; height: 50%; margin: 0 auto"><!-- container_message S -->
+				<?php echo "メッセージ"; ?>
+			</div><!-- container_message E -->
 
 			<!-- 心拍年間グラフ -->
 			<div id="container_heartbeat_year" style="min-width: 70%; height: 50%; margin: 0 auto"></div>
@@ -180,7 +181,8 @@ td {
 		              title: {
 		                  text: '心拍数'
 		              },
-		              plotLines: [{
+		              plotLines: [
+										{
 		                  value: 91,// 警告ライン
 		                  width: 2,
 		                  color: '#F44336',
@@ -192,7 +194,34 @@ td {
 		                          color: 'red',
 		                        },
 		                  }
-		              }],
+		              	},
+										{
+		                  value: 60,// 平常値下限ライン
+		                  width: 2,
+		                  color: '#7986CB',
+		                  dashStyle: 'shortdash',
+		                  label: {
+		                        text: '平常値下限',
+														style: {
+		                          //fontSize: '20px', // y軸目盛の文字サイズ
+		                          color: 'blue',
+		                        },
+		                  }
+		              	},
+										{
+		                  value: 80,// 平常値上限ライン
+		                  width: 2,
+		                  color: '#7986CB',
+		                  dashStyle: 'shortdash',
+		                  label: {
+		                        text: '平常値上限',
+														style: {
+		                          //fontSize: '20px', // y軸目盛の文字サイズ
+		                          color: 'blue',
+		                        },
+		                  }
+		              	},
+									],
 		              min: 50,// 最小値
 		              max: 120,//最大値
 		          },
@@ -225,7 +254,8 @@ td {
 		              title: {
 		                  text: '血圧'
 		              },
-		              plotLines: [{
+		              plotLines: [
+										{
 		                  value: 140,// 警告ライン
 		                  width: 2,
 		                  color: '#F44336',
@@ -237,9 +267,36 @@ td {
 		                          color: 'red',
 		                        },
 		                  }
-		              }],
-		              min: 90,// 最小値
-		              max: 160,//最大値
+		              	},
+										{
+		                  value: 80,// 平常値下限ライン
+		                  width: 2,
+		                  color: '#7986CB',
+		                  dashStyle: 'shortdash',
+		                  label: {
+		                        text: '平常値下限',
+														style: {
+		                          //fontSize: '20px', // y軸目盛の文字サイズ
+		                          color: 'blue',
+		                        },
+		                  }
+		              	},
+										{
+		                  value: 130,// 平常値上限ライン 文字被り回避の為あえて130にしています。(本来:135)
+		                  width: 2,
+		                  color: '#7986CB',
+		                  dashStyle: 'shortdash',
+		                  label: {
+		                        text: '平常値上限',
+														style: {
+		                          //fontSize: '20px', // y軸目盛の文字サイズ
+		                          color: 'blue',
+		                        },
+		                  }
+		              	},
+									],
+		              min: 70,// 最小値
+		              max: 150,//最大値
 		          },
 			        labels: {
 			            items: [{
@@ -270,7 +327,8 @@ td {
 		              title: {
 		                  text: '体温'
 		              },
-		              plotLines: [{
+		              plotLines: [
+										{
 		                  value: 38,// 警告ライン
 		                  width: 2,
 		                  color: '#F44336',
@@ -282,9 +340,36 @@ td {
 		                          color: 'red',
 		                        },
 		                  }
-		              }],
-		              min: 20,// 最小値
-		              max: 50,//最大値
+		              	},
+										{
+		                  value: 36.6,// 平常値下限ライン
+		                  width: 2,
+		                  color: '#7986CB',
+		                  dashStyle: 'shortdash',
+		                  label: {
+		                        text: '平常値下限',
+														style: {
+		                          //fontSize: '20px', // y軸目盛の文字サイズ
+		                          color: 'blue',
+		                        },
+		                  }
+		              	},
+										{
+		                  value: 37.2,// 平常値上限ライン
+		                  width: 2,
+		                  color: '#7986CB',
+		                  dashStyle: 'shortdash',
+		                  label: {
+		                        text: '平常値上限',
+														style: {
+		                          //fontSize: '20px', // y軸目盛の文字サイズ
+		                          color: 'blue',
+		                        },
+		                  }
+		              	},
+									],
+		              min: 34,// 最小値
+		              max: 40,//最大値
 		          },
 			        labels: {
 			            items: [{
