@@ -21,7 +21,7 @@ class Hospital extends CI_Controller {
 	public function __construct()
 	{
 		 parent::__construct();
-		 $this->load->library('dummy');
+		 $this->load->library(array('dummy', 'hospitalanalysis'));
 	}
 
 	public function index()
@@ -124,6 +124,22 @@ class Hospital extends CI_Controller {
 		);
 
 		$data['patient_info'] = $this->Patient->get_target_data($id);
+
+		// 分析処理
+		$ha = new HospitalAnalysis();
+		// var_dump($data['patient_info'][0]->data_heartbeat);
+		// data_heartbeat
+		// data_blood
+		// data_body_temperature
+		$biological_information = array(
+			'heartbeat' => $data['patient_info'][0]->data_heartbeat,
+			'body_temperature' => $data['patient_info'][0]->data_body_temperature,
+			'blood_pressure' => $data['patient_info'][0]->data_blood,
+		);
+		// var_dump($biological_information);
+
+		$data['analysis_message'] = $ha->diseaseSignsPrediction($biological_information);
+		// var_dump($data['analysis_message']);
 		// var_dump($data);
 		// $this->load->view('hospital/hospital_patient_details', $data);
 		hospital_common_view('hospital/hospital_patient_details_clone', $data);

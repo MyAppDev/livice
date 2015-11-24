@@ -192,9 +192,10 @@ $(function () {
                       color: '#fff',
 								  }
 							},
-              plotLines: [{
+              plotLines: [
+                {
                   value: 91, //警告ライン
-                  width: 2,
+                  width: 3,
                   color: '#F44336',
                   dashStyle: 'shortdash',
                   label: {
@@ -204,7 +205,34 @@ $(function () {
                           color: 'red',
                         },
                   }
-              }],
+                },
+                {
+                  value: (60 + 1),// 平常値下限ライン 被りを防ぐ為に1加算しています
+                  width: 3,
+                  color: '#7986CB',
+                  dashStyle: 'shortdash',
+                  label: {
+                        text: '平常値下限',
+                        style: {
+                          fontSize: '20px', // y軸目盛の文字サイズ
+                          color: 'blue',
+                        },
+                  }
+                },
+                {
+                  value: (80 + 1),// 平常値上限ライン 被りを防ぐ為に1加算しています
+                  width: 3,
+                  color: '#7986CB',
+                  dashStyle: 'shortdash',
+                  label: {
+                        text: '平常値上限',
+                        style: {
+                          fontSize: '20px', // y軸目盛の文字サイズ
+                          color: 'blue',
+                        },
+                  }
+                },
+              ],
               min: 50,// 最小値
               max: 120,//最大値
           },
