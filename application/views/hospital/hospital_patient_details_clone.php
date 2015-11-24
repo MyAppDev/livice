@@ -145,9 +145,12 @@ td {
 			</table>
 		</div><!-- cont1 E  -->
 		<div id="cont2" class="cont"><!-- cont2 S  -->
-			<!-- メッセージ表示コンテナ -->
+			<!-- 医師へのメッセージ表示コンテナ
+						適宜デザインの変更をお願いします	-->
 			<div id="container_message" style="min-width: 70%; height: 50%; margin: 0 auto"><!-- container_message S -->
-				<?php echo "メッセージ"; ?>
+				<?= $analysis_message['heartbeat'];// 心拍に関するメッセージ ?>
+				<?= $analysis_message['blood_pressure'];// 血圧に関するメッセージ ?>
+				<?= $analysis_message['body_temperature'];// 体温に関するメッセージ ?>
 			</div><!-- container_message E -->
 
 			<!-- 心拍年間グラフ -->
