@@ -12,7 +12,7 @@
 <!-- <script type="text/javascript" src="<?= base_url(); ?>assets/js/modules/exporting.js"></script> -->
 
 <!-- bootstrap -->
-<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/bootstrap.min.css" >
+<!--<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/bootstrap.min.css" > -->
 <script type="text/javascript" src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
 
 <!--hospital_dashboard -->
@@ -26,22 +26,26 @@
 
 <style type="text/css">
 .table1 {
-	width:1420px;
-	margin:auto 10px;
+    width:100%;
+    margin: 15px auto 10px;
+
 }
 
 .table1 th{
-	font-size: 24px;
-	padding-bottom:5px;
-	text-align: left;
+    font-size: 18px;
+    padding-bottom:5px;
+    text-align: left;
+    font-weight: bold;
+
 }
 
 .table1 td{
-	padding-top:3px;
-	padding-bottom:3px;
-	padding-left: 5px;
-	border-top:1px dotted #6E6E6E;
-	font-size: 18px;
+    padding:3px 0 3px 0;
+    margin:0px;
+    border-top:1px dotted #6E6E6E;
+    font-size: 18px;
+    text-align: left;
+
 }
 
 .serch{
@@ -123,6 +127,14 @@
 #search_submit {
 	margin-top:8px;
 	width:80px;
+}
+
+.text-success {
+    background:#2E8B57;
+    color:#fff;
+    width:115px;
+    padding:6px 6px 6px 9px;
+
 }
 
 /*緊急用点滅*/
@@ -213,9 +225,9 @@
 	<div id="list_area"><!-- list_area S -->
 		<table id="patient_list" class="table1">
 			<thead>
-				<th style="width:120px;">患者画像</th>
-				<th style="width:90px;">患者名</th>
-				<th style="width:140px;">患者名(カナ)</th>
+                <th style="width:90px;">患者画像</th>
+                <th style="width:110px;">患者名</th>
+                <th style="width:130px;">患者名(カナ)</th>
 				<th style="width:60px;">年齢</th>
 				<th style="width:120px;">地域</th>
 				<th style="width:200px;">病名</th>
@@ -235,7 +247,8 @@
 				?>
 				<?= form_open('hospital/patient_details/'.$patient->id); ?>
 				<tr>
-					<td><img style="margin-left:25px;" width="50px" src="<?= base_url(); ?>assets/img/<?= $patient->image; ?>"></td>
+					                    <td><img style="margin-left:12px;" width="50px" src="<?= base_url(); ?>assets/img/<?= $patient->image; ?>"></td>
+
 					<td><var class="notflash"><?= str_replace(',', ' ', $patient->name); ?></var></td>
 					<td><?= str_replace(',', ' ', $patient->name_kana); ?></td>
 					<td><?= $year = (int) ((date('Ymd')-$patient->age)/10000); ?>歳</td>
