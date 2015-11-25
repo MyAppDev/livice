@@ -145,8 +145,19 @@ class Hospital extends CI_Controller {
 		hospital_common_view('hospital/hospital_patient_details_clone', $data);
 	}
 
-	public function message_add($message){
+	/**
+	 * 医師が記入したアドバイスを登録する
+	 */
+	public function advice_add($advice){
 		
+	}
+
+	/**
+	 * Ajaxでアドバイスを読み込む(実験用)
+	 *
+	 */
+	public function async_advice_list(){
+
 	}
 
 	/**

@@ -84,5 +84,16 @@ class Patient_model extends CI_Model {
         $query = $this->db->get_where('patient', array('id' => $id), $limit, $offset);
         return $query->result();
     }
+
+    /** idを指定してデータ更新する */
+    // function update_data($data){
+    //   $data = array(
+    //            'title' => $title,
+    //            'name' => $name,
+    //            'date' => $date
+    //         );
+    //   $this->db->where('id', $id);
+    //   $this->db->update('mytable', $data);
+    // }
 }
 ?>
