@@ -145,6 +145,10 @@ class Hospital extends CI_Controller {
 		hospital_common_view('hospital/hospital_patient_details_clone', $data);
 	}
 
+	public function message_add($message){
+		
+	}
+
 	/**
 	 *  病院用ダッシュボードのレイアウトテスト
 	 *

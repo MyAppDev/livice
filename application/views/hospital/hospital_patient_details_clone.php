@@ -104,7 +104,7 @@ td {
 
 #tab_area {
 	color:#000;
-	
+
 }
 
 #tab_area a:hover{
@@ -140,6 +140,7 @@ td {
 		  <li id="tab1" class="tab_head"><a href="#cont1">プロフィール</a></li>
 		  <li id="tab2" class="tab_head"><a href="#cont2">年間グラフ</a></li>
 		  <li id="tab3" class="tab_head"><a href="#cont3">おすすめ</a></li>
+			<li id="tab4" class="tab_head"><a href="#cont4">アドバイス</a></li>
 		</ul>
 		<div id="cont1" class="cont"><!-- cont1 S  -->
 			<table class="table1">
@@ -465,5 +466,55 @@ td {
 				<tr>
 			</table>
 		</div><!-- cont3 E  -->
+		<div id="cont4" class="cont"><!-- cont4 S  -->
+
+			<!-- 医師がアドバイスを記入するエリア -->
+			<div id="add_area"><!-- add_area S -->
+				<?php
+					// フォーム用パラメータ
+					$param_advice = array(
+						'id' => 'advice',
+						'class' => '',
+						'name'  => 'advice',
+						'value' => '',
+						'rows' => '5',
+						'cols' => '50',
+					);
+					$param_add = array(
+						'id' => 'add',
+						'class' => 'btn btn-success',
+						'name'  => 'add',
+						'value' => '登録',
+					);
+				?>
+				<?= form_open('#'); ?>
+				<table>
+					<tr>
+						<th>アドバイス</th>
+						<td><?= form_textarea($param_advice); ?></td>
+						<td><?= form_submit($param_add); ?></td>
+					</tr>
+				</table>
+				<?= form_close() ?>
+			</diV><!-- add_area E -->
+
+			<!-- 医師が記入したアドバイス一覧 -->
+			<div id="advice_list"><!-- advice_list S -->
+				<table>
+					<thead>
+						<tr>
+							<th>アドバイス</th>
+							<th>日付</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>ここにアドバイス</td>
+							<td>2015/02/22</td>
+						</tr>
+					</tbody>
+				</table>
+			</div><!-- advice_list S -->
+		</div><!-- cont4 E  -->
 	</div><!-- tab_area E -->
 </div><!-- wrapper E -->
