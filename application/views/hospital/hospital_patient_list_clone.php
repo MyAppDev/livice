@@ -28,6 +28,7 @@
 .table1 {
     width:100%;
     margin: 15px auto 10px;
+    
 
 }
 
@@ -46,6 +47,12 @@
     font-size: 18px;
     text-align: left;
 
+}
+
+#list_area {
+	margin:5px 0 0 0;
+	padding-top:30px;
+	border-top:1px solid #E6E6E6; 
 }
 
 .serch{
@@ -85,8 +92,7 @@
 	float:left;
 	padding-left: 10px;
 	font-size: 18px;
-
-
+	margin-bottom: 20px;
 }
 
 
@@ -96,37 +102,38 @@
 
 #search_patient {
 	width:120px;
-	height:17px;
-	margin-top:10px;
+	height:25px;
+	margin-left:10px;
 }
 
 #search_disease {
 	width:120px;
-	height:17px;
-	margin-top:10px;
+	height:25px;
+	margin-left:10px;
 }
 
 #search_area {
 	width:120px;
-	height:17px;
-	margin-top:10px;
+	height:25px;
+	margin-left:10px;
 }
 
 #search_medicine {
 	width:120px;
-	height:17px;
-	margin-top:10px;
+	height:25px;
+	margin-left:10px;
 }
 
 #search_age {
-	width:30px;
-	height:17px;
-	margin-top:10px;
+	width:45px;
+	height:25px;
+	margin-left:10px;
 }
 
 #search_submit {
-	margin-top:8px;
 	width:80px;
+	margin-left:20px;
+	margin-top:-5px;
 }
 
 .text-success {

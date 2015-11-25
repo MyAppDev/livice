@@ -113,9 +113,16 @@ td {
 }
 
 #cont1 {
-	box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
+	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);	
 }
 
+#cont2 {
+	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);	
+}
+
+#cont3 {
+	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);	
+}
 
 </style>
 
@@ -182,18 +189,32 @@ td {
 		<div id="cont2" class="cont"><!-- cont2 S  -->
 			<!-- 医師へのメッセージ表示コンテナ
 						適宜デザインの変更をお願いします	-->
-			<div id="container_message" style="min-width: 70%; height: 50%; margin: 0 auto"><!-- container_message S -->
-				<?= $analysis_message['heartbeat'];// 心拍に関するメッセージ ?>
+			<div id="container_message"
+				 style="background:#2E8B57;
+				 		color:#fff;
+				 		font-size:20px;
+				 		box-shadow:rgba(113, 135, 164, 0.407843) 4px 4px 5px 0px;
+				 		font-weight:bold;
+				 		border-radius:5px;
+				 		padding:10px;
+				 		width:98%;
+				 		height:50px;
+				 		margin:10px;
+
+
+
+				 "><!-- container_message S -->
+				<p><?= $analysis_message['heartbeat'];// 心拍に関するメッセージ ?></p>
 				<?= $analysis_message['blood_pressure'];// 血圧に関するメッセージ ?>
 				<?= $analysis_message['body_temperature'];// 体温に関するメッセージ ?>
 			</div><!-- container_message E -->
 
 			<!-- 心拍年間グラフ -->
-			<div id="container_heartbeat_year" style="min-width: 70%; height: 50%; margin: 0 auto"></div>
+			<div id="container_heartbeat_year" style="min-width: 70%; height: 50%; margin: 0 auto; font-weight:bold;"></div>
 			<!-- 血圧年間グラフ -->
-			<div id="container_blood_year" style="min-width: 70%; height: 50%; margin: 0 auto"></div>
+			<div id="container_blood_year" style="min-width: 70%; height: 50%; margin: 0 auto; font-weight:bold;"></div>
 			<!-- 体温年間グラフ -->
-			<div id="container_body_temperature_year" style="min-width: 70%; height: 50%; margin: 0 auto"></div>
+			<div id="container_body_temperature_year" style="min-width: 70%; height: 50%; margin: 0 auto; font-weight:bold;"></div>
 
 			<script type="text/javascript">
 			$(function () {
