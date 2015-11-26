@@ -113,16 +113,9 @@ td {
 }
 
 #cont1 {
-	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);	
+	box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
 }
 
-#cont2 {
-	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);	
-}
-
-#cont3 {
-	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);	
-}
 
 </style>
 
@@ -189,32 +182,18 @@ td {
 		<div id="cont2" class="cont"><!-- cont2 S  -->
 			<!-- 医師へのメッセージ表示コンテナ
 						適宜デザインの変更をお願いします	-->
-			<div id="container_message"
-				 style="background:#2E8B57;
-				 		color:#fff;
-				 		font-size:20px;
-				 		box-shadow:rgba(113, 135, 164, 0.407843) 4px 4px 5px 0px;
-				 		font-weight:bold;
-				 		border-radius:5px;
-				 		padding:10px;
-				 		width:98%;
-				 		height:50px;
-				 		margin:10px;
-
-
-
-				 "><!-- container_message S -->
-				<p><?= $analysis_message['heartbeat'];// 心拍に関するメッセージ ?></p>
+			<div id="container_message" style="min-width: 70%; height: 50%; margin: 0 auto"><!-- container_message S -->
+				<?= $analysis_message['heartbeat'];// 心拍に関するメッセージ ?>
 				<?= $analysis_message['blood_pressure'];// 血圧に関するメッセージ ?>
 				<?= $analysis_message['body_temperature'];// 体温に関するメッセージ ?>
 			</div><!-- container_message E -->
 
 			<!-- 心拍年間グラフ -->
-			<div id="container_heartbeat_year" style="min-width: 70%; height: 50%; margin: 0 auto; font-weight:bold;"></div>
+			<div id="container_heartbeat_year" style="min-width: 70%; height: 50%; margin: 0 auto"></div>
 			<!-- 血圧年間グラフ -->
-			<div id="container_blood_year" style="min-width: 70%; height: 50%; margin: 0 auto; font-weight:bold;"></div>
+			<div id="container_blood_year" style="min-width: 70%; height: 50%; margin: 0 auto"></div>
 			<!-- 体温年間グラフ -->
-			<div id="container_body_temperature_year" style="min-width: 70%; height: 50%; margin: 0 auto; font-weight:bold;"></div>
+			<div id="container_body_temperature_year" style="min-width: 70%; height: 50%; margin: 0 auto"></div>
 
 			<script type="text/javascript">
 			$(function () {
@@ -470,13 +449,16 @@ td {
 
 			<!-- 医師がアドバイスを記入するエリア -->
 			<div id="add_area"><!-- add_area S -->
+				<!-- 登録結果表示用 -->
+				<div id="added_result"><!-- added_result S -->
+				</div><!-- added_result E -->
 				<?php
 					// フォーム用パラメータ
 					$param_advice = array(
 						'id' => 'advice',
 						'class' => '',
 						'name'  => 'advice',
-						'value' => '',
+						'value' => set_value('advice'),
 						'rows' => '5',
 						'cols' => '50',
 					);
@@ -486,8 +468,13 @@ td {
 						'name'  => 'add',
 						'value' => '登録',
 					);
+					$hidden = array(
+						'id' => $patient->id,
+						'patient_number' => $patient->patient_number,
+					);
 				?>
-				<?= form_open('#'); ?>
+				<!-- アドバイス登録用フォーム -->
+				<?= form_open(base_url().'hospital/advice_add', '',$hidden); ?>
 				<table>
 					<tr>
 						<th>アドバイス</th>
@@ -508,10 +495,16 @@ td {
 						</tr>
 					</thead>
 					<tbody>
+						<?php foreach($advice as $ad){ ?>
 						<tr>
-							<td>ここにアドバイス</td>
-							<td>2015/02/22</td>
+							<td><?= $ad->advice; ?></td>
+							<td><?php
+											$year = mb_substr($ad->created, 0, 4);
+											$month = mb_substr($ad->created, 4, 2);
+											$day = mb_substr($ad->created, 6, 2);
+											echo $year.'年'.$month.'月'.$day.'日';  ?></td>
 						</tr>
+						<?php } ?>
 					</tbody>
 				</table>
 			</div><!-- advice_list S -->

@@ -115,6 +115,7 @@ class Hospital extends CI_Controller {
 	 */
 	public function patient_details($id){
 		$this->load->model('Patient_model', 'Patient');
+		$this->load->model('Advice_model', 'Advice');
 		// 共通レイアウトロード
 		$this->load->helper(array('common_layout_helper'));
 		// 共通レイアウトへ設定する値
@@ -123,33 +124,48 @@ class Hospital extends CI_Controller {
 			'meta_title'=> 'patient_details',
 		);
 
+		// 患者プロフィール
 		$data['patient_info'] = $this->Patient->get_target_data($id);
 
 		// 分析処理
 		$ha = new HospitalAnalysis();
-		// var_dump($data['patient_info'][0]->data_heartbeat);
-		// data_heartbeat
-		// data_blood
-		// data_body_temperature
 		$biological_information = array(
 			'heartbeat' => $data['patient_info'][0]->data_heartbeat,
 			'body_temperature' => $data['patient_info'][0]->data_body_temperature,
 			'blood_pressure' => $data['patient_info'][0]->data_blood,
 		);
-		// var_dump($biological_information);
-
 		$data['analysis_message'] = $ha->diseaseSignsPrediction($biological_information);
-		// var_dump($data['analysis_message']);
-		// var_dump($data);
-		// $this->load->view('hospital/hospital_patient_details', $data);
+
+		// 医師からのアドバイス
+		$data['advice'] = $this->Advice->find_by_patient_number($data['patient_info'][0]->patient_number);
+
 		hospital_common_view('hospital/hospital_patient_details_clone', $data);
 	}
 
 	/**
-	 * 医師が記入したアドバイスを登録する
+	 * 医師からのアドバイスを登録する
 	 */
-	public function advice_add($advice){
-		
+	public function advice_add(){
+		$this->load->model('Advice_model', 'Advice');
+		$data = array(
+			'patient_number' => $this->input->post('patient_number'),
+      'advice' => $this->input->post('advice'),
+      'doctor' => '',
+      'generic_drug' => '',
+      'health_food' => '',
+      'checked' => 0,
+      'created' => date("YmdHis"),
+      'modified' => date("YmdHis"),
+		);
+		$this->Advice->insert_data($data);
+		redirect( 'hospital/patient_details/'.$this->input->post('id') );
+	}
+
+	/**
+	 * Ajaxで医師が記入したアドバイスを登録する（実験用）
+	 */
+	public function async_advice_add($advice){
+
 	}
 
 	/**
@@ -157,8 +173,12 @@ class Hospital extends CI_Controller {
 	 *
 	 */
 	public function async_advice_list(){
+		$this->load->model('Advice_model', 'Advice');
 
+		$this->Advice->insert_data();
 	}
+
+
 
 	/**
 	 *  病院用ダッシュボードのレイアウトテスト
