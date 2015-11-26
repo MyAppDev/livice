@@ -43,26 +43,11 @@
 th.t_top {
     border-top: #be1309 4px solid;
 }
-th {
-	border-bottom: #e3e3e3 1px dotted;
-	text-align: left;
-	font-size:20px;
-	font-weight:bold;
-	padding: 10px;
-	font-weight: normal;
-	background: skyblue;
-}
+
 td.t_top {
 	border-top: #b3b3b3 4px solid;
 }
-td {
-	border-bottom: #e3e3e3 1px dotted;
-	font-size:20px;
-	border-right: #e3e3e3 1px solid;
-	text-align: left;
-	padding: 10px;
 
-}
 
 /* タブ用 デザインはおまかせします */
 #tab_area > ul {
@@ -83,7 +68,7 @@ td {
 }
 
 #tab_area th {
-	width:230px;
+	width:130px;
 }
 
 #tab_area th.t_top {
@@ -104,24 +89,141 @@ td {
 
 #tab_area {
 	color:#000;
-
 }
 
 #tab_area a:hover{
 	text-decoration: none;
-
 }
 
 #cont1 {
 	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);	
 }
 
+
+#cont1 th {
+	border-bottom: #e3e3e3 1px dotted;
+	text-align: left;
+	font-size:20px;
+	font-weight:bold;
+	padding: 10px;
+	font-weight: normal;
+	background: skyblue;
+}
+
+#cont1 td {
+	border-bottom: #e3e3e3 1px dotted;
+	font-size:20px;
+	border-right: #e3e3e3 1px solid;
+	text-align: left;
+	padding: 10px;
+}
+
 #cont2 {
 	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);	
 }
 
+#cont2 th {
+	border-bottom: #e3e3e3 1px dotted;
+	text-align: left;
+	font-size:20px;
+	font-weight:bold;
+	padding: 10px;
+	font-weight: normal;
+	background: skyblue;
+}
+
+#cont2 td {
+	border-bottom: #e3e3e3 1px dotted;
+	font-size:20px;
+	border-right: #e3e3e3 1px solid;
+	text-align: left;
+	padding: 10px;
+}
+
 #cont3 {
 	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);	
+}
+
+#cont3 th {
+	border-bottom: #e3e3e3 1px dotted;
+	text-align: left;
+	font-size:20px;
+	font-weight:bold;
+	padding: 10px;
+	font-weight: normal;
+	background: skyblue;
+}
+
+#cont3 td {
+	border-bottom: #e3e3e3 1px dotted;
+	font-size:20px;
+	border-right: #e3e3e3 1px solid;
+	text-align: left;
+	padding: 10px;
+}
+
+#cont4 {
+	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);
+}
+
+#cont4 th.add_form {
+	background: skyblue;
+	margin-left:20px;
+	text-align: center;
+	font-size:20px;
+	font-weight: bold;
+	/*vertical-align: top;*/
+}
+
+#advice_list {
+    border-collapse: separate;
+    border-spacing: 1px;
+    line-height: 1.5;
+    margin-top:20px;
+}
+#advice_list th {
+    width: 155px;
+    padding: 10px;
+    font-weight: bold;
+    color: #fff;
+    background: #036;
+    border-left:2px solid #fff;
+}
+#advice_list td {
+    width: 155px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    background: #eee;
+    border-left:2px solid #fff;
+}
+
+
+.add_form textarea{
+	margin:7px 0 0 10px;
+}
+
+
+#cont4 th{
+}
+
+#cont4 td.add_form {
+	width:400px;
+}
+
+#add_area {
+	width: 100%;
+}
+
+#add_area table{
+	width: 100%;	
+}
+
+#advice_list {
+	width:100%;
+}
+
+#advice_list table{
+	width:100%;
 }
 
 </style>
@@ -200,9 +302,6 @@ td {
 				 		width:98%;
 				 		height:50px;
 				 		margin:10px;
-
-
-
 				 "><!-- container_message S -->
 				<p><?= $analysis_message['heartbeat'];// 心拍に関するメッセージ ?></p>
 				<?= $analysis_message['blood_pressure'];// 血圧に関するメッセージ ?>
@@ -490,9 +589,9 @@ td {
 				<?= form_open('#'); ?>
 				<table>
 					<tr>
-						<th>アドバイス</th>
-						<td><?= form_textarea($param_advice); ?></td>
-						<td><?= form_submit($param_add); ?></td>
+						<th class="add_form">アドバイス</th>
+						<td class="add_form"><?= form_textarea($param_advice); ?></td>
+						<td style="vertical-align: bottom;"><?= form_submit($param_add); ?></td>
 					</tr>
 				</table>
 				<?= form_close() ?>
@@ -503,14 +602,14 @@ td {
 				<table>
 					<thead>
 						<tr>
-							<th>アドバイス</th>
-							<th>日付</th>
+							<th class="col">アドバイス</th>
+							<th class="col" style="width:20%;">日付</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td>ここにアドバイス</td>
-							<td>2015/02/22</td>
+							<td class="col">ここにアドバイス</td>
+							<td class="col">2015/02/22</td>
 						</tr>
 					</tbody>
 				</table>
