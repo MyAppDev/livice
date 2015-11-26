@@ -26,7 +26,7 @@ class Logger extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view('personal/personal_index');
 	}
 
 	/** 個人用ダッシュボード */
