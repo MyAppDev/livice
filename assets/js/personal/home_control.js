@@ -1,4 +1,65 @@
+/** ホームコントロールクラス */
+var HomeControl = function(){
+
+		/** アドバイスID */
+		this.adviceId;
+
+    /** アドバイス */
+    this.advice;
+
+		/** 登録日 */
+		this.created;
+
+};
+
+/** セッター */
+HomeControl.prototype.setAdviceId = function(adviceId){
+    this.adviceId = adviceId;
+};
+HomeControl.prototype.setAdvice = function(advice){
+    this.advice = advice;
+};
+HomeControl.prototype.setCreated = function(created){
+    this.created = created;
+};
+/** ゲッター */
+HomeControl.prototype.getAdviceId = function(){
+    return this.adviceId;
+};
+HomeControl.prototype.getAdvice = function(){
+    return this.advice;
+};
+HomeControl.prototype.getCreated = function(){
+    return this.created;
+};
+/** アドバイスの取得を行う */
+HomeControl.prototype.asyncLatestAdvice = function (patient_number){
+  var altThis = this;
+  var result = null;
+  $.ajax({
+      scriptCharset: 'utf-8',
+      url: "/livice/Hospital/async_get_latest_advice/"+ patient_number,
+      dataType: 'html',
+  }).done(function(data){
+      console.debug('success!!!' + data);
+      var jsonObj = $.parseJSON(data)[0];
+      // console.debug(jsonObj);
+      //console.log(jsonObj.heartbeat);
+      altThis.setAdviceId(jsonObj.id);
+      altThis.setAdvice(jsonObj.advice);
+      altThis.setCreated(jsonObj.created);
+  }).fail(function(data){
+      console.log('error!!!' + data);
+  });
+  // console.log(altThis.getAdvice());
+  // console.log(altThis.getCalories());
+  // console.log(altThis.getElevation());
+  // console.log(altThis.getBlood());
+  // console.log(altThis.getSpeed());
+};
+
 $(document).ready(function() {
+	console.debug('home_control.js');
 
 	/*
 	* Plugin intialization
@@ -24,7 +85,6 @@ $(document).ready(function() {
     }
   });
 
-
 	/*
    * Internal use of the demo website
    */
@@ -46,4 +106,29 @@ $(document).ready(function() {
 			window.location.href = '/livice/Personal/home#page1';
 		}
 	});
+
+	/**
+	 * 最新のアドバイス取得する
+	 */
+	var hm = new HomeControl();
+
+	// 患者番号(決め打ち)
+	var PATIENT_NUMBER = '912345678901';
+	// 最新のアドバイスID
+	var latestAdviceId = 0;
+
+	// 1秒毎に処理を実行
+	var timer = setInterval( function () {
+		hm.asyncLatestAdvice(PATIENT_NUMBER);
+		if(latestAdviceId < hm.getAdviceId()){
+			latestAdviceId = hm.getAdviceId();
+			console.debug('最新のアドバイスID = ' + hm.getAdviceId());
+			console.debug('アドバイス = ' + hm.getAdvice());
+			console.debug('登録日 = ' + hm.getCreated());
+
+			// Todo ・・・
+			//通知処理　
+		}
+	} , 1000 );
+
 });

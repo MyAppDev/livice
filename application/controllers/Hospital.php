@@ -179,12 +179,21 @@ class Hospital extends CI_Controller {
 
 	/**
 	 * Ajaxでアドバイスを読み込む(実験用)
-	 *
 	 */
 	public function async_advice_list(){
 		$this->load->model('Advice_model', 'Advice');
 
 		$this->Advice->insert_data();
+	}
+
+	/**
+	 * Ajaxで最新のアドバイスを読み込む
+	 * async_get_latest_advice/912345678901
+	 */
+	public function async_get_latest_advice($patient_number){
+		$this->load->model('Advice_model', 'Advice');
+		$latest_advice = $this->Advice->get_latest_data($patient_number);
+		echo json_encode($latest_advice);
 	}
 
 
