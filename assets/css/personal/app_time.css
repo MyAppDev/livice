@@ -1,0 +1,49 @@
+html {
+    height: 100%;
+}
+body {
+    background: linear-gradient(#3B70AF, #245D9E) #3B70AF;
+    margin: 0px;
+    text-align: center;
+}
+div {
+    text-align: left;
+}
+#clock {
+    position: relative;
+    background: linear-gradient(rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+    margin: auto;
+    margin-top: 64px;
+    border-radius: 300px;
+}
+#clock p {
+    position: absolute;
+    margin: 0px;
+}
+#clock p b {
+    display: block;
+}
+#clock .div b {
+    width: 1px;
+    height: 8px;
+    background: rgba(255,255,255,0.4);
+}
+#clock .div.m5 b {
+    height: 20px;
+    background: rgba(255,255,255,0.7);
+}
+#clock .circle {
+    width: 22px;
+    height: 22px;
+    border-radius: 11px;
+    background: rgba(255,255,255,0.5);
+}
+#clock .second b {
+    background: #D8EFFF;
+}
+#clock .minute b {
+    background: rgba(255,255,255,0.5);
+}
+#clock .hour b {
+    background: rgba(255,255,255,0.4);
+}
