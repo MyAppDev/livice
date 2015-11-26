@@ -26,7 +26,7 @@ class Hospital extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view('personal/personal_index');
 	}
 
 	/**
@@ -55,19 +55,28 @@ class Hospital extends CI_Controller {
 				'search_area' => '',
 				'search_age' => '',
 			);
-			$data['search_key'] = $conditions;
+			// $data['search_key'] = $conditions;
 		} else {// 条件検索
+			$conditions = null;
+			$search_age = '';
+
+			// 年齢計算は要再考のこと
+			if(isset($_POST['search_age']) && !empty($_POST['search_age'])){
+				$search_age = (date('Ymd') - 10000 * (int)$this->input->post('search_age'));
+				$search_age = mb_substr($search_age, 0, 4);
+			}
+
 			$conditions = array(
 				'search_patient' => $this->input->post('search_patient'),
 				'search_disease' => $this->input->post('search_disease'),
 				'search_medicine' => $this->input->post('search_medicine'),
 				'search_area' => $this->input->post('search_area'),
-				'search_age' => $this->input->post('search_age'),
+				// 'search_age' => (int)(date('Ymd') - 10000 * $this->input->post('search_age')),
+				'search_age' => $search_age,
 			);
-			$data['patient_list'] = $this->Patient->get_conditions_data($conditions);
-			$data['search_key'] = $conditions;
-		}
 
+			$data['patient_list'] = $this->Patient->get_conditions_data($conditions);
+		}
 		hospital_common_view('hospital/hospital_patient_list_clone', $data);
 	}
 
@@ -115,6 +124,7 @@ class Hospital extends CI_Controller {
 	 */
 	public function patient_details($id){
 		$this->load->model('Patient_model', 'Patient');
+		$this->load->model('Advice_model', 'Advice');
 		// 共通レイアウトロード
 		$this->load->helper(array('common_layout_helper'));
 		// 共通レイアウトへ設定する値
@@ -123,42 +133,70 @@ class Hospital extends CI_Controller {
 			'meta_title'=> 'patient_details',
 		);
 
+		// 患者プロフィール
 		$data['patient_info'] = $this->Patient->get_target_data($id);
 
 		// 分析処理
 		$ha = new HospitalAnalysis();
-		// var_dump($data['patient_info'][0]->data_heartbeat);
-		// data_heartbeat
-		// data_blood
-		// data_body_temperature
 		$biological_information = array(
 			'heartbeat' => $data['patient_info'][0]->data_heartbeat,
 			'body_temperature' => $data['patient_info'][0]->data_body_temperature,
 			'blood_pressure' => $data['patient_info'][0]->data_blood,
 		);
-		// var_dump($biological_information);
-
 		$data['analysis_message'] = $ha->diseaseSignsPrediction($biological_information);
-		// var_dump($data['analysis_message']);
-		// var_dump($data);
-		// $this->load->view('hospital/hospital_patient_details', $data);
+
+		// 医師からのアドバイス
+		$data['advice'] = $this->Advice->find_by_patient_number($data['patient_info'][0]->patient_number);
+
 		hospital_common_view('hospital/hospital_patient_details_clone', $data);
 	}
 
 	/**
-	 * 医師が記入したアドバイスを登録する
+	 * 医師からのアドバイスを登録する
 	 */
-	public function advice_add($advice){
-		
+	public function advice_add(){
+		$this->load->model('Advice_model', 'Advice');
+		$data = array(
+			'patient_number' => $this->input->post('patient_number'),
+      'advice' => $this->input->post('advice'),
+      'doctor' => '',
+      'generic_drug' => '',
+      'health_food' => '',
+      'checked' => 0,
+      'created' => date("YmdHis"),
+      'modified' => date("YmdHis"),
+		);
+		$this->Advice->insert_data($data);
+		redirect( 'hospital/patient_details/'.$this->input->post('id') );
+	}
+
+	/**
+	 * Ajaxで医師が記入したアドバイスを登録する（実験用）
+	 */
+	public function async_advice_add($advice){
+
 	}
 
 	/**
 	 * Ajaxでアドバイスを読み込む(実験用)
-	 *
 	 */
 	public function async_advice_list(){
+		$this->load->model('Advice_model', 'Advice');
 
+		$this->Advice->insert_data();
 	}
+
+	/**
+	 * Ajaxで最新のアドバイスを読み込む
+	 * async_get_latest_advice/912345678901
+	 */
+	public function async_get_latest_advice($patient_number){
+		$this->load->model('Advice_model', 'Advice');
+		$latest_advice = $this->Advice->get_latest_data($patient_number);
+		echo json_encode($latest_advice);
+	}
+
+
 
 	/**
 	 *  病院用ダッシュボードのレイアウトテスト

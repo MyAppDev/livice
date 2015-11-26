@@ -51,9 +51,11 @@ class Patient_model extends CI_Model {
         $sql .= "AND area LIKE ? ";
         $bind_var[] = "%{$conditions['search_area']}%";
       }
-      if(isset($conditions['search_age']) && !empty($conditions['search_age'])){// 年齢
-        $sql .= "AND age LIKE ? ";
-        $bind_var[] = "%{$conditions['search_age']}%";
+      if(isset($conditions['search_age']) && !empty($conditions['search_age'])){// 年齢 応急処置なので再考のこと
+        $sql .= "AND age LIKE ? OR age LIKE ? ";
+        $onePlus = (int)$conditions['search_age'] - 1;
+        $bind_var[] = "{$conditions['search_age']}____";
+        $bind_var[] = "{$onePlus}____";
       }
       $query = $this->db->query($sql, $bind_var);
       // echo $this->db->last_query();

@@ -28,6 +28,11 @@
 .table1 {
     width:100%;
     margin: 15px auto 10px;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2402bfec87709e7e2c4353cc266ee8d933bbdd7b
 }
 
 .table1 th{
@@ -156,31 +161,31 @@
 				'id' => 'search_patient',
 				'class' => '',
 				'name'  => 'search_patient',
-				'value' => $search_key['search_patient'] ?: '',
+				'value' => set_value('search_patient'),
 			);
 			$param_search_disease = array(
 				'id' => 'search_disease',
 				'class' => '',
 				'name'  => 'search_disease',
-				'value' => $search_key['search_disease'] ?: '',
+				'value' => set_value('search_disease'),
 			);
 			$param_search_medicine = array(
 				'id' => 'search_medicine',
 				'class' => '',
 				'name'  => 'search_medicine',
-				'value' => $search_key['search_medicine'] ?: '',
+				'value' => set_value('search_medicine'),
 			);
 			$param_search_area = array(
 				'id' => 'search_area',
 				'class' => '',
 				'name'  => 'search_area',
-				'value' => $search_key['search_area'] ?: '',
+				'value' => set_value('search_area'),
 			);
 			$param_search_age = array(
 				'id' => 'search_age',
 				'class' => '',
 				'name'  => 'search_age',
-				'value' => $search_key['search_age'] ?: '',
+				'value' => set_value('search_age'),
 			);
 			$param_search_submit = array(
 				'id' => 'search_submit',
