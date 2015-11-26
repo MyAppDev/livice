@@ -55,19 +55,28 @@ class Hospital extends CI_Controller {
 				'search_area' => '',
 				'search_age' => '',
 			);
-			$data['search_key'] = $conditions;
+			// $data['search_key'] = $conditions;
 		} else {// 条件検索
+			$conditions = null;
+			$search_age = '';
+
+			// 年齢計算は要再考のこと
+			if(isset($_POST['search_age']) && !empty($_POST['search_age'])){
+				$search_age = (date('Ymd') - 10000 * (int)$this->input->post('search_age'));
+				$search_age = mb_substr($search_age, 0, 4);
+			}
+
 			$conditions = array(
 				'search_patient' => $this->input->post('search_patient'),
 				'search_disease' => $this->input->post('search_disease'),
 				'search_medicine' => $this->input->post('search_medicine'),
 				'search_area' => $this->input->post('search_area'),
-				'search_age' => $this->input->post('search_age'),
+				// 'search_age' => (int)(date('Ymd') - 10000 * $this->input->post('search_age')),
+				'search_age' => $search_age,
 			);
-			$data['patient_list'] = $this->Patient->get_conditions_data($conditions);
-			$data['search_key'] = $conditions;
-		}
 
+			$data['patient_list'] = $this->Patient->get_conditions_data($conditions);
+		}
 		hospital_common_view('hospital/hospital_patient_list_clone', $data);
 	}
 
