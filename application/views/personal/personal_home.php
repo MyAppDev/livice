@@ -181,7 +181,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    		<h1>アドバイス</h1>
 		    	</div> -->
 					<!-- iframeにアドバイスページを挿入予定 -->
-					<iframe src="<?= base_url() ?>Personal/stub_iframe_test"
+					<iframe src="<?= base_url() ?>health_check/index"
 									frameborder="0"　scrolling="no"
 									seamless="seamless"　
 									width="100%" height="99%" >ここにアドバイスページを挿入</iframe>
