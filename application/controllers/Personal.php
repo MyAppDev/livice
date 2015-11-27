@@ -33,7 +33,15 @@ class Personal extends CI_Controller {
 	 * ウェアラブルデバイス　ホーム画面
 	 */
 	public function home(){
-		$this->load->view('personal/personal_home');
+		$this->load->model('Patient_model', 'Patient');
+		$this->load->model('Advice_model', 'Advice');
+
+		// 患者ID
+		$id = 1;
+		// 患者プロフィール
+		$data['patient_info'] = $this->Patient->get_target_data($id);
+
+		$this->load->view('personal/personal_home', $data);
 	}
 
 	/**
