@@ -99,8 +99,6 @@ td.t_top {
 	box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
 }
 
-<<<<<<< HEAD
-
 #cont1 th {
 	border-bottom: #e3e3e3 1px dotted;
 	text-align: left;
@@ -120,7 +118,7 @@ td.t_top {
 }
 
 #cont2 {
-	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);	
+	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);
 }
 
 #cont2 th {
@@ -142,10 +140,8 @@ td.t_top {
 }
 
 #cont3 {
-	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);	
+	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);
 }
-=======
->>>>>>> 2402bfec87709e7e2c4353cc266ee8d933bbdd7b
 
 #cont3 th {
 	border-bottom: #e3e3e3 1px dotted;
@@ -218,7 +214,7 @@ td.t_top {
 }
 
 #add_area table{
-	width: 100%;	
+	width: 100%;
 }
 
 #advice_list {
@@ -294,7 +290,6 @@ td.t_top {
 		<div id="cont2" class="cont"><!-- cont2 S  -->
 			<!-- 医師へのメッセージ表示コンテナ
 						適宜デザインの変更をお願いします	-->
-<<<<<<< HEAD
 			<div id="container_message"
 				 style="background:#2E8B57;
 				 		color:#fff;
@@ -307,13 +302,9 @@ td.t_top {
 				 		height:50px;
 				 		margin:10px;
 				 "><!-- container_message S -->
-				<p><?= $analysis_message['heartbeat'];// 心拍に関するメッセージ ?></p>
-=======
-			<div id="container_message" style="min-width: 70%; height: 50%; margin: 0 auto"><!-- container_message S -->
-				<?= $analysis_message['heartbeat'];// 心拍に関するメッセージ ?>
->>>>>>> 2402bfec87709e7e2c4353cc266ee8d933bbdd7b
+				<p><?= $analysis_message['heartbeat'];// 心拍に関するメッセージ ?>
 				<?= $analysis_message['blood_pressure'];// 血圧に関するメッセージ ?>
-				<?= $analysis_message['body_temperature'];// 体温に関するメッセージ ?>
+				<?= $analysis_message['body_temperature'];// 体温に関するメッセージ ?></p>
 			</div><!-- container_message E -->
 
 			<!-- 心拍年間グラフ -->
@@ -625,17 +616,12 @@ td.t_top {
 					<tbody>
 						<?php foreach($advice as $ad){ ?>
 						<tr>
-<<<<<<< HEAD
-							<td class="col">ここにアドバイス</td>
-							<td class="col">2015/02/22</td>
-=======
-							<td><?= $ad->advice; ?></td>
-							<td><?php
+							<td class="col"><?= $ad->advice; ?></td>
+							<td class="col"><?php
 											$year = mb_substr($ad->created, 0, 4);
 											$month = mb_substr($ad->created, 4, 2);
 											$day = mb_substr($ad->created, 6, 2);
 											echo $year.'年'.$month.'月'.$day.'日';  ?></td>
->>>>>>> 2402bfec87709e7e2c4353cc266ee8d933bbdd7b
 						</tr>
 						<?php } ?>
 					</tbody>
