@@ -13,14 +13,11 @@
   データベースへデータの書き込みが毎秒行われます。  
    **[リアルタイムグラフ管理画面へ](http://localhost/livice/Logger/personal_dashboard)**
 - ***各ページへのリンク***   
-  リンクのまとめページへは
-        http://localhost/livice/Personal/
-        http://localhost/livice/Hospital/
-        http://localhost/livice/Logger/
+  リンクのまとめページへは各コントローラのindexページに設定しています。
+  1. [http://localhost/livice/Personal/](http://localhost/livice/Personal/)
+  2. [http://localhost/livice/Hospital/](http://localhost/livice/Hospital/)
+  3. [http://localhost/livice/Logger/](http://localhost/livice/Logger/)   
 からアクセスできます。   
-**[各ページへのリンクへ　その1](http://localhost/livice/Personal/)**   
-**[各ページへのリンクへ　その2](http://localhost/livice/Hospital/)**   
-**[各ページへのリンクへ　その3](http://localhost/livice/Logger/)**   
 
 ## 注意
 - `ウェアラブル画面`ロード時にアドバイスアプリ画面に通知が来るので、消去してから利用して下さい。
