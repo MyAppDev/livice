@@ -43,26 +43,11 @@
 th.t_top {
     border-top: #be1309 4px solid;
 }
-th {
-	border-bottom: #e3e3e3 1px dotted;
-	text-align: left;
-	font-size:20px;
-	font-weight:bold;
-	padding: 10px;
-	font-weight: normal;
-	background: skyblue;
-}
+
 td.t_top {
 	border-top: #b3b3b3 4px solid;
 }
-td {
-	border-bottom: #e3e3e3 1px dotted;
-	font-size:20px;
-	border-right: #e3e3e3 1px solid;
-	text-align: left;
-	padding: 10px;
 
-}
 
 /* タブ用 デザインはおまかせします */
 #tab_area > ul {
@@ -83,7 +68,7 @@ td {
 }
 
 #tab_area th {
-	width:230px;
+	width:130px;
 }
 
 #tab_area th.t_top {
@@ -104,18 +89,141 @@ td {
 
 #tab_area {
 	color:#000;
-
 }
 
 #tab_area a:hover{
 	text-decoration: none;
-
 }
 
 #cont1 {
 	box-shadow: 3px 3px 3px rgba(0,0,0,0.4);
 }
 
+#cont1 th {
+	border-bottom: #e3e3e3 1px dotted;
+	text-align: left;
+	font-size:20px;
+	font-weight:bold;
+	padding: 10px;
+	font-weight: normal;
+	background: skyblue;
+}
+
+#cont1 td {
+	border-bottom: #e3e3e3 1px dotted;
+	font-size:20px;
+	border-right: #e3e3e3 1px solid;
+	text-align: left;
+	padding: 10px;
+}
+
+#cont2 {
+	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);
+}
+
+#cont2 th {
+	border-bottom: #e3e3e3 1px dotted;
+	text-align: left;
+	font-size:20px;
+	font-weight:bold;
+	padding: 10px;
+	font-weight: normal;
+	background: skyblue;
+}
+
+#cont2 td {
+	border-bottom: #e3e3e3 1px dotted;
+	font-size:20px;
+	border-right: #e3e3e3 1px solid;
+	text-align: left;
+	padding: 10px;
+}
+
+#cont3 {
+	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);
+}
+
+#cont3 th {
+	border-bottom: #e3e3e3 1px dotted;
+	text-align: left;
+	font-size:20px;
+	font-weight:bold;
+	padding: 10px;
+	font-weight: normal;
+	background: skyblue;
+}
+
+#cont3 td {
+	border-bottom: #e3e3e3 1px dotted;
+	font-size:20px;
+	border-right: #e3e3e3 1px solid;
+	text-align: left;
+	padding: 10px;
+}
+
+#cont4 {
+	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);
+}
+
+#cont4 th.add_form {
+	background: skyblue;
+	margin-left:20px;
+	text-align: center;
+	font-size:20px;
+	font-weight: bold;
+	/*vertical-align: top;*/
+}
+
+#advice_list {
+    border-collapse: separate;
+    border-spacing: 1px;
+    line-height: 1.5;
+    margin-top:20px;
+}
+#advice_list th {
+    width: 155px;
+    padding: 10px;
+    font-weight: bold;
+    color: #fff;
+    background: #036;
+    border-left:2px solid #fff;
+}
+#advice_list td {
+    width: 155px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    background: #eee;
+    border-left:2px solid #fff;
+}
+
+
+.add_form textarea{
+	margin:7px 0 0 10px;
+}
+
+
+#cont4 th{
+}
+
+#cont4 td.add_form {
+	width:400px;
+}
+
+#add_area {
+	width: 100%;
+}
+
+#add_area table{
+	width: 100%;
+}
+
+#advice_list {
+	width:100%;
+}
+
+#advice_list table{
+	width:100%;
+}
 
 </style>
 
@@ -182,10 +290,21 @@ td {
 		<div id="cont2" class="cont"><!-- cont2 S  -->
 			<!-- 医師へのメッセージ表示コンテナ
 						適宜デザインの変更をお願いします	-->
-			<div id="container_message" style="min-width: 70%; height: 50%; margin: 0 auto"><!-- container_message S -->
-				<?= $analysis_message['heartbeat'];// 心拍に関するメッセージ ?>
+			<div id="container_message"
+				 style="background:#2E8B57;
+				 		color:#fff;
+				 		font-size:20px;
+				 		box-shadow:rgba(113, 135, 164, 0.407843) 4px 4px 5px 0px;
+				 		font-weight:bold;
+				 		border-radius:5px;
+				 		padding:10px;
+				 		width:98%;
+				 		height:50px;
+				 		margin:10px;
+				 "><!-- container_message S -->
+				<p><?= $analysis_message['heartbeat'];// 心拍に関するメッセージ ?>
 				<?= $analysis_message['blood_pressure'];// 血圧に関するメッセージ ?>
-				<?= $analysis_message['body_temperature'];// 体温に関するメッセージ ?>
+				<?= $analysis_message['body_temperature'];// 体温に関するメッセージ ?></p>
 			</div><!-- container_message E -->
 
 			<!-- 心拍年間グラフ -->
@@ -477,9 +596,9 @@ td {
 				<?= form_open(base_url().'hospital/advice_add', '',$hidden); ?>
 				<table>
 					<tr>
-						<th>アドバイス</th>
-						<td><?= form_textarea($param_advice); ?></td>
-						<td><?= form_submit($param_add); ?></td>
+						<th class="add_form">アドバイス</th>
+						<td class="add_form"><?= form_textarea($param_advice); ?></td>
+						<td style="vertical-align: bottom;"><?= form_submit($param_add); ?></td>
 					</tr>
 				</table>
 				<?= form_close() ?>
@@ -490,15 +609,15 @@ td {
 				<table>
 					<thead>
 						<tr>
-							<th>アドバイス</th>
-							<th>日付</th>
+							<th class="col">アドバイス</th>
+							<th class="col" style="width:20%;">日付</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php foreach($advice as $ad){ ?>
 						<tr>
-							<td><?= $ad->advice; ?></td>
-							<td><?php
+							<td class="col"><?= $ad->advice; ?></td>
+							<td class="col"><?php
 											$year = mb_substr($ad->created, 0, 4);
 											$month = mb_substr($ad->created, 4, 2);
 											$day = mb_substr($ad->created, 6, 2);

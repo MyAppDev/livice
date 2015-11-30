@@ -3,7 +3,14 @@
 <head>
 	<meta charset="utf-8">
 	<title>健康チェック</title>
-	
+
+	<!-- ウェアラブル側で読み込むので文字色を白に変更しました。 -->
+	<style>
+	body{
+		color: #DDD;
+	}
+	</style>
+
 </head>
 <body>
 <script type="text/javascript">
@@ -25,7 +32,7 @@ function pagechange(){
 		document.getElementById("question2").style.display = "none";
 		document.getElementById("question3").style.display = "block";
 		flg=3;
-		
+
 	}else if(flg==3){
 		document.getElementById("question3").style.display = "none";
 		document.getElementById("question4").style.display = "block";
@@ -39,6 +46,7 @@ function pagechange(){
 		    document.getElementById("result").style.display = "block";
 		    document.getElementById("resultE").innerHTML="<p>運動について："+radio1[i].value+"</p>";
 		  }
+<<<<<<< HEAD
 		}
 		 var radio2=document.getElementsByName("inpname2");
 		 var radio3=document.getElementsByName("inpname3");
@@ -68,6 +76,10 @@ function pagechange(){
 		 }
 
 		flg=5;
+=======
+		flg=5;;
+		}
+>>>>>>> 99f0e6b7842bbfe798f2f00262e6c8adc5cfb112
 	}else if(flg==5){
 		document.getElementById("result").style.display = "none";
 		document.question1.style.display = "block";

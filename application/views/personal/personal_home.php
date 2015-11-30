@@ -37,6 +37,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- グラフ描画 病院用を流用 -->
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/hospital/hospital_dashboard.js"></script>
 
+		<!-- 暈し -->
+		<script type="text/javascript" src="<?= base_url(); ?>assets/bower_components/Blur.js/blur.js"></script>
+		<!-- <script type="text/javascript" src="<?= base_url(); ?>assets/bower_components/background-blur/src/background-blur.js"></script> -->
 
 		<style>
     /* Section 1
@@ -51,6 +54,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		#section1 img{
 			margin: 20px 0;
 			opacity: 0.7;
+		}
+		/*アイコンレイアウト　用調整*/
+		#home_top{
+			margin: 0 auto;
+		}
+		#home_top tr{
+
+		}
+		#home_top td{
+			padding: 10px 50px 10px  50px;
 		}
 
 		/* Section 2
@@ -139,30 +152,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			z-index: 1000;
 		}
 
+		/* 通知エリア
+		   とりあえずテーブルにしています。
+			 レイアウト・アイコンは適宜変更をお願いします。
+		 ------------------------------------------*/
+		 #notification_area{
+			 width: 100%;
+			 height: 100%;
+			 background-color: #444;
+			 opacity: 1.0;
+			 position: absolute;
+			 z-index: 1100;
+			 margin-top: -5%;
+			 padding:10% 20% 10% 20%;
+		 }
+
 	</style>
 	</head>
 	<body>
-		<ul id="menu">
+		<!-- menuはリリース時、消して下さい -->
+		<!-- <ul id="menu">
 			<li data-menuanchor="page1" class="active"><a href="#page1">Page 1</a></li>
 			<li data-menuanchor="page2"><a href="#page2">Page 2</a></li>
 			<li data-menuanchor="page3"><a href="#page3">Page 3</a></li>
 			<li data-menuanchor="page4"><a href="#page4">Page 4</a></li>
 			<li data-menuanchor="page5"><a href="#page5">Page 5</a></li>
-		</ul>
+		</ul> -->
 
 		<div id="pagepiling">
 		    <div class="section" id="section1">
 					<!-- とりあえずテーブルにしています。レイアウト・アイコンは適宜変更して下さい -->
-		    	<table>
+		    	<table id="home_top"><!-- home_top S -->
 						<tr>
-							<td><a href="#page2"><img width="200px" src="<?= base_url(); ?>assets/img/ic_health.png">ヘルス</a></td>
-							<td><a href="#page3"><img width="200px" src="<?= base_url(); ?>assets/img/ic_tips.png">アドバイス</a></td>
+							<td><a href="#page2"><img width="200px" src="<?= base_url(); ?>assets/img/ic_health.png"><!--ヘルス --></a></td>
+							<td><a href="#page3"><img width="200px" src="<?= base_url(); ?>assets/img/ic_tips.png"><!-- アドバイス --></a></td>
 						</tr>
 						<tr>
-							<td><a href="#page5"><img width="200px" src="<?= base_url(); ?>assets/img/ic_clock_fix.png">時計</a></td>
-							<td><a href="#page4"><img width="200px" src="<?= base_url(); ?>assets/img/ic_find_friends.png">お薬手帳</a></td>
+							<td><a href="#page5"><img width="200px" src="<?= base_url(); ?>assets/img/ic_clock_fix.png"><!-- 時計  --></a></td>
+							<td><a href="#page4"><img width="200px" src="<?= base_url(); ?>assets/img/ic_find_friends.png"><!-- お薬手帳 --></a></td>
 						</tr>
-					</table>
+					</table><!-- home_top E -->
 					<!-- <ul>
 						<li><a href="#page2"><img width="100px" src="<?= base_url(); ?>assets/img/ic_health.png">ヘルス</a></li>
 						<li><a href="#page3"><img width="100px" src="<?= base_url(); ?>assets/img/ic_tips.png">アドバイス</a></li>
@@ -177,20 +206,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div id="container" style="min-width: 100%; height: 100%; margin: 0 auto"></div>
 		    </div>
 		    <div class="section" id="section3">
+					<!-- アドバイス通知エリア -->
+					<div id="notification_area" width="200px" height="200px"><!-- notification_area S -->
+						<table id="notification_detail"><!-- notification_detail S -->
+							<tr>
+								<th><img width="40px" src="<?= base_url(); ?>assets/img/ic_tips.png"></th>
+								<td>アドバイス</td>
+							</tr>
+							<tr>
+								<td colspan="2" id="advice_message">あなたへのアドバイス</td>
+							</tr>
+							<tr>
+								<td colspan="2"><button id="ok" class="btn btn-info">了解</button></td>
+							</tr>
+						</table><!-- notification_detail E -->
+					</div><!-- notification_area E -->
+
 		    	<!-- <div class="intro">
 		    		<h1>アドバイス</h1>
 		    	</div> -->
 					<!-- iframeにアドバイスページを挿入予定 -->
-					<iframe src="<?= base_url() ?>Personal/stub_iframe_test"
+					<iframe src="<?= base_url() ?>health_check/index"
 									frameborder="0"　scrolling="no"
 									seamless="seamless"　
-									width="100%" height="99%" >ここにアドバイスページを挿入</iframe>
+									width="80%" height="80%" >ここにアドバイスページを挿入</iframe>
 		    </div>
 		    <div class="section" id="section4">
 					<!-- お薬手帳ページを挿入予定 -->
 					<div class="intro">
-		    		<h1>お薬手帳</h1>
-
+		    		<!-- <h1>お薬手帳</h1> -->
+						<div id="patient_info"><!-- patient_info S -->
+							<table>
+								<?php foreach($patient_info as $info){ ?>
+								<tr>
+									<th>現在服用している薬</th>
+									<td><?= $info->medicine ?></td>
+								</tr>
+								<?php } ?>
+							</table>
+						</div><!-- patient_info E -->
 		    	</div>
 		    </div>
 				<div class="section" id="section5">

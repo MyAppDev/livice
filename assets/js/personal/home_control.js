@@ -57,9 +57,35 @@ HomeControl.prototype.asyncLatestAdvice = function (patient_number){
   // console.log(altThis.getBlood());
   // console.log(altThis.getSpeed());
 };
+/** ホーム画面の初期化を行う */
+HomeControl.prototype.initialization = function (){
+	//通知エリアを非表示
+	$('#notification_area').hide();
+};
+
 
 $(document).ready(function() {
 	console.debug('home_control.js');
+
+	// インスタンス化
+	var hm = new HomeControl();
+	// 初期化
+	hm.initialization();
+
+	// 通知エリアの暈し
+	$('#notification_area').blurjs({
+		source: 'body',
+		radius: 7,
+		overlay: 'rgba(255,255,255,0.4)'
+	});
+
+	/**
+	 * 通知エリア　”了解”　を押下時に通知エリアを消去
+	 */
+	$('button#ok').on('click',function(){
+			$('#notification_area').hide();
+			console.log("notification_area hide");
+	});
 
 	/*
 	* Plugin intialization
@@ -110,8 +136,6 @@ $(document).ready(function() {
 	/**
 	 * 最新のアドバイス取得する
 	 */
-	var hm = new HomeControl();
-
 	// 患者番号(決め打ち)
 	var PATIENT_NUMBER = '912345678901';
 	// 最新のアドバイスID
@@ -126,8 +150,10 @@ $(document).ready(function() {
 			console.debug('アドバイス = ' + hm.getAdvice());
 			console.debug('登録日 = ' + hm.getCreated());
 
-			// Todo ・・・
 			//通知処理　
+			$("#advice_message").text(hm.getAdvice());
+			// 通知エリアを表示
+			$('#notification_area').show();
 		}
 	} , 1000 );
 

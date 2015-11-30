@@ -28,8 +28,11 @@
 .table1 {
     width:100%;
     margin: 15px auto 10px;
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 2402bfec87709e7e2c4353cc266ee8d933bbdd7b
 }
 
 .table1 th{
@@ -37,7 +40,6 @@
     padding-bottom:5px;
     text-align: left;
     font-weight: bold;
-
 }
 
 .table1 td{
@@ -46,7 +48,6 @@
     border-top:1px dotted #6E6E6E;
     font-size: 18px;
     text-align: left;
-
 }
 
 #list_area {
@@ -85,7 +86,6 @@
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-
 }
 
 .table2 tr{
@@ -94,7 +94,6 @@
 	font-size: 18px;
 	margin-bottom: 20px;
 }
-
 
 #search {
 	margin-left:10px;
@@ -141,7 +140,6 @@
     color:#fff;
     width:115px;
     padding:6px 6px 6px 9px;
-
 }
 
 /*緊急用点滅*/
@@ -154,8 +152,6 @@
 	/*position: absolute;*/
 	/*z-index: 1000;*/
 }
-
-
 </style>
 
 <div id="wrapper"><!-- wrapper S -->
