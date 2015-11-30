@@ -153,6 +153,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		/* 通知エリア
+		   とりあえずテーブルにしています。
+			 レイアウト・アイコンは適宜変更をお願いします。
 		 ------------------------------------------*/
 		 #notification_area{
 			 width: 100%;
@@ -161,6 +163,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 opacity: 1.0;
 			 position: absolute;
 			 z-index: 1100;
+			 margin-top: -5%;
+			 padding:10% 20% 10% 20%;
 		 }
 
 	</style>
