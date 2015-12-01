@@ -1,9 +1,13 @@
 # livice   
----
+
+
 ## アクセス
 - ***病院画面***   
    患者リストへが表示されます。   
 　**[病院画面へ](http://localhost/livice/hospital/patient_list)**
+- ***患者登録画面***   
+   患者登録画面が表示されます。   
+   **[患者登録画面へ](http://localhost/livice/hospital/patient_insert)**
 - ***ウェアラブル画面***   
 　ウェアラブル画面のホームが表示されます。操作は以下の通りです。   
  - ホームに戻るには`スペースキー`を押下します。   

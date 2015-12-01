@@ -94,6 +94,23 @@ class Hospital extends CI_Controller {
 			 'meta_title'=> 'patient_insert',
 		 );
 
+		 // バリデーション設定
+		 $this->form_validation->set_rules('patient_number', '患者番号', 'required');
+		 $this->form_validation->set_rules('image', '患者画像', 'required');
+		 $this->form_validation->set_rules('age', '生年月日', 'required');
+		 $this->form_validation->set_rules('name', '患者氏名', 'required');
+		 $this->form_validation->set_rules('name_kana', '患者名カナ', 'required');
+		 $this->form_validation->set_rules('area', '地域', 'required');
+		 $this->form_validation->set_rules('disease', '病名', 'required');
+		 $this->form_validation->set_rules('medicine', '処方薬', 'required');
+		 $this->form_validation->set_rules('caution', '注意', 'required');
+		 $this->form_validation->set_rules('advice', 'アドバイス', 'required');
+		 $this->form_validation->set_rules('generic_drug', 'ジェネリック医薬品', 'required');
+		 $this->form_validation->set_rules('health_food', '健康食品', 'required');
+		 $this->form_validation->set_rules('data_heartbeat', '1年間の心拍データ', 'required');
+		 $this->form_validation->set_rules('data_blood', '1年間の血圧データ', 'required');
+		 $this->form_validation->set_rules('data_body_temperature', '1年間の体温データ', 'required');
+
 			if ( ! isset($_POST['sub'])){// 入力フォーム表示
 					// $this->load->view('hospital/hospital_patient_insert');
 					hospital_common_view('hospital/hospital_patient_insert_clone', $data);
@@ -108,10 +125,20 @@ class Hospital extends CI_Controller {
 						'disease' => $this->input->post('disease'),
 						'medicine' => $this->input->post('medicine'),
 						'caution' => $this->input->post('caution'),
+						'advice' => $this->input->post('advice'),
+						'generic_drug' => $this->input->post('generic_drug'),
+						'health_food' => $this->input->post('health_food'),
+						'data_heartbeat' => $this->input->post('data_heartbeat'),
+						'data_blood' => $this->input->post('data_blood'),
+						'data_body_temperature' => $this->input->post('data_body_temperature'),
 					);
-					$this->load->model('Patient_model', 'Patient');
-					$this->Patient->insert_data($data);
-					redirect( 'hospital/patient_list' );
+					if ($this->form_validation->run() == FALSE){
+						hospital_common_view('hospital/hospital_patient_insert_clone', $data);
+					}	else {
+						$this->load->model('Patient_model', 'Patient');
+						$this->Patient->insert_data($data);
+						redirect( 'hospital/patient_list' );
+					}
 			}
 	 }
 

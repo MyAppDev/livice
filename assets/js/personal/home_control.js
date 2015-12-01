@@ -137,7 +137,7 @@ $(document).ready(function() {
 	 * 最新のアドバイス取得する
 	 */
 	// 患者番号(決め打ち)
-	var PATIENT_NUMBER = '912345678901';
+	var PATIENT_NUMBER = '123456789012';
 	// 最新のアドバイスID
 	var latestAdviceId = 0;
 
