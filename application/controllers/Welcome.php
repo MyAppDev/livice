@@ -27,4 +27,13 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+
+  /**
+   * ENVIRONMENT定数のテスト
+   */
+	public function debug_release()
+	{
+		echo "release test";
+		echo "syntax";
+	}
 }
