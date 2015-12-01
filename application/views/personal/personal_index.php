@@ -107,6 +107,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<a href="<?= base_url().'hospital/patient_list' ?>"><button class="btn btn-info">病院</button></a>
 				<code>livice/hospital/patient_list</code>
 				<?= br(2) ?>
+				<a href="<?= base_url().'hospital/patient_insert' ?>"><button class="btn btn-primary">患者登録</button></a>
+				<code>livice/hospital/patient_insert</code>
+				<?= br(2) ?>
 				<a href="<?= base_url().'Logger/personal_dashboard' ?>"><button class="btn btn-warning">リアルタイムグラフ管理</button></a>
 				<code>livice/Logger/personal_dashboard</code>
 				<?= br(2) ?>
