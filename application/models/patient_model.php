@@ -75,6 +75,12 @@ class Patient_model extends CI_Model {
       $this->disease = $data['disease'];
       $this->medicine = $data['medicine'];
       $this->caution = $data['caution'];
+      $this->advice = $data['advice'];
+      $this->generic_drug = $data['generic_drug'];
+      $this->health_food = $data['health_food'];
+      $this->data_heartbeat = $data['data_heartbeat'];
+      $this->data_blood = $data['data_blood'];
+      $this->data_body_temperature = $data['data_body_temperature'];
 
       $this->db->insert('patient', $this);
     }
