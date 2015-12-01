@@ -157,14 +157,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 レイアウト・アイコンは適宜変更をお願いします。
 		 ------------------------------------------*/
 		 #notification_area{
-			 width: 60%;
-			 height: 100%;
-			 background-color: #444;
+			 width: 58%;
+			 height: 50%;
+			 background-color: #424242;
 			 opacity: 1.0;
 			 position: absolute;
 			 z-index: 1100;
-			 margin-top: -5%;
+			 margin: -30px 0 0 10px;
 			 padding:10% 20% 10% 20%;
+			 border-radius: 20px;
+			 opacity: 0.9; 
+
 		 }
 
 	</style>
@@ -207,17 +210,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    </div>
 		    <div class="section" id="section3">
 					<!-- アドバイス通知エリア -->
-					<div id="notification_area" width="200px" height="200px"><!-- notification_area S -->
-						<table id="notification_detail"><!-- notification_detail S -->
-							<tr>
-								<th><img width="40px" src="<?= base_url(); ?>assets/img/ic_tips.png"></th>
-								<td>アドバイス</td>
+					<div id="notification_area"><!-- notification_area S -->
+						<table id="notification_detail"  style="width:110%; "><!-- notification_detail S -->
+							<tr style="">
+								<th  style="width:50px;"><img width="100%" src="<?= base_url(); ?>assets/img/ic_tips.png"></th>
+								<td style="font-size:25px;font-weight:bold;">アドバイス</td>
+							</tr>
+							<tr style="font-size:20px; font-weight:bold;">
+								<td colspan="2" id="advice_message" style="padding:10px 0 50px 50px;">あなたへのアドバイス</td>
 							</tr>
 							<tr>
-								<td colspan="2" id="advice_message">あなたへのアドバイス</td>
-							</tr>
-							<tr>
-								<td colspan="2"><button id="ok" class="btn btn-info">了解</button></td>
+								<td colspan="2"><button id="ok" class="btn btn-info"
+								style="width:100%; height:100px; font-size:20px; font-weight:bold;">了解</button></td>
 							</tr>
 						</table><!-- notification_detail E -->
 					</div><!-- notification_area E -->
