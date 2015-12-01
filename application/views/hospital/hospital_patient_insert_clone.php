@@ -219,7 +219,7 @@
 	<?= form_close(); ?>
 
 	<button id="default_set" class="btn btn-info">デフォルト値セット</button>
-
+	<button id="default_clear" class="btn btn-default">クリア</button>
 	<script type="text/javascript">
 		console.log("hospital_patient_insert");
 	  var DEF_VALS = {
@@ -241,10 +241,17 @@
 		};
 
 		$("#default_set").on("click", function(){
-			console.log("hospital_patient_insert clicked");
+			console.log("hospital_patient_insert set");
 			for(key in DEF_VALS){
 				console.log("hospital_patient_insert key : " + key);
 				$("#" + key).val(DEF_VALS[key]);
+			}
+		});
+		$("#default_clear").on("click", function(){
+			console.log("hospital_patient_insert clear");
+			for(key in DEF_VALS){
+				console.log("hospital_patient_insert key : " + key);
+				$("#" + key).val("");
 			}
 		});
 
