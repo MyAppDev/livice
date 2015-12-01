@@ -9,6 +9,31 @@
 	body{
 		color: #DDD;
 	}
+
+	div.check-group input {
+	    display: none;
+	}
+
+	div.check-group label {
+ background: -moz-linear-gradient(top,#BFD9E5, #3D95B7 50%,#0080B3 50%,#0099CC);
+    background: -webkit-gradient(linear, left top, left bottom, from(#BFD9E5), color-stop(0.5,#3D95B7), color-stop(0.5,#0080B3), to(#0099CC));
+    color: #FFF;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border: 1px solid #0099CC;
+    -moz-box-shadow: 1px 1px 1px rgba(000,000,000,0.3),inset 0px 0px 3px rgba(255,255,255,0.5);
+    -webkit-box-shadow: 1px 1px 1px rgba(000,000,000,0.3),inset 0px 0px 3px rgba(255,255,255,0.5);
+    text-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+    width: 100px;
+    padding: 10px 0;
+
+	}
+
+	div.check-group input:checked+label {
+	    color: #fff;
+	    background: #C3C3C3;
+	}
 	</style>
 
 </head>
@@ -54,16 +79,23 @@ function pagechange(){
 
 //-->
 </script>
+
 <form name="question1" style="display:block;">
 <p>日々の運動について選択していただけますでしょうか。</p>
-<label><input type="radio" name="inpname1" value="無理せず続けましょう" onClick="pagechange()" checked>毎日散歩を一時間以上</label>
-<br>
-<label><input type="radio" name="inpname1" value="無理せず続けましょう" onClick="pagechange()">毎日ウォーキングを30分以上</label>
-<br>
-<label><input type="radio" name="inpname1" value="出来れば毎日しましょう" onClick="pagechange()">二日に一度散歩を一時間以上</label>
-<br>
-<label><input type="radio" name="inpname1" value="出来れば毎日しましょう" onClick="pagechange()">二日に一度ウォーキングを30分以上</label>
-<br>
+<div class="check-group clearfix">
+	<div>
+		<label><input type="radio" name="inpname1" value="無理せず続けましょう" onClick="pagechange()" checked>毎日散歩を一時間以上</label>
+	</div>
+	<div>
+		<label><input type="radio" name="inpname1" value="無理せず続けましょう" onClick="pagechange()">毎日ウォーキングを30分以上</label>
+	</div>
+	<div>
+		<label><input type="radio" name="inpname1" value="出来れば毎日しましょう" onClick="pagechange()">二日に一度散歩を一時間以上</label>
+	</div>
+	<div>
+		<label><input type="radio" name="inpname1" value="出来れば毎日しましょう" onClick="pagechange()">二日に一度ウォーキングを30分以上</label>
+	</div>
+</div>
 </form>
 <div id="question2" style="display:none;">
 <p>朝食のメニューを選択していただけますでしょうか。</p>
@@ -82,6 +114,7 @@ function pagechange(){
 <label><input type="radio" name="inpname4"value="1" onClick="pagechange()" checked>4thバランスを考えて〇している</label>
 <br>
 <label><input type="radio" name="inpname4"value="2" onClick="pagechange()">4th好きなもの〇している</label>
+</div>
 </div>
 <div id="result" style="display:none;">
 <div id="resultE">

@@ -37,6 +37,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- グラフ描画 病院用を流用 -->
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/hospital/hospital_dashboard.js"></script>
 
+		<!-- 暈し -->
+		<script type="text/javascript" src="<?= base_url(); ?>assets/bower_components/Blur.js/blur.js"></script>
+		<!-- <script type="text/javascript" src="<?= base_url(); ?>assets/bower_components/background-blur/src/background-blur.js"></script> -->
 
 		<style>
     /* Section 1
@@ -149,6 +152,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			z-index: 1000;
 		}
 
+		/* 通知エリア
+		 ------------------------------------------*/
+		 #notification_area{
+			 width: 100%;
+			 height: 100%;
+			 background-color: #444;
+			 opacity: 1.0;
+			 position: absolute;
+			 z-index: 1100;
+		 }
+
 	</style>
 	</head>
 	<body>
@@ -188,6 +202,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div id="container" style="min-width: 100%; height: 100%; margin: 0 auto"></div>
 		    </div>
 		    <div class="section" id="section3">
+					<!-- アドバイス通知エリア -->
+					<div id="notification_area" width="200px" height="200px"><!-- notification_area S -->
+						<table id="notification_detail"><!-- notification_detail S -->
+							<tr>
+								<th><img width="40px" src="<?= base_url(); ?>assets/img/ic_tips.png"></th>
+								<td>アドバイス</td>
+							</tr>
+							<tr>
+								<td colspan="2" id="advice_message">あなたへのアドバイス</td>
+							</tr>
+							<tr>
+								<td colspan="2"><button id="ok" class="btn btn-info">了解</button></td>
+							</tr>
+						</table><!-- notification_detail E -->
+					</div><!-- notification_area E -->
+
 		    	<!-- <div class="intro">
 		    		<h1>アドバイス</h1>
 		    	</div> -->
