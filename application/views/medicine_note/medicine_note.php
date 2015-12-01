@@ -3,6 +3,12 @@
 <html>
 <head>
 <title>お薬手帳</title>
+
+<style>
+body{
+	color:#DDD;
+}
+</style>
 </head>
 <body>
 	<table>

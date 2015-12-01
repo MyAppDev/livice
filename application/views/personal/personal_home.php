@@ -153,14 +153,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 
 		/* 通知エリア
+		   とりあえずテーブルにしています。
+			 レイアウト・アイコンは適宜変更をお願いします。
 		 ------------------------------------------*/
 		 #notification_area{
-			 width: 100%;
+			 width: 60%;
 			 height: 100%;
 			 background-color: #444;
 			 opacity: 1.0;
 			 position: absolute;
 			 z-index: 1100;
+			 margin-top: -5%;
+			 padding:10% 20% 10% 20%;
 		 }
 
 	</style>
@@ -232,14 +236,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="intro">
 		    		<!-- <h1>お薬手帳</h1> -->
 						<div id="patient_info"><!-- patient_info S -->
-							<table>
+							<!-- iframeにお薬手帳ページを挿入予定 -->
+							<iframe src="<?= base_url() ?>medicine_note/index"
+											frameborder="0"　scrolling="no"
+											seamless="seamless"　
+											width="80%" height="80%" >ここにお薬手帳を挿入</iframe>
+
+							<!-- <table>
 								<?php foreach($patient_info as $info){ ?>
 								<tr>
 									<th>現在服用している薬</th>
 									<td><?= $info->medicine ?></td>
 								</tr>
 								<?php } ?>
-							</table>
+							</table> -->
 						</div><!-- patient_info E -->
 		    	</div>
 		    </div>
