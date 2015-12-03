@@ -243,7 +243,8 @@ td.t_top {
 	z-index: 2200;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 	font-size:12px;
-	margin-bottom: 38%;
+	margin-bottom: 43%;/* 全画面用に要調整のこと */
+	/*margin-bottom: 500px;*/
 }
 
 </style>
