@@ -169,6 +169,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 opacity: 0.9; 
 
 		 }
+		 #section1 p
+		 {
+			color:#fff;
+			font-size:24px;
+			font-family: 'Roman';
+			font-weight: bold;
+			text-align: center;
+		 }
+
+		 tbody{
+		 }
 
 	</style>
 	</head>
@@ -181,18 +192,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<li data-menuanchor="page4"><a href="#page4">Page 4</a></li>
 			<li data-menuanchor="page5"><a href="#page5">Page 5</a></li>
 		</ul> -->
-
 		<div id="pagepiling">
 		    <div class="section" id="section1">
 					<!-- とりあえずテーブルにしています。レイアウト・アイコンは適宜変更して下さい -->
 		    	<table id="home_top"><!-- home_top S -->
 						<tr>
-							<td><a href="#page2"><img width="200px" src="<?= base_url(); ?>assets/img/ic_health.png"><!--ヘルス --></a></td>
-							<td><a href="#page3"><img width="200px" src="<?= base_url(); ?>assets/img/ic_tips.png"><!-- アドバイス --></a></td>
+							<td><a href="#page2"><img width="200px" src="<?= base_url(); ?>assets/img/ic_health.png"><!--ヘルス --></a><br><p>ヘルス</p></td>
+							<td><a href="#page3"><img width="200px" src="<?= base_url(); ?>assets/img/ic_tips.png"><!-- アドバイス --></a><br><p>アドバイス</p></td>
 						</tr>
 						<tr>
-							<td><a href="#page5"><img width="200px" src="<?= base_url(); ?>assets/img/ic_clock_fix.png"><!-- 時計  --></a></td>
-							<td><a href="#page4"><img width="200px" src="<?= base_url(); ?>assets/img/ic_find_friends.png"><!-- お薬手帳 --></a></td>
+							<td><a href="#page5"><img width="200px" src="<?= base_url(); ?>assets/img/ic_clock_fix.png"><!-- 時計  --></a><br><p>時計</p></td>
+							<td><a href="#page4"><img width="200px" src="<?= base_url(); ?>assets/img/ic_find_friends.png"><!-- お薬手帳 --></a><br><p>お薬手帳</p></td>
 						</tr>
 					</table><!-- home_top E -->
 					<!-- <ul>
@@ -244,7 +254,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<iframe src="<?= base_url() ?>medicine_note/index"
 											frameborder="0"　scrolling="no"
 											seamless="seamless"　
-											width="80%" height="80%" >ここにお薬手帳を挿入</iframe>
+											width="90%" height="90%" >ここにお薬手帳を挿入</iframe>
 
 							<!-- <table>
 								<?php foreach($patient_info as $info){ ?>
@@ -269,5 +279,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/personal/app_time.css" >
 		    </div>
 		</div>
+		<div id="footer"></div>
 	</body>
 </html>
