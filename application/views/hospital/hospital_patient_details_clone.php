@@ -225,15 +225,35 @@ td.t_top {
 	width:100%;
 }
 
+/* Toastr 通知レイアウト
+ ------------------------------------------------*/
+#toastr_area{
+	height: 10%;
+	/*display:inline-block;*/
+}
+.toast{
+	position: fixed;
+	bottom: 5px;
+	display: inline-block;
+	background: rgba(0,0,0,0.6);
+	color: #fff;
+	border-radius: 4px;
+	padding: 5px 9px;
+	border: none;
+	z-index: 2200;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+	font-size:12px;
+	margin-bottom: 38%;
+}
+
 </style>
 
 <div id="wrapper"><!-- wrapper S -->
-	<!-- <a href="<?= base_url(); ?>Hospital/patient_list">
-		<button type="button" class="btn btn-info" style="margin-left:10px;">
-		  <span class="glyphicon glyphicon-chevron-left"></span>
-			患者リストへ
-		</button>
-	</a> -->
+
+	<!-- toastr 通知用エリア -->
+	<div id="toastr_area"><!-- toastr S -->
+		.
+	</div><!-- toastr E -->
 
 	<!-- ここにタブを構築 -->
 	<div id="tab_area"><!-- tab_area S -->
