@@ -252,7 +252,7 @@ td.t_top {
 
 	<!-- toastr 通知用エリア -->
 	<div id="toastr_area"><!-- toastr S -->
-		.
+		<span style="color: #ffffff; background-color: transparent">.</span>
 	</div><!-- toastr E -->
 
 	<!-- ここにタブを構築 -->
