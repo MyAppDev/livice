@@ -8,6 +8,33 @@
 	body{
 		color:#DDD;
 	}
+
+	div.check-group input {
+	    display: none;
+	}
+
+	div.check-group label {
+ background: -moz-linear-gradient(top,#BFD9E5, #3D95B7 50%,#0080B3 50%,#0099CC);
+    background: -webkit-gradient(linear, left top, left bottom, from(#BFD9E5), color-stop(0.5,#3D95B7), color-stop(0.5,#0080B3), to(#0099CC));
+    color: #FFF;
+    font-weight:bold;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border: 1px solid #0099CC;
+    -moz-box-shadow: 1px 1px 1px rgba(000,000,000,0.3),inset 0px 0px 3px rgba(255,255,255,0.5);
+    -webkit-box-shadow: 1px 1px 1px rgba(000,000,000,0.3),inset 0px 0px 3px rgba(255,255,255,0.5);
+    text-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+    width: 100px;
+    padding: 15px;
+    margin:30px;
+
+	}
+
+	div.check-group input:checked+label {
+	    color: #fff;
+	    background: #C3C3C3;
+	}
 	</style>
 	
 </head>
@@ -83,40 +110,62 @@ function pagechange(){
 
 //-->
 </script>
+
 <form name="question1" style="display:block;">
-<p>日々の運動について選択してください。</p>
-<label><input type="radio" name="inpname1" value="無理せず続けましょう" onClick="pagechange()" checked>毎日散歩を一時間以上</label>
-<br>
-<label><input type="radio" name="inpname1" value="無理せず続けましょう" onClick="pagechange()">毎日ウォーキングを30分以上</label>
-<br>
-<label><input type="radio" name="inpname1" value="出来れば毎日しましょう" onClick="pagechange()">二日に一度散歩を一時間以上</label>
-<br>
-<label><input type="radio" name="inpname1" value="出来れば毎日しましょう" onClick="pagechange()">二日に一度ウォーキングを30分以上</label>
-<br>
+
+<p style="font-size:20px;">日々の運動について選択していただけますでしょうか。</p>
+<div class="check-group clearfix">
+	<div style="margin-top:50px;">
+		<label><input type="radio" name="inpname1" value="無理せず続けましょう" onClick="pagechange()" checked>毎日散歩を一時間以上</label>
+	</div>
+	<div style="margin-top:50px;">
+		<label><input type="radio" name="inpname1" value="無理せず続けましょう" onClick="pagechange()">毎日ウォーキングを30分以上</label>
+	</div>
+	<div style="margin-top:50px;">
+		<label><input type="radio" name="inpname1" value="出来れば毎日しましょう" onClick="pagechange()">二日に一度散歩を一時間以上</label>
+	</div>
+	<div style="margin-top:50px;">
+		<label><input type="radio" name="inpname1" value="出来れば毎日しましょう" onClick="pagechange()">二日に一度ウォーキングを30分以上</label>
+	</div>
+</div>
 </form>
-<div id="question2" style="display:none;">
-<p>朝食のメニューを選択してください。</p>
-<label><input type="radio" name="inpname2" value="1" onClick="pagechange()" checked>スクランブルエッグ・ご飯・麦茶</label>　
-<br>
-<label><input type="radio" name="inpname2" value="2" onClick="pagechange()">食パン×2・コーヒー牛乳</label>
-<br>
-<label><input type="radio" name="inpname2" value="3" onClick="pagechange()">おにぎり・麦茶</label>
+
+<div id="question2"class="check-group clearfix"  style="display:none;">
+<p style="font-size:20px;">朝食のメニューを選択してください。</p>
+	<div style="margin-top:50px;">
+		<label><input type="radio" name="inpname2" value="1" onClick="pagechange()" checked>スクランブルエッグ・ご飯・麦茶</label>　
+	</div>
+	<div style="margin-top:50px;">
+		<label><input type="radio" name="inpname2" value="2" onClick="pagechange()">食パン×2・コーヒー牛乳</label>
+	</div>
+	<div style="margin-top:50px;">
+		<label><input type="radio" name="inpname2" value="3" onClick="pagechange()">おにぎり・麦茶</label>
+	</div>
 </div>
-<div id="question3" style="display:none;">
-<p>昼食のメニューを選択してください。</p>
-<label><input type="radio" name="inpname3" value="1" onClick="pagechange()" checked>スパゲティ・麦茶</label>　
-<br>
-<label><input type="radio" name="inpname3" value="2" onClick="pagechange()">チーズバーガー・フライドポテトMサイズ・コーラ</label>
-<br>
-<label><input type="radio" name="inpname3" value="3" onClick="pagechange()">オムライス・麦茶</label>
+<div id="question3"class="check-group clearfix" style="display:none;">
+	<p style="font-size:20px;">昼食のメニューを選択してください。</p>
+	<div style="margin-top:50px;">
+		<label><input type="radio" name="inpname3" value="1" onClick="pagechange()" checked>スパゲティ・麦茶</label>　
+	</div>
+	<div style="margin-top:50px;">
+		<label><input type="radio" name="inpname3" value="2" onClick="pagechange()">チーズバーガー・フライドポテトMサイズ・コーラ</label>
+	</div>
+		<div style="margin-top:50px;">
+		<label><input type="radio" name="inpname3" value="3" onClick="pagechange()">オムライス・麦茶</label>
+	</div>
 </div>
-<div id="question4" style="display:none;">
-<p>夕食のメニューを選択してください。</p>
-<label><input type="radio" name="inpname4" value="1" onClick="pagechange()" checked>カレーライス・麦茶</label>
-<br>
-<label><input type="radio" name="inpname4" value="2" onClick="pagechange()">焼きそば・ご飯・麦茶</label>
-<br>
-<label><input type="radio" name="inpname4" value="3" onClick="pagechange()">トンカツ・ご飯・麦茶</label>
+
+<div id="question4"class="check-group clearfix" style="display:none;">
+	<p style="font-size:20px;">夕食のメニューを選択してください。</p>
+	<div style="margin-top:50px;">
+		<label><input type="radio" name="inpname4" value="1" onClick="pagechange()" checked>カレーライス・麦茶</label>
+	</div>
+	<div style="margin-top:50px;">
+		<label><input type="radio" name="inpname4" value="2" onClick="pagechange()">焼きそば・ご飯・麦茶</label>
+	</div>
+	<div style="margin-top:50px;">
+		<label><input type="radio" name="inpname4" value="3" onClick="pagechange()">トンカツ・ご飯・麦茶</label>
+	</div>
 </div>
 <div id="result" style="display:none;">
 <div id="resultE">

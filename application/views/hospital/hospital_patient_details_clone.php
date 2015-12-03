@@ -185,7 +185,7 @@ td.t_top {
     padding: 10px;
     font-weight: bold;
     color: #fff;
-    background: #036;
+    background: #2E8B57;
     border-left:2px solid #fff;
 }
 #advice_list td {
@@ -596,7 +596,7 @@ td.t_top {
 				<?= form_open(base_url().'hospital/advice_add', '',$hidden); ?>
 				<table>
 					<tr>
-						<th class="add_form">アドバイス</th>
+						<th class="add_form" style="border-top:3px solid #be1309;">アドバイス</th>
 						<td class="add_form"><?= form_textarea($param_advice); ?></td>
 						<td style="vertical-align: bottom;"><?= form_submit($param_add); ?></td>
 					</tr>
