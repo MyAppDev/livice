@@ -17,8 +17,8 @@ class HospitalAnalysis {
     public function diseaseSignsPrediction($biological_information){
         $result = array(
           'heartbeat' => $this->heartbeatAnalysis($biological_information['heartbeat']),
-          'body_temperature' => '',
-          'blood_pressure' => '',
+          'body_temperature' => $this->bodyTemperatureAnalysis($biological_information['body_temperature']),
+          'blood_pressure' => $this->bloodPressureAnalysis($biological_information['blood_pressure']),
         );
         return $result;
     }
@@ -49,15 +49,43 @@ class HospitalAnalysis {
     /**
      *  体温分析
      */
-    private function bodyTemperatureAnalysis(){
-
+    private function bodyTemperatureAnalysis($body_temperature_data){
+      $body_temperature_list = explode(",", $body_temperature_data);
+      $message = '';
+      $out_range_cnt = 0;
+      foreach ($body_temperature_list as $body_temperature) {
+        // 36.6 - 37.2 以外ならカウント
+        if($body_temperature > 36.6 && 37.2 < $body_temperature){
+          $out_range_cnt += 1;
+        }
+      }
+      if(5 < out_range_cnt){
+        $message = '自律神経失調症の兆候が診られます。';
+      } else if(1 < $out_range_cnt && $out_range_cnt <= 5) {
+        $message = '免疫力が低下しています。感染症、病気にかかりやすくなっています。';
+      }
+      return $message;
     }
 
     /**
      *  血圧分析
      */
-    private function bloodPressureAnalysis(){
-
+    private function bloodPressureAnalysis($blood_pressure_data){
+      $blood_pressure_list = explode(",", $blood_pressure_data);
+      $message = "";
+      $out_range_cnt = 0;
+      foreach ($body_temperature_list as $body_pressure) {
+        // 80 - 130 以外ならカウント
+        if($body_pressure > 80 && 130 < $body_pressure){
+          $out_range_cnt += 1;
+        }
+      }
+      if(5 < out_range_cnt){
+        $message = '心筋梗塞の兆候が診られます。';
+      } else if(1 < $out_range_cnt && $out_range_cnt <= 5) {
+        $message = '高血圧の疑いがあります。';
+      }
+      return $message;
     }
 }
 
