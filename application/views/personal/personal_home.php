@@ -166,7 +166,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 margin: -30px 0 0 10px;
 			 padding:10% 20% 10% 20%;
 			 border-radius: 20px;
-			 opacity: 0.9; 
+			 opacity: 0.9;
 
 		 }
 
@@ -269,5 +269,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/personal/app_time.css" >
 		    </div>
 		</div>
+		<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/home_css_override.js"></script>
 	</body>
 </html>
