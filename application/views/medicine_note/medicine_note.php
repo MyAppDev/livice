@@ -7,13 +7,45 @@
 <style>
 body{
 	color:#DDD;
+	padding:0px;
+	margin:0px;
+	height:200px;
+	 overflow: hidden;
+
 }
+
+tbody{
+	vertical-align: top;
+	padding:0px;
+	margin:0px;
+}
+
+table{
+	padding:0px;
+	margin:0px;
+	vertical-align: top;
+	text-align: left;
+	font-size:20px;
+
+}
+
+table th{
+	margin:0 20px 0 20px;
+	padding-right:20px;
+	padding-top:5px;
+}
+
+td{
+	padding-top:5px;
+
+}
+
 </style>
 </head>
 <body>
 	<table>
 		<tr>
-			<th>病名</th>
+			<th style="margin-left:20px;">病名</th>
 			<td>高血圧</td>
 		</tr>
 		<tr>
