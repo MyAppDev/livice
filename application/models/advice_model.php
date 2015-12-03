@@ -32,7 +32,7 @@ class Advice_model extends CI_Model {
 
     /** 患者番号で抽出 */
     function find_by_patient_number($patient_number){
-        $this->db->select('*')->from('advice')->where('patient_number', $patient_number);
+        $this->db->select('*')->from('advice')->where('patient_number', $patient_number)->order_by("id", "desc");
         $query = $this->db->get();
         // $query = $this->db->get('advice');
         // $query = $this->db->where('patient_number', $patient_number);
