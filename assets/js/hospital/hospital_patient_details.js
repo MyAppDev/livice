@@ -1,6 +1,28 @@
 /**
  * 患者詳細ページ用スクリプト
  */
+// URL解析関数
+var urlAnalysis = function(){
+  // パラメータ用の配列を用意
+  var paramArray = [];
+
+  // URLを取得して「?]で分割「&」でも分割
+  var url   = location.href;
+  params    = url.split("?");
+  console.log("length" + params.length);
+  if(1 < params.length){
+    paramms   = params[1].split("&");
+    // 配列にパラメータを格納
+    for ( i = 0; i < paramms.length; i++ ) {
+        neet = paramms[i].split("=");
+        paramArray.push(neet[0]);
+        paramArray[neet[0]] = neet[1];
+    }
+  }
+  return paramArray;
+}
+
+
  // トースト通知クラス
  var Toast = (function(){
      var timer;
@@ -39,21 +61,7 @@ $(function() {
   $("#tab1").click();
 
   // URLで処理を分岐
-  // URLを取得して「?]で分割「&」でも分割
-  var url   = location.href;
-  params    = url.split("?");
-  paramms   = params[1].split("&");
-
-  // パラメータ用の配列を用意
-  var paramArray = [];
-
-  // 配列にパラメータを格納
-  for ( i = 0; i < paramms.length; i++ ) {
-      neet = paramms[i].split("=");
-      paramArray.push(neet[0]);
-      paramArray[neet[0]] = neet[1];
-  }
-
+  var paramArray = urlAnalysis();
   console.debug(paramArray);
 
   // パラメータによって処理を分岐
