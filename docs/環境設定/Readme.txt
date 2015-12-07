@@ -1,0 +1,1 @@
+access_point_setting.batは管理者として実行して下さい。
