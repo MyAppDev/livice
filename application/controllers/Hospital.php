@@ -194,7 +194,9 @@ class Hospital extends CI_Controller {
       'modified' => date("YmdHis"),
 		);
 		$this->Advice->insert_data($data);
-		redirect( 'hospital/patient_details/'.$this->input->post('id') );
+		redirect( 'hospital/patient_details/'
+				.$this->input->post('id')
+				.'?advice_add=1&date='.date("YmdHis") );
 	}
 
 	/**
