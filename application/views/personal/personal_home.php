@@ -279,10 +279,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/personal/app_time.css" >
 		    </div>
 		</div>
-<<<<<<< HEAD
+
 		<div id="footer"></div>
-=======
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/home_css_override.js"></script>
->>>>>>> 6e1b46af743e83f05870b0525c7b4ae477f0b439
+
 	</body>
 </html>

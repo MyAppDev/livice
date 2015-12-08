@@ -35,6 +35,10 @@
 	    color: #fff;
 	    background: #C3C3C3;
 	}
+
+	p{
+		font-size:20px;
+	}
 	</style>
 	
 </head>
@@ -173,7 +177,22 @@ function pagechange(){
 <div id="resultM">
 </div>
 <br>
-<input type="button" value="戻る" onClick="pagechange()">
+<input type="button" value="戻る" style="
+ background: -moz-linear-gradient(top,#BFD9E5, #3D95B7 50%,#0080B3 50%,#0099CC);
+    background: -webkit-gradient(linear, left top, left bottom, from(#BFD9E5), color-stop(0.5,#3D95B7), color-stop(0.5,#0080B3), to(#0099CC));
+    color: #FFF;
+    font-weight:bold;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border: 1px solid #0099CC;
+    -moz-box-shadow: 1px 1px 1px rgba(000,000,000,0.3),inset 0px 0px 3px rgba(255,255,255,0.5);
+    -webkit-box-shadow: 1px 1px 1px rgba(000,000,000,0.3),inset 0px 0px 3px rgba(255,255,255,0.5);
+    text-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+    width: 100px;
+    padding: 15px;
+    margin:30px;
+" onClick="pagechange()">
 </div>
 </body>
 </html>
