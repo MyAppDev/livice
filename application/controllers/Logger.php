@@ -31,7 +31,8 @@ class Logger extends CI_Controller {
 
 	/** 個人用ダッシュボード */
 	public function personal_dashboard(){
-		$this->load->view('personal/personal_dashboard');
+		// $this->load->view('personal/personal_dashboard');
+		$this->load->view('personal/personal_dashboard_clone');
 	}
 
 	/** 個人用ダッシュボード */
