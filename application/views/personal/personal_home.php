@@ -202,7 +202,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</tr>
 						<tr>
 							<td><a href="#page5"><img width="200px" src="<?= base_url(); ?>assets/img/ic_clock_fix.png"><!-- 時計  --></a><br><p>時計</p></td>
-							<td><a href="#page4"><img width="200px" src="<?= base_url(); ?>assets/img/ic_find_friends.png"><!-- お薬手帳 --></a><br><p>お薬手帳</p></td>
+							<td><a href="#page4"><img width="200px" src="<?= base_url(); ?>assets/img/ic_find_friends.png"><!-- お薬手帳 --></a><br><p>お薬手帳</p><br><br></td>
 						</tr>
 					</table><!-- home_top E -->
 					<!-- <ul>
