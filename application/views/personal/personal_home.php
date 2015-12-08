@@ -197,12 +197,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<!-- とりあえずテーブルにしています。レイアウト・アイコンは適宜変更して下さい -->
 		    	<table id="home_top"><!-- home_top S -->
 						<tr>
-							<td><a href="#page2"><img width="200px" src="<?= base_url(); ?>assets/img/ic_health.png"><!--ヘルス --></a><br><p>ヘルス</p></td>
-							<td><a href="#page3"><img width="200px" src="<?= base_url(); ?>assets/img/ic_tips.png"><!-- アドバイス --></a><br><p>アドバイス</p></td>
+							<td><a href="#page2"><img width="200px" src="<?= base_url(); ?>assets/img/ic_health_fix.png"><!--ヘルス --></a><br><p>ヘルス</p></td>
+							<td><a href="#page3"><img width="200px" src="<?= base_url(); ?>assets/img/ic_tips_fix_2.png"><!-- アドバイス --></a><br><p>アドバイス</p></td>
 						</tr>
 						<tr>
 							<td><a href="#page5"><img width="200px" src="<?= base_url(); ?>assets/img/ic_clock_fix.png"><!-- 時計  --></a><br><p>時計</p></td>
-							<td><a href="#page4"><img width="200px" src="<?= base_url(); ?>assets/img/ic_find_friends.png"><!-- お薬手帳 --></a><br><p>お薬手帳</p></td>
+							<td><a href="#page4"><img width="200px" src="<?= base_url(); ?>assets/img/ic_book_fix.png"><!-- お薬手帳 --></a><br><p>お薬手帳</p></td>
 						</tr>
 					</table><!-- home_top E -->
 					<!-- <ul>
@@ -223,7 +223,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div id="notification_area"><!-- notification_area S -->
 						<table id="notification_detail"  style="width:110%; "><!-- notification_detail S -->
 							<tr style="">
-								<th  style="width:50px;"><img width="100%" src="<?= base_url(); ?>assets/img/ic_tips.png"></th>
+								<th  style="width:50px;"><img width="100%" src="<?= base_url(); ?>assets/img/ic_tips_fix_2.png"></th>
 								<td style="font-size:25px;font-weight:bold;">アドバイス</td>
 							</tr>
 							<tr style="font-size:20px; font-weight:bold;">
