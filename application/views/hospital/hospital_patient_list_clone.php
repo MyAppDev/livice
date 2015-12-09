@@ -200,7 +200,7 @@
 				'name'  => 'search_age',
         'autocomplete'=>'on',
         'list'=>'data_age',
-        'type'=> 'number',
+        // 'type'=> 'number',
 				'value' => set_value('search_age'),
 			);
 			$param_search_submit = array(
