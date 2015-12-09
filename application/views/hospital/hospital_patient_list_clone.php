@@ -94,6 +94,13 @@
 	margin-left:10px;
 }
 
+#search input[type="text"] {
+  /*font-weight: bold;*/
+  /*color: red;*/
+  /*font-size: 13px;*/
+  font-size: 0.8em;
+}
+
 #search_patient {
 	width:120px;
 	height:25px;
@@ -156,30 +163,40 @@
 				'id' => 'search_patient',
 				'class' => '',
 				'name'  => 'search_patient',
+        'autocomplete'=>'on',
+        'list'=>'data_patient',
 				'value' => set_value('search_patient'),
 			);
 			$param_search_disease = array(
 				'id' => 'search_disease',
 				'class' => '',
 				'name'  => 'search_disease',
+        'autocomplete'=>'on',
+        'list'=>'data_disease',
 				'value' => set_value('search_disease'),
 			);
 			$param_search_medicine = array(
 				'id' => 'search_medicine',
 				'class' => '',
 				'name'  => 'search_medicine',
+        'autocomplete'=>'on',
+        'list'=>'data_medicine',
 				'value' => set_value('search_medicine'),
 			);
 			$param_search_area = array(
 				'id' => 'search_area',
 				'class' => '',
 				'name'  => 'search_area',
+        'autocomplete'=>'on',
+        'list'=>'data_area',
 				'value' => set_value('search_area'),
 			);
 			$param_search_age = array(
 				'id' => 'search_age',
 				'class' => '',
 				'name'  => 'search_age',
+        'autocomplete'=>'on',
+        'list'=>'data_age',
 				'value' => set_value('search_age'),
 			);
 			$param_search_submit = array(
@@ -189,6 +206,41 @@
         'value' => '検索',
 			);
 		?>
+    <!-- 検索フォーム用データ -->
+    <datalist id="data_patient">
+      <?php foreach ($search_keywords as $keyword) { ?>
+        <option value="<?= str_replace(',', ' ', $keyword->name); ?>">
+          <?= str_replace(',', ' ', $keyword->name_kana); ?>
+        </option>
+      <?php } ?>
+    </datalist>
+    <datalist id="data_disease">
+      <?php foreach ($search_keywords as $keyword) { ?>
+        <option value="<?= str_replace(',', ' ', $keyword->disease); ?>"></option>
+      <?php } ?>
+    </datalist>
+    <datalist id="data_medicine">
+      <?php foreach ($search_keywords as $keyword) { ?>
+        <option value="<?= str_replace(',', ' ', $keyword->medicine); ?>"></option>
+      <?php } ?>
+    </datalist>
+    <datalist id="data_area">
+      <?php foreach ($search_keywords as $keyword) { ?>
+        <option value="<?= str_replace(',', ' ', $keyword->area); ?>"></option>
+      <?php } ?>
+    </datalist>
+    <datalist id="data_age">
+      <?php
+      foreach ($search_keywords as $keyword) {
+        $age_list[] = (int) ((date('Ymd')-$keyword->age)/10000);
+      }
+      asort($age_list);
+      ?>
+      <?php foreach ($age_list as $age) { ?>
+        <option value="<?= $age ?>"></option>
+      <?php } ?>
+    </datalist>
+
 		<?= form_open('hospital/patient_list/'); ?>
 		<h3 class="h3 text-success">検索キー</h3>
 		<table class="table2">

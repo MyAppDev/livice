@@ -245,7 +245,8 @@ $("search_submit").on("click", function(){
 
 $(function () {
   /** 検索ボックスへのオートコンプリート */
-  autocomplete();
+  // autocomplete();
+
   var dc = new DummyControl();
 
   $(document).ready(function () {

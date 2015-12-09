@@ -44,6 +44,7 @@ class Hospital extends CI_Controller {
 		$data = array(
 			'page_title' => '患者リスト',
 			'meta_title'=> 'patient_list',
+			'search_keywords' => $this->Patient->get_all_data(),
 		);
 
 		if(!isset($_POST['search_submit'])){// 全件
@@ -58,7 +59,28 @@ class Hospital extends CI_Controller {
 			// $data['search_key'] = $conditions;
 		} else {// 条件検索
 			$conditions = null;
+
+			$search_patient = '';
+			$search_area = '';
 			$search_age = '';
+
+			// 名前　スペースをカンマへ変換
+			if(isset($_POST['search_patient']) && !empty($_POST['search_patient'])){
+				if (strstr($_POST['search_patient'], ' ')) {
+				  $search_patient = str_replace(' ', ',', $_POST['search_patient']);
+				} else {
+				  $search_patient = $_POST['search_patient'];
+				}
+			}
+
+			// 地域　スペースをカンマへ変換
+			if(isset($_POST['search_area']) && !empty($_POST['search_area'])){
+				if (strstr($_POST['search_area'], ' ')) {
+				  $search_area = str_replace(' ', ',', $_POST['search_area']);
+				} else {
+				  $search_area = $_POST['search_area'];
+				}
+			}
 
 			// 年齢計算は要再考のこと
 			if(isset($_POST['search_age']) && !empty($_POST['search_age'])){
@@ -67,11 +89,10 @@ class Hospital extends CI_Controller {
 			}
 
 			$conditions = array(
-				'search_patient' => $this->input->post('search_patient'),
+				'search_patient' => $search_patient,
 				'search_disease' => $this->input->post('search_disease'),
 				'search_medicine' => $this->input->post('search_medicine'),
-				'search_area' => $this->input->post('search_area'),
-				// 'search_age' => (int)(date('Ymd') - 10000 * $this->input->post('search_age')),
+				'search_area' => $search_area,
 				'search_age' => $search_age,
 			);
 
