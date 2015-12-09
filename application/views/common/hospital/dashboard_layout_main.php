@@ -160,5 +160,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    <script src="<?= base_url(); ?>assets/bower_components/morrisjs/morris.min.js"></script>
 		    <script src="<?= base_url(); ?>assets/js/morris-data.js"></script> -->
 
+				<!-- jquery-ui-1.11.4 -->
+				<link type="text/css" rel="stylesheet" href="<?= base_url(); ?>assets/bower_components/jquery-ui-1.11.4/jquery-ui.min.css" />
+				<!-- <script type="text/javascript" src="<?= base_url(); ?>assets/bower_components/jquery-ui-1.11.4/jquery-1.10.2.min.js"></script> -->
+				<script type="text/javascript" src="<?= base_url(); ?>assets/bower_components/jquery-ui-1.11.4/jquery-ui.min.js"></script>
 	</body>
 </html>

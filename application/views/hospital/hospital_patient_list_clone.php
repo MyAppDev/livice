@@ -28,11 +28,6 @@
 .table1 {
     width:100%;
     margin: 15px auto 10px;
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 2402bfec87709e7e2c4353cc266ee8d933bbdd7b
 }
 
 .table1 th{

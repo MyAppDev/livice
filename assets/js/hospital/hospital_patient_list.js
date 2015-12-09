@@ -136,7 +136,116 @@ DummyControl.prototype.initialization = function (){
     var altThis = this;
 };
 
+
+// オートコンプリート
+function autocomplete(){
+	console.log("autocomplete");
+  // 患者名
+  var data_patient = [
+    "佐藤,蓮太朗",
+		"鈴木,一郎",
+		"高橋,健太",
+		"田中,光",
+		"林,光秀",
+		"伊藤,奏",
+		"小林,美好",
+		"池田,明正",
+		"清水,竜也",
+		"西村,美咲",
+  ];
+  // 病名
+  var data_disease = [
+    "肺炎",
+    "胆石症",
+    "心筋梗塞",
+    "高血圧症",
+    "糖尿病",
+    "脳出血",
+    "くも膜下出血",
+    "パーキンソン病",
+    "高脂血症",
+    "慢性心不全",
+  ];
+  // 薬
+  var data_medicine = [
+    "アストミン散10％",
+    "コリオパン顆粒2%",
+    "ワソラン錠40mg",
+    "ペルジピンLAカプセル40mg",
+    "メキシチールカプセル50mg",
+    "セロクラール錠20mg",
+    "キサンボンS注射液40mg",
+    "カバサール錠0.25mg",
+    "エラスチーム錠1800",
+    "アカルディカプセル2.5",
+  ];
+  // 地域
+  var data_area = [
+    "大阪府,東大阪市",
+    "大阪市,堺市",
+    "大阪市,枚方市",
+    "大阪市,八尾市",
+    "大阪市,松原市",
+    "大阪市,藤井寺市",
+    "大阪市,泉佐野市",
+    "大阪市,箕面市",
+  ];
+  //　年齢
+  var data_age = [
+    "66",
+    // "67",
+    "93",
+    "84",
+    "83",
+    "71",
+    "78",
+    "70",
+    "80",
+  ];
+  $('#search_patient').autocomplete({
+      source: data_patient,
+      autoFocus: true,
+      delay: 100,
+      minLength: 1
+  });
+  $('#search_disease').autocomplete({
+      source: data_disease,
+      autoFocus: true,
+      delay: 100,
+      minLength: 1
+  });
+  $('#search_medicine').autocomplete({
+      source: data_medicine,
+      autoFocus: true,
+      delay: 100,
+      minLength: 1
+  });
+  $('#search_area').autocomplete({
+      source: data_area,
+      autoFocus: true,
+      delay: 100,
+      minLength: 1
+  });
+  $('#search_age').autocomplete({
+      source: data_age,
+      autoFocus: true,
+      delay: 100,
+      minLength: 1
+  });
+}
+
+// 検索キー押下時の処理
+$("search_submit").on("click", function(){
+  console.log("search_submit");
+  //半角スペースをカンマに変換
+
+  // return false;
+});
+
+
 $(function () {
+  /** 検索ボックスへのオートコンプリート */
+  autocomplete();
   var dc = new DummyControl();
 
   $(document).ready(function () {

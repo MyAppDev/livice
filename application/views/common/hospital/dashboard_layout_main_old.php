@@ -445,6 +445,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<!-- highcharts -->
 				<script type="text/javascript" src="<?= base_url(); ?>assets/js/highcharts.js"></script>
 				<script type="text/javascript" src="<?= base_url(); ?>assets/js/modules/exporting.js"></script>
-
 	</body>
 </html>
