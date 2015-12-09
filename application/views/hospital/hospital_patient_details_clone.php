@@ -119,6 +119,8 @@ td.t_top {
 
 #cont2 {
 	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.4);
+	overflow: auto;
+	height: 500px;
 }
 
 #cont2 th {
