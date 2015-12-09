@@ -184,6 +184,9 @@ class Hospital extends CI_Controller {
 		// 患者プロフィール
 		$data['patient_info'] = $this->Patient->get_target_data($id);
 
+		$data['page_title'] = str_replace(',', ' ', $data['patient_info'][0]->name)
+												.'('.str_replace(',', ' ', $data['patient_info'][0]->name_kana).')';
+
 		// 分析処理
 		$ha = new HospitalAnalysis();
 		$biological_information = array(
