@@ -29,6 +29,11 @@ class Personal extends CI_Controller {
 		$this->load->view('personal/personal_index');
 	}
 
+	/** 緊急状態管理 */
+	public function emergency_operation(){
+		$this->load->view('personal/personal_emergency_operation');
+	}
+
 	/**
 	 * ウェアラブルデバイス　ホーム画面
 	 */

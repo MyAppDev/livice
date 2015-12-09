@@ -101,6 +101,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<h1>Welcome to Livice!</h1>
 
 			<div id="body">
+				<a href="<?= base_url().'Personal/emergency_operation' ?>"><button class="btn btn-warning">緊急ボタン</button></a>
+				<code>livice/Persoanl/emergency_operation</code>
+				<?= br(2) ?>
 				<a href="<?= base_url().'Personal/home' ?>"><button class="btn btn-success">ウェアラブル</button></a>
 				<code>livice/Personal/home</code>
 				<?= br(2) ?>

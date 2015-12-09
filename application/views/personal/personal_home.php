@@ -19,8 +19,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/modules/exporting.js"></script>
 
 		<!-- bootstrap -->
-		<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/bootstrap.min.css" >
-		<script type="text/javascript" src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
+		<!-- <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/bootstrap.min.css" > -->
+		<!-- <script type="text/javascript" src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script> -->
+		<!-- Bootstrap Core CSS -->
+    <link href="<?= base_url(); ?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- font-awesome
+	 				オフラインでのアイコン表示-->
+		<link href="<?= base_url(); ?>assets/bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
+		<!-- <link href="<?= base_url(); ?>assets/bower_components/font-awesome/css/font-awesome.css" rel="stylesheet"> -->
 
 		<!-- personal_dashboard bxSlider -->
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/personal_dashboard_bxslider.js"></script>
@@ -115,19 +122,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			/*background-image: url(<?= base_url(); ?>assets/bower_components/pagePiling.js/examples/imgs/colors3.gif);*/
 			bottom:0;
 		}
+		/*アドバイス iframe*/
+		#frame_advice{
+			margin-left: 30%;
+		}
+
 
 		/* Section 4
 		 * --------------------------------------- */
 		#section4 p{
 			opacity: 0.6;
 		}
+		/*お薬手帳*/
+		#frame_book{
+			margin-left: 30%;
+		}
 
 		/* Section 5
 		 * --------------------------------------- */
+		#section5{
+			/*position: fixed;*/
+			/*padding-top: -40%;*/
+			margin-top: -3%;
+			background-color: #000;
+		}
+
 		#section5 p{
 			opacity: 0.6;
 			/*background-color: red;*/
+			/*padding-bottom: 100px;*/
 		}
+		#clock{
+			/*margin-top: -50px;*/
+			/*margin-bottom: 10%;*/
+		}
+
 
 		/* Overwriting fullPage.js tooltip color
 		* --------------------------------------- */
@@ -158,16 +187,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		 ------------------------------------------*/
 		 #notification_area{
 			 width: 58%;
-			 height: 50%;
+			 height: 70%;
 			 background-color: #424242;
 			 opacity: 1.0;
 			 position: absolute;
-			 z-index: 1100;
-			 margin: -30px 0 0 10px;
-			 padding:10% 20% 10% 20%;
+			 z-index: 1300;
+			 /*margin: -30px 0 0 10px;*/
+			 margin: -30px 0 0 25%;
+			 padding:10% 10% 10% 10%;
 			 border-radius: 20px;
-			 opacity: 0.9;
-
+			 opacity: 0.98;
 		 }
 		 #section1 p
 		 {
@@ -179,6 +208,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		 }
 
 		 tbody{
+		 }
+
+		 /** ホームボタン */
+		 #home_2{
+			 z-index: 9999999999;
+			 position: fixed;
+			 /*margin:0px 0px 0px 40px;*/
+			 margin-left: 40%;
+			 width: 300px;
+		 }
+		 #home_3{
+			 z-index: 9999999999;
+			 position: fixed;
+			 margin:45% 0px 0px 40%;
+			 /*margin-left: 40%;*/
+			 width: 300px;
+		 }
+		 #home_4{
+			 z-index: 9999999999;
+			 position: fixed;
+			 margin:17% 0 0 40%;
+			 /*margin-left: 40%;*/
+			 width: 300px;
+		 }
+		 #home_5{
+			 z-index: 9999999999;
+			 position: fixed;
+			 margin:10px 0 0 40%;
+			 /*margin-left: 40%;*/
+			 width: 300px;
 		 }
 
 	</style>
@@ -194,6 +253,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</ul> -->
 		<div id="pagepiling">
 		    <div class="section" id="section1">
+					<!-- <a href="#page1"><button class="btn-home btn btn-info"><span class="glyphicon glyphicon-home"></span> ホームへ</button></a> -->
 					<!-- とりあえずテーブルにしています。レイアウト・アイコンは適宜変更して下さい -->
 		    	<table id="home_top"><!-- home_top S -->
 						<tr>
@@ -216,14 +276,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<!-- 緊急時点滅エリア -->
 					<div id="emergency"></div>
 					<!-- チャート描画エリア -->
-					<div id="container" style="min-width: 100%; height: 100%; margin: 0 auto"></div>
+					<div id="container" style="min-width: 100%; height: 90%; margin: 0 auto"></div>
+					<div><a href="#page1"><button id="home_2" class="btn-home btn btn-info"><span class="glyphicon glyphicon-home"></span> ホームへ</button></a></div>
 		    </div>
 		    <div class="section" id="section3">
 					<!-- アドバイス通知エリア -->
 					<div id="notification_area"><!-- notification_area S -->
 						<table id="notification_detail"  style="width:110%; "><!-- notification_detail S -->
 							<tr style="">
-								<th  style="width:50px;"><img width="100%" src="<?= base_url(); ?>assets/img/ic_tips_fix_2.png"></th>
+								<th style="width:50px;"><img width="100%" src="<?= base_url(); ?>assets/img/ic_tips_fix_2.png"></th>
 								<td style="font-size:25px;font-weight:bold;">アドバイス</td>
 							</tr>
 							<tr style="font-size:20px; font-weight:bold;">
@@ -235,6 +296,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</tr>
 						</table><!-- notification_detail E -->
 					</div><!-- notification_area E -->
+					<a href="#page1"><button id="home_3" class="btn-home btn btn-info"><span class="glyphicon glyphicon-home"></span> ホームへ</button></a>
 
 		    	<!-- <div class="intro">
 		    		<h1>アドバイス</h1>
@@ -242,8 +304,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<!-- iframeにアドバイスページを挿入予定 -->
 					<iframe src="<?= base_url() ?>health_check/index"
 									frameborder="0"　scrolling="no"
-									seamless="seamless"　
-									width="80%" height="80%" >ここにアドバイスページを挿入</iframe>
+									seamless="seamless"
+									width="80%" height="80%"
+									id="frame_advice" >ここにアドバイスページを挿入</iframe>
 		    </div>
 		    <div class="section" id="section4">
 					<!-- お薬手帳ページを挿入予定 -->
@@ -254,7 +317,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<iframe src="<?= base_url() ?>medicine_note/index"
 											frameborder="0"　scrolling="no"
 											seamless="seamless"　
-											width="90%" height="90%" >ここにお薬手帳を挿入</iframe>
+											width="90%" height="90%"
+											id="frame_book">ここにお薬手帳を挿入</iframe>
 
 							<!-- <table>
 								<?php foreach($patient_info as $info){ ?>
@@ -266,6 +330,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</table> -->
 						</div><!-- patient_info E -->
 		    	</div>
+					<a href="#page1"><button id="home_4" class="btn-home btn btn-info"><span class="glyphicon glyphicon-home"></span> ホームへ</button></a>
 		    </div>
 				<div class="section" id="section5">
 					<!-- 時計アプリ　背景色は要変更 -->
@@ -275,12 +340,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				    <p class="minute"><b></b></p>
 				    <p class="hour"><b></b></p>
 					</div>
+					<div><a href="#page1"><button id="home_5" class="btn-home btn btn-info"><span class="glyphicon glyphicon-home"></span> ホームへ</button></a></div>
 					<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/app_time.js"></script>
 					<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/personal/app_time.css" >
 		    </div>
 		</div>
 
 		<div id="footer"></div>
+		<script src="<?= base_url(); ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/home_css_override.js"></script>
 
 	</body>

@@ -2,7 +2,8 @@ html {
     height: 100%;
 }
 body {
-    background: linear-gradient(#3B70AF, #245D9E) #3B70AF;
+    /*background: linear-gradient(#3B70AF, #245D9E) #3B70AF;*/
+    background-color: #000;
     margin: 0px;
     text-align: center;
 }

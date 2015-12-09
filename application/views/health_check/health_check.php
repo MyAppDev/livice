@@ -40,7 +40,7 @@
 		font-size:20px;
 	}
 	</style>
-	
+
 </head>
 <body>
 <script type="text/javascript">
@@ -62,7 +62,7 @@ function pagechange(){
 		document.getElementById("question2").style.display = "none";
 		document.getElementById("question3").style.display = "block";
 		flg=3;
-		
+
 	}else if(flg==3){
 		document.getElementById("question3").style.display = "none";
 		document.getElementById("question4").style.display = "block";
@@ -177,7 +177,7 @@ function pagechange(){
 <div id="resultM">
 </div>
 <br>
-<input type="button" value="戻る" style="
+<input type="button" value="アドバイストップへ戻る" style="
  background: -moz-linear-gradient(top,#BFD9E5, #3D95B7 50%,#0080B3 50%,#0099CC);
     background: -webkit-gradient(linear, left top, left bottom, from(#BFD9E5), color-stop(0.5,#3D95B7), color-stop(0.5,#0080B3), to(#0099CC));
     color: #FFF;
@@ -189,7 +189,7 @@ function pagechange(){
     -moz-box-shadow: 1px 1px 1px rgba(000,000,000,0.3),inset 0px 0px 3px rgba(255,255,255,0.5);
     -webkit-box-shadow: 1px 1px 1px rgba(000,000,000,0.3),inset 0px 0px 3px rgba(255,255,255,0.5);
     text-shadow: 0px 0px 3px rgba(0,0,0,0.5);
-    width: 100px;
+    width: 200px;
     padding: 15px;
     margin:30px;
 " onClick="pagechange()">
