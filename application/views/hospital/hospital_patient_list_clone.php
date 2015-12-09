@@ -85,7 +85,7 @@
 
 .table2 tr{
 	float:left;
-	padding-left: 10px;
+	padding-left: 5px;
 	font-size: 18px;
 	margin-bottom: 20px;
 }
@@ -100,11 +100,14 @@
   /*font-size: 13px;*/
   font-size: 0.8em;
 }
+#search input[type="number"] {
+  font-size: 0.8em;
+}
 
 #search_patient {
 	width:120px;
 	height:25px;
-	margin-left:10px;
+	margin-left:5px;
 }
 
 #search_disease {
@@ -126,7 +129,7 @@
 }
 
 #search_age {
-	width:45px;
+	width:60px;
 	height:25px;
 	margin-left:10px;
 }
@@ -197,6 +200,7 @@
 				'name'  => 'search_age',
         'autocomplete'=>'on',
         'list'=>'data_age',
+        'type'=> 'number',
 				'value' => set_value('search_age'),
 			);
 			$param_search_submit = array(
