@@ -129,7 +129,8 @@ DummyControl.prototype.emergencyAlert = function (num){
       );
     } else {
       // 対象レコードからクラスを剥奪
-      $("#patient_list > tbody > tr:first").removeClass("emergency");
+      // $("#patient_list > tbody > tr:first").removeClass("emergency");
+      $("#patient_list > tbody > #123456789012").removeClass("emergency");
     }
 };
 
