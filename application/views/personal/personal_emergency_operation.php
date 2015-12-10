@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
 
 		<!-- personal_dashboard -->
-		<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/personal_dashboard.js"></script>
+		<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/personal_emergency_operation.js"></script>
 
 		<!-- personal_dashboard bxSlider -->
 		<script type="text/javascript" src="<?= base_url(); ?>assets/js/personal/personal_dashboard_bxslider.js"></script>
@@ -105,7 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			/* 緊急点滅 */
 			#emergency{
 				width: 100%;
-				height: 400px;
+				height: 800px;
 				background-color: red;
 				opacity: 0.3;
 				position: absolute;
@@ -113,18 +113,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			#emergency_button{
 				/* ボタンの形要修正 */
-				width: 320px;
-				height: 260px;
+				width: 80%;
+				height: 360px;
 				/*margin: 0 auto;*/
 				/*margin-left: 400px;*/
-				margin-left: 40%;
-				margin-top: 40px;
+				margin-left: 10%;
+				margin-top: 10%;
 				margin-bottom: 40px;
 				font-size: 10em;
-				border-radius: 220px;
+				border-radius: 20px;
 			}
-
-
 
 			/* bxSlider */
 			.frameLine {
@@ -161,15 +159,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</style>
 	</head>
 	<body>
-		<h1 id="title" class="h1 text-warning">緊急ボタン</h1>
+		<!-- <h1 id="title" class="h1 text-warning">緊急ボタン</h1> -->
 		<div id="wrapper"><!-- wrapper S -->
 			<!-- 緊急時点滅エリア -->
-			<!-- <div id="emergency"></div> -->
+			<div id="emergency"></div>
 			<!-- チャート描画エリア -->
-			<!-- <div id="container" class="emergency" style="min-width: 310px; height: 400px; margin: 0 auto"></div> -->
+			<div id="container" class="emergency" style="min-width: 310px; height: 800px; margin: 0 auto"></div>
+
 			<button id="emergency_button" type="button" class="btn btn-default btn-lg">緊急</button>
+			<!-- 背後のグラフを隠す -->
+			<div id="hide_cover"></div>
+
 		</div><!-- wrapper E -->
-
-
 	</body>
 </html>

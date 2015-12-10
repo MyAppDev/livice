@@ -200,7 +200,7 @@
 				'name'  => 'search_age',
         'autocomplete'=>'on',
         'list'=>'data_age',
-        // 'type'=> 'number',
+        'type'=> 'number',
 				'value' => set_value('search_age'),
 			);
 			$param_search_submit = array(
@@ -279,14 +279,14 @@
 	<div id="list_area"><!-- list_area S -->
 		<table id="patient_list" class="table1">
 			<thead>
-                <th style="width:90px;">患者画像</th>
-                <th style="width:110px;">患者名</th>
-                <th style="width:130px;">患者名(カナ)</th>
+                <th style="width:80px;">患者画像</th>
+                <th style="width:130px;">患者名</th>
+                <th style="width:160px;">患者名(カナ)</th>
 				<th style="width:60px;">年齢</th>
 				<th style="width:120px;">地域</th>
-				<th style="width:200px;">病名</th>
-				<th style="width:200px;">処方薬</th>
-				<th style="width:400px;">注意事項</th>
+				<th style="width:140px;">病名</th>
+				<th style="width:170px;">処方薬</th>
+				<th style="width:250px;">注意事項</th>
 				<th>詳細</th>
 			</thead>
 			<tbody>
