@@ -97,6 +97,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 
 
+			#title{
+				margin: 0 auto;
+				text-align: center;
+			}
+
 			/* 緊急点滅 */
 			#emergency{
 				width: 100%;
@@ -111,9 +116,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				width: 320px;
 				height: 260px;
 				/*margin: 0 auto;*/
-				margin-left: 400px;
+				/*margin-left: 400px;*/
+				margin-left: 40%;
 				margin-top: 40px;
 				margin-bottom: 40px;
+				font-size: 10em;
+				border-radius: 220px;
 			}
 
 
@@ -153,7 +161,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</style>
 	</head>
 	<body>
-		<h1 class="h1 text-warning">緊急ボタン</h1>
+		<h1 id="title" class="h1 text-warning">緊急ボタン</h1>
 		<div id="wrapper"><!-- wrapper S -->
 			<!-- 緊急時点滅エリア -->
 			<!-- <div id="emergency"></div> -->

@@ -75,6 +75,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		/* Section 2
 		 * --------------------------------------- */
+		 #section2{
+			 /*background-color: #000;*/
+		 }
 		#section2 h1,
 		#section2 p{
 			z-index: 3;
@@ -135,7 +138,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		/*お薬手帳*/
 		#frame_book{
-			margin-left: 30%;
+			margin-left:5%;
 		}
 
 		/* Section 5
@@ -220,16 +223,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		 }
 		 #home_3{
 			 z-index: 9999999999;
+			 /*position: relative;*/
 			 position: fixed;
-			 margin:45% 0px 0px 40%;
+			 margin:43% 0px 0px 40%;
 			 /*margin-left: 40%;*/
 			 width: 300px;
 		 }
 		 #home_4{
-			 z-index: 9999999999;
-			 position: fixed;
-			 margin:17% 0 0 40%;
-			 /*margin-left: 40%;*/
+			 /*z-index: 9999999999;*/
+			 /*position: fixed;*/
+			 /*margin:20% 0 0 40%;*/
+			 margin-top: -8%;
+			 margin-left: 40%;
 			 width: 300px;
 		 }
 		 #home_5{
@@ -317,7 +322,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<iframe src="<?= base_url() ?>medicine_note/index"
 											frameborder="0"　scrolling="no"
 											seamless="seamless"　
-											width="90%" height="90%"
+											width="1000px" height="690px"
 											id="frame_book">ここにお薬手帳を挿入</iframe>
 
 							<!-- <table>

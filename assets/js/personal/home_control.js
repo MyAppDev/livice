@@ -94,7 +94,7 @@ $(document).ready(function() {
     direction: 'horizontal',
 		menu: '#menu',
 		anchors: ['page1', 'page2', 'page3', 'page4', 'page5'],
-    sectionsColor: ['#000', '#111', '#000', '#111', '#000'],// 背景色は要編集
+    sectionsColor: ['#000', '#000', '#000', '#111', '#000'],// 背景色は要編集
     navigation: {
     	'position': 'right',
    		'tooltips': ['Page 1', 'Page 2', 'Page 3', 'Page 4', 'Page5']
