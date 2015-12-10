@@ -114,7 +114,9 @@ DummyControl.prototype.emergencyAlert = function (num){
     var thresholds = 90; //閾値
     if(thresholds < num){
       // 対象レコードへクラスを付与
-      $("#patient_list > tbody > tr:first").addClass("emergency");
+      // 患者番号は決め打ち
+      // $("#patient_list > tbody > tr:first").addClass("emergency");
+      $("#patient_list > tbody > #123456789012").addClass("emergency");
 
       $(".emergency > td").animate(
         {

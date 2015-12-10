@@ -300,7 +300,7 @@
 					);
 				?>
 				<?= form_open('hospital/patient_details/'.$patient->id); ?>
-				<tr>
+				<tr id="<?= $patient->patient_number; ?>">
 					                    <td><img style="margin-left:12px;" width="50px" src="<?= base_url(); ?>assets/img/<?= $patient->image; ?>"></td>
 
 					<td><var class="notflash"><?= str_replace(',', ' ', $patient->name); ?></var></td>
