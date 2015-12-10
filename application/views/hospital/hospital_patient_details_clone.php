@@ -322,7 +322,7 @@ td.t_top {
 				 		border-radius:5px;
 				 		padding:10px;
 				 		width:98%;
-				 		height:50px;
+				 		height:80px;
 				 		margin:10px;
 				 "><!-- container_message S -->
 				<p><?= $analysis_message['heartbeat'];// 心拍に関するメッセージ ?>

@@ -59,7 +59,7 @@ class HospitalAnalysis {
           $out_range_cnt += 1;
         }
       }
-      if(5 < out_range_cnt){
+      if(5 < $out_range_cnt){
         $message = '自律神経失調症の兆候が診られます。';
       } else if(1 < $out_range_cnt && $out_range_cnt <= 5) {
         $message = '免疫力が低下しています。感染症、病気にかかりやすくなっています。';
@@ -74,13 +74,13 @@ class HospitalAnalysis {
       $blood_pressure_list = explode(",", $blood_pressure_data);
       $message = "";
       $out_range_cnt = 0;
-      foreach ($body_temperature_list as $body_pressure) {
+      foreach ($blood_pressure_list as $body_pressure) {
         // 80 - 130 以外ならカウント
         if($body_pressure > 80 && 130 < $body_pressure){
           $out_range_cnt += 1;
         }
       }
-      if(5 < out_range_cnt){
+      if(5 < $out_range_cnt){
         $message = '心筋梗塞の兆候が診られます。';
       } else if(1 < $out_range_cnt && $out_range_cnt <= 5) {
         $message = '高血圧の疑いがあります。';
