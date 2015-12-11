@@ -277,6 +277,10 @@
 
 	</div><!-- search_area E -->
 	<div id="list_area"><!-- list_area S -->
+    <?php
+    if(empty($patient_list)){
+      echo "検索条件に一致する患者はいませんでした。";
+    } else { ?>
 		<table id="patient_list" class="table1">
 			<thead>
                 <th style="width:80px;">患者画像</th>
@@ -316,5 +320,6 @@
 			<?php } ?>
 			</tbody>
 		</table>
+    <?php } ?>
 	</div><!-- list_area E -->
 </div><!-- wrapper E -->
