@@ -60,11 +60,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		#section1 img{
 			margin: 20px 0;
-			opacity: 0.8;
+			opacity: 1.5;
 		}
 		#section1 img:hover{
 			/*margin: 20px 0;*/
-			opacity: 1.5;
+			opacity: 0.8;
 		}
 		/*アイコンレイアウト　用調整*/
 		#home_top{
