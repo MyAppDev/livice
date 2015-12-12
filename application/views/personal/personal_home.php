@@ -60,7 +60,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		#section1 img{
 			margin: 20px 0;
-			opacity: 0.7;
+			opacity: 0.8;
+		}
+		#section1 img:hover{
+			/*margin: 20px 0;*/
+			opacity: 1.5;
 		}
 		/*アイコンレイアウト　用調整*/
 		#home_top{
@@ -189,14 +193,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 レイアウト・アイコンは適宜変更をお願いします。
 		 ------------------------------------------*/
 		 #notification_area{
-			 width: 58%;
-			 height: 70%;
+			 /*width: 58%;*/
+			 /*height: 70%;*/
+			 width: 90%;
+			 height: 85%;
 			 background-color: #424242;
 			 opacity: 1.0;
 			 position: absolute;
 			 z-index: 1300;
 			 /*margin: -30px 0 0 10px;*/
-			 margin: -30px 0 0 25%;
+			 margin: -30px 0 0 5%;
 			 padding:10% 10% 10% 10%;
 			 border-radius: 20px;
 			 opacity: 0.98;
@@ -215,32 +221,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		 /** ホームボタン */
 		 #home_2{
-			 z-index: 9999999999;
+			 z-index: 999999;
 			 position: fixed;
 			 /*margin:0px 0px 0px 40px;*/
 			 margin-left: 40%;
 			 width: 300px;
 		 }
 		 #home_3{
-			 z-index: 9999999999;
+			 z-index: 9999999;
 			 /*position: relative;*/
 			 position: fixed;
-			 margin:43% 0px 0px 40%;
+			 margin:49% 0px 0px 40%;
 			 /*margin-left: 40%;*/
 			 width: 300px;
 		 }
 		 #home_4{
-			 /*z-index: 9999999999;*/
+			 z-index: 999999999;
 			 /*position: fixed;*/
 			 /*margin:20% 0 0 40%;*/
-			 margin-top: -8%;
+			 /*margin-top: -8%;*/
+			 margin-top: 2.5%;
 			 margin-left: 40%;
 			 width: 300px;
 		 }
 		 #home_5{
-			 z-index: 9999999999;
+			 z-index: 8999999999;
 			 position: fixed;
-			 margin:10px 0 0 40%;
+			 /*margin:10px 0 0 40%;*/
+			 margin:4% 0 0 40%;
 			 /*margin-left: 40%;*/
 			 width: 300px;
 		 }
@@ -290,14 +298,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<table id="notification_detail"  style="width:110%; "><!-- notification_detail S -->
 							<tr style="">
 								<th style="width:50px;"><img width="100%" src="<?= base_url(); ?>assets/img/ic_tips_fix_2.png"></th>
-								<td style="font-size:25px;font-weight:bold;">アドバイス</td>
+								<td style="font-size:40px;font-weight:bold;">アドバイス</td>
 							</tr>
-							<tr style="font-size:20px; font-weight:bold;">
+							<tr style="font-size:25px; font-weight:bold;">
 								<td colspan="2" id="advice_message" style="padding:10px 0 50px 50px;">あなたへのアドバイス</td>
 							</tr>
 							<tr>
 								<td colspan="2"><button id="ok" class="btn btn-info"
-								style="width:100%; height:100px; font-size:20px; font-weight:bold;">了解</button></td>
+								style="width:100%; height:100px; font-size:25px; font-weight:bold; margin-top:200px;">了解</button></td>
 							</tr>
 						</table><!-- notification_detail E -->
 					</div><!-- notification_area E -->
