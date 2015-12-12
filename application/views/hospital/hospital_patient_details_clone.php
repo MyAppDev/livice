@@ -240,12 +240,15 @@ td.t_top {
 	background: rgba(0,0,0,0.6);
 	color: #fff;
 	border-radius: 4px;
-	padding: 5px 9px;
+	padding: 15px 19px;
 	border: none;
 	z-index: 2200;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 	font-size:12px;
-	margin-bottom: 43%;/* 全画面用に要調整のこと */
+	margin-left: 340px;
+	/*margin-bottom: 43%;*//* 全画面用に要調整のこと */
+	margin-bottom: 42%;/* For Macbook Air 13inch */
+
 	/*margin-bottom: 500px;*/
 }
 
