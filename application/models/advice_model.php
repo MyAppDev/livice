@@ -41,10 +41,10 @@ class Advice_model extends CI_Model {
 
     /** 最新のデータを取得する */
     function get_latest_data($patient_number){
-        $sql = "SELECT * FROM 'advice' "
+        $sql = "SELECT * FROM advice "
               ."WHERE 1 "
               ."AND patient_number = ? "
-              ."AND id = (SELECT MAX(id) FROM 'advice' WHERE patient_number = ?) ";
+              ."AND id = (SELECT MAX(id) FROM advice WHERE patient_number = ?) ";
         $bind_var[] = "{$patient_number}";
         $bind_var[] = "{$patient_number}";
         // $query = $this->db->query("SELECT * FROM 'advice' where id = (SELECT MAX(id) FROM 'advice')");

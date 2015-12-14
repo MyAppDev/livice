@@ -73,16 +73,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+/* MySQL用設定 */
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '',
-	'username' => '',
+	'hostname' => 'localhost',
+	'username' => 'root',
 	'password' => '',
-	'database' => APPPATH.'sqlite3/livice.db',
-	'dbdriver' => 'sqlite3',
+	'database' => 'livice',
+	'dbdriver' => 'mysql',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	'db_debug' => TRUE,
+	'db_debug' => FALSE, //リリース時　必ずFALSEにすること
 	'cache_on' => TRUE,
 	'cachedir' => '',
 	'char_set' => 'utf8',
@@ -96,6 +97,31 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 
+/* SQLite用設定 */
+// $db['default'] = array(
+// 	'dsn'	=> '',
+// 	'hostname' => '',
+// 	'username' => '',
+// 	'password' => '',
+// 	'database' => APPPATH.'sqlite3/livice.db',
+// 	'dbdriver' => 'sqlite3',
+// 	'dbprefix' => '',
+// 	'pconnect' => FALSE,
+// 	'db_debug' => FALSE, //リリース時　必ずFALSEにすること
+// 	'cache_on' => TRUE,
+// 	'cachedir' => '',
+// 	'char_set' => 'utf8',
+// 	'dbcollat' => 'utf8_general_ci',
+// 	'swap_pre' => '',
+// 	'autoinit' => TRUE,
+// 	'encrypt'  => FALSE,
+// 	'compress' => FALSE,
+// 	'stricton' => FALSE,
+// 	'failover' => array(),
+// 	'save_queries' => TRUE
+// );
+
+/* SQLite in memory用設定 */
 // $db['default'] = array(
 // 	'dsn'	=> '',
 // 	'hostname' => 'sqlite::memory:',
@@ -105,8 +131,8 @@ $db['default'] = array(
 // 	'dbdriver' => 'pdo',
 // 	'dbprefix' => '',
 // 	'pconnect' => TRUE,
-// 	'db_debug' => FALSE,
-// 	'cache_on' => FALSE,
+// 	'db_debug' => TRUE,
+// 	'cache_on' => TRUE,
 // 	'cachedir' => '',
 // 	'char_set' => 'utf8',
 // 	'dbcollat' => 'utf8_general_ci',

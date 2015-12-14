@@ -22,6 +22,12 @@ class Patient_model extends CI_Model {
     {
         // Model クラスのコンストラクタを呼び出す
         parent::__construct();
+
+        /* SQLiteへの高速化設定 */
+        // $sql = "PRAGMA synchronous = OFF ";
+        // $this->db->query($sql);
+        // $sql = "PRAGMA journal_mode = WAL";
+        // $this->db->query($sql);
     }
 
     /** 全件のデータを取得する */

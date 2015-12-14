@@ -13,18 +13,26 @@ class Dummy_log_model extends CI_Model {
     {
         // Model クラスのコンストラクタを呼び出す
         parent::__construct();
+
+        /* SQLiteへの高速化設定 */
+        // $sql = "PRAGMA synchronous = OFF ";
+        // $this->db->query($sql);
+        // $sql = "PRAGMA journal_mode = WAL";
+        // $this->db->query($sql);
     }
 
     /** 最新のデータを取得する */
     function get_latest_data(){
-        //$this->db->select_max('id');
+        //SQLite と　MySQLで同一のSQLが使用可能か検証のこと
 
-        // SELECT * FROM 'dummy_log' where id = (select MAX(id) from 'dummy_log');
-        $query = $this->db->query("SELECT * FROM 'dummy_log' where id = (SELECT MAX(id) FROM 'dummy_log')");
-        //$this->db->select()->from('dummy_log')->where('id', 'select MAX(id) from dummy_log');
-        //$query = $this->db->query('SELECT * FROM dummy_log;');
-        //$query = $this->db->get();
-        //echo $this->db->last_query();
+        // SQLite用
+        // $query = $this->db->query("SELECT * FROM dummy_log where id = (SELECT MAX(id) FROM dummy_log)");
+
+        // MySQL用
+        $query = $this->db->query("SELECT * FROM dummy_log ORDER BY id DESC limit 1");
+
+        // echo $this->db->last_query();
+        // var_dump($query->result());
         return $query->result();
     }
 
@@ -48,7 +56,9 @@ class Dummy_log_model extends CI_Model {
       $this->speed = $data['speed'];
       $this->created = mdate($datestring, $time);
 
+      // $this->db->trans_start();
       $this->db->insert('dummy_log', $this);
+      // $this->db->trans_complete();
     }
 
     /** 初期化用データを取得(最新19件) */

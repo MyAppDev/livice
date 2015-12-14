@@ -153,6 +153,9 @@ $(function () {
                           // Ajaxでのデータを取得
                           var json = dc.asyncCurrDummyLog();
                           y = dc.getHeartbeat();
+                          y = Number(y);// 明示的にキャストする必要あり
+                          // console.log("hospital_dashboard.js >>> " + y);
+
                           // 点滅処理
                           dc.emergencyAlert(y);
 
